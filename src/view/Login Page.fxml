@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
@@ -10,17 +11,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0"
-	prefWidth="400.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<Rectangle arcHeight="5.0" arcWidth="5.0" height="200.0"
-			layoutX="100.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE"
-			width="200.0">
+		<Rectangle arcHeight="5.0" arcWidth="5.0" height="200.0" layoutX="100.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="200.0">
 			<fill>
-				<LinearGradient endX="1.0" endY="0.9047619047619048"
-					startX="0.7333333333333333" startY="0.30952380952380953">
+				<LinearGradient endX="1.0" endY="0.9047619047619048" startX="0.7333333333333333" startY="0.30952380952380953">
 					<stops>
 						<Stop color="#1020cc83" />
 						<Stop color="#1020cc83" offset="0.007662835249042145" />
@@ -33,17 +28,13 @@
 				</LinearGradient>
 			</fill>
 		</Rectangle>
-		<TextField layoutX="126.0" layoutY="68.0"
-			promptText="Username" />
-		<TextField layoutX="126.0" layoutY="125.0"
-			promptText="Password" />
-		<Button alignment="CENTER" contentDisplay="CENTER"
-			defaultButton="true" layoutX="150.0" layoutY="180.0"
-			mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0"
-			text="LOGIN" textAlignment="CENTER" textFill="WHITE">
+		<TextField layoutX="126.0" layoutY="76.0" promptText="Username" />
+      <PasswordField layoutX="126.0" layoutY="125.0" promptText="Password" />
+		<Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="150.0" layoutY="192.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
 			<font>
 				<Font name="Arial" size="14.0" />
 			</font>
 		</Button>
+      <Hyperlink layoutX="147.0" layoutY="227.0" text="Create an Account" textFill="WHITE" />
 	</children>
 </Pane>
