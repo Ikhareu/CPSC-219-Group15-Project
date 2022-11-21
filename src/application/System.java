@@ -17,7 +17,6 @@ public class System extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			Scene scene = new Scene(root,400,350);
-			scene.setFill(null);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("House Renting System");
 			
