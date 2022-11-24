@@ -1,17 +1,22 @@
 package objects;
 
-
-
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
-import oosequence.Flight;
 
 public class Users_List {
-	
-	
 	private ArrayList <Users> userArray;
+	
+	public Users_List(Users U1) {
+		userArray.add(U1);
+	}
+	
+	public void deleteUser(Users U1) {
+		userArray.remove(U1);
+	}
+	
+	public ArrayList<Users> getArray() {
+		return userArray;
+	}
+
 	
 	
 	
