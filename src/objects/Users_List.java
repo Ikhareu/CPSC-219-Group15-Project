@@ -13,6 +13,10 @@ public class Users_List {
 	
 	private ArrayList <Users> userArray;
 	
+	public void addUser(Users newuser) {
+		userArray.add(newuser);
+	}
+	
 	
 	
 
