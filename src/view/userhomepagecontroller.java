@@ -16,10 +16,24 @@ import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javafx.scene.layout.Pane;
 
 
 
 public class userhomepagecontroller {
+
+
+	public Stage homePageStage;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 
@@ -34,9 +48,26 @@ public class userhomepagecontroller {
 
     @FXML
     private Label userEmail;
+    
+    @FXML
+    void editEmail(ActionEvent event) {
+ 
+    }
 
     @FXML
-    void coursepageaction(ActionEvent event) {
+    void editPhone(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editPassword(ActionEvent event) {
+    	
+    }
+    
+    
+    @FXML
+    void coursepageaction(ActionEvent event) { 
+    	
 
     }
 

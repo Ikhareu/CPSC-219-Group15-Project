@@ -5,8 +5,10 @@ import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import view.LoginController;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 
@@ -15,12 +17,25 @@ public class System extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
+			
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root,600,600);
+			Scene scene = new Scene(root,600,700);
+			
+			LoginController controller = (LoginController)loader.getController();
+			controller.applicationStage = primaryStage;
+			
+			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");
-			
 			primaryStage.show();
+			
+
+			
+			
+			
+			
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
