@@ -10,14 +10,16 @@ public class Users {
 	private ArrayList <String> coursesToLearn = new ArrayList<String>();
 	private ArrayList <String> coursesToTeach = new ArrayList<String>();
 	
+	private String phone = null;
+	private String email = null;
+	private String name = null;
 
 	public Users() {
+		//phone = fxid:inputPhone;
+		//email = fxid:inputEmail;
+		//name  = fxid:inputName;
 		
-		
-		
-		
-		// TODO Auto-generated constructor stub
-	}
+		}
 
 
 	public ArrayList <String> getcoursesToLearn(){
