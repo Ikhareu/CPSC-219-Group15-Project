@@ -1,6 +1,15 @@
 package objects;
 
+import java.util.ArrayList;
+
+import javafx.scene.control.TextField;
+
 public class Users {
+	
+
+	private ArrayList <String> coursesToLearn = new ArrayList<String>();
+	private ArrayList <String> coursesToTeach = new ArrayList<String>();
+	
 	private String phone = null;
 	private String email = null;
 	private String name = null;
@@ -12,7 +21,22 @@ public class Users {
 		
 		}
 
- 	public static void addCourse(Course aCourse) {
- 		
- 	}
+
+	public ArrayList <String> getcoursesToLearn(){
+		return(coursesToLearn);
+	}
+
+	public ArrayList <String> getcoursesToTeach(){
+		return(coursesToTeach);
+	}
+
+	
+	public void addCourses(ArrayList <String> CoursesToLearn, ArrayList <String> CoursesToTeach) {
+		coursesToLearn=CoursesToLearn;
+		coursesToTeach=CoursesToTeach;
+		
+	}
+	
+	
+	
 }
