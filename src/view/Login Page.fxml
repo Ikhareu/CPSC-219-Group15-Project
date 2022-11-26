@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
+<Pane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
 	<children>
-		<Rectangle arcHeight="5.0" arcWidth="5.0" height="1200.0" layoutX="-4.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="900.0">
+		<Rectangle arcHeight="5.0" arcWidth="5.0" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1280.0">
 			<fill>
 				<LinearGradient endX="1.0" endY="0.9047619047619048" startX="0.7333333333333333" startY="0.30952380952380953">
 					<stops>
@@ -29,14 +29,16 @@
 				</LinearGradient>
 			</fill>
 		</Rectangle>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
-      <Hyperlink layoutX="157.0" layoutY="237.0" onAction="#signUpAction" text="Create an Account" textFill="WHITE" />
-      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="160.0" layoutY="202.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="100.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
-      <PasswordField fx:id="loginpassword" layoutX="136.0" layoutY="135.0" promptText="Password" />
-      <TextField fx:id="loginusernmae" layoutX="136.0" layoutY="86.0" promptText="Username" />
+      <VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="15.0">
+         <children>
+            <TextField fx:id="loginUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="150.0" promptText="Username" />
+            <PasswordField fx:id="loginPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Password" />
+            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="100.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Hyperlink fx:id="createAccountHyperlink" onAction="#signUpAction" text="Create an Account" textFill="WHITE" />
+         </children></VBox>
 	</children>
 </Pane>
