@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserHomepageController">
+   <children>
+      <TextArea blendMode="HARD_LIGHT" editable="false" layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="110.0" prefWidth="260.0" text="Find your&#10;Perfect Tutor">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </TextArea>
+      <ChoiceBox fx:id="courseChoiceBox" layoutX="225.0" layoutY="188.0" prefWidth="150.0" />
+      <Label layoutX="191.0" layoutY="151.0" text="Please select courses you need help with." />
+      <Button fx:id="checkButton" layoutX="251.0" layoutY="250.0" mnemonicParsing="false" onAction="#checkAction" text="Check for Tutor" />
+      <MenuButton fx:id="nameLabel" layoutX="487.0" layoutY="14.0" mnemonicParsing="false">
+        <items>
+          <MenuItem fx:id="editProfileButton" onAction="#editProfileAction" text="Edit Profile" />
+          <MenuItem fx:id="logoutButton" onAction="#logoutAction" text="Logout" />
+        </items>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </MenuButton>
+   </children>
+</Pane>

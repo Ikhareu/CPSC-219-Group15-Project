@@ -30,7 +30,7 @@ public class LoginController2 {
     private Hyperlink createAccountHyperlink;
     
     public Users_List userList = new Users_List();
-    Users ohiomah = new Users("Ohiomah", 5875003780, "Ohiomah2017");
+    Users ohiomah = new Users("Ohiomah", 5875003780l, "Ohiomah2017");
 
 	private Stage primaryStage;
 	private Scene myScene;
