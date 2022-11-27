@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import objects.Users;
@@ -30,11 +31,12 @@ public class LoginController2 {
     private Hyperlink createAccountHyperlink;
     
     public Users_List userList = new Users_List();
-    Users ohiomah = new Users("Ohiomah", 5875003780l, "Ohiomah2017");
+    
 
 	private Stage primaryStage;
 	private Scene myScene;
 	private SignUpController controllerOne;
+	private UserHomepageController controllerTwo;
     
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -53,18 +55,29 @@ public class LoginController2 {
     	if (userList.isValid(loginUsername.getText(), loginPassword.getText())) {
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
-    			VBox homepageVbox = loader.load(new FileInputStream("src/view/userHomepage.fxml"));
-    			Scene scene = new Scene(homepageVbox);
+    			Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+    			Scene scene = new Scene(homepagePane);
     			
-    			controllerOne= loader.getController();
-    			controllerOne.setPrimaryStage(primaryStage);
-    			controllerOne.setMyScene(scene);
-    			controllerOne.setNextController(this);
+    			controllerTwo = loader.getController();
+    			controllerTwo.setPrimaryStage(primaryStage);
+    			controllerTwo.setMyScene(scene);
+    			controllerTwo.setNextController(this);
     			
         	}
         	catch(Exception e) {
         		e.printStackTrace();
         	}
+    		controllerTwo.takeFocus();
+    	}
+    	else {
+    		System.out.println("boss");
+    		System.out.println(loginPassword.getText());
+    		for(Users user : userList.getArray()) {
+    			System.out.println(user.getName());
+    			System.out.println(loginUsername.getText());
+    			System.out.println(user.getPassword());
+    			System.out.println(loginPassword.getText());
+    		}
     	}
 
     }
@@ -76,7 +89,7 @@ public class LoginController2 {
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
 			Scene scene = new Scene(homepageVbox);
 			
-			controllerOne= loader.getController();
+			controllerOne = loader.getController();
 			controllerOne.setPrimaryStage(primaryStage);
 			controllerOne.setMyScene(scene);
 			controllerOne.setNextController(this);
