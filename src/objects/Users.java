@@ -6,24 +6,17 @@ public class Users {
 	private ArrayList <String> coursesToLearn = new ArrayList<String>();
 	private ArrayList <String> coursesToTeach = new ArrayList<String>();
 	
-	private String phone;
-	private String email;
+	private long phone;
 	private String name;
 	private String password;
 
-	public Users(String userName, String userEmail, String userPhone, String userPassword) {
-		//phone = fxid:inputPhone;
-		//email = fxid:inputEmail;
-		//name  = fxid:inputName;
+	public Users(String userName, long userPhone, String userPassword) {
+		
 		setName(userName);
-		setEmail(userEmail);
 		setPhone(userPhone);
 		setPassword(userPassword);
 	}
 	
-	
-
-
 	public ArrayList <String> getcoursesToLearn(){
 		return(coursesToLearn);
 	}
@@ -40,22 +33,12 @@ public class Users {
 	}
 
 
-
-
-	public String getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getName() {

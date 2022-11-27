@@ -30,6 +30,7 @@ public class LoginController2 {
     private Hyperlink createAccountHyperlink;
     
     public Users_List userList = new Users_List();
+    Users ohiomah = new Users("Ohiomah", 5875003780, "Ohiomah2017");
 
 	private Stage primaryStage;
 	private Scene myScene;
@@ -70,15 +71,10 @@ public class LoginController2 {
 
     @FXML
     void signUpAction(ActionEvent event) {
-
-    }
-    
-    @FXML
-    void signUp(ActionEvent signUpAction) {
     	try {
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
-			Scene scene = new Scene(homepageVbox,600,600);
+			Scene scene = new Scene(homepageVbox);
 			
 			controllerOne= loader.getController();
 			controllerOne.setPrimaryStage(primaryStage);
@@ -88,7 +84,9 @@ public class LoginController2 {
     	catch(Exception e) {
     		e.printStackTrace();
     	}
+    	controllerOne.takeFocus();
     }
-
+    
+    
 }
 

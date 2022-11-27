@@ -9,6 +9,10 @@ import javafx.stage.Stage;
 
 public class SignUpController {
 	
+	private Stage primaryStage;
+	private Scene myScene;
+	private LoginController2 controllerTwo;
+	
     @FXML
     private TextField passwordTextField;
 
@@ -26,7 +30,9 @@ public class SignUpController {
 
     @FXML
     void cancelAction(ActionEvent event) {
-
+    	if (controllerTwo != null) {
+    		controllerTwo.takeFocus();
+    	}
     }
 
     @FXML
@@ -34,9 +40,6 @@ public class SignUpController {
 
     }
 	
-	private Stage primaryStage;
-	private Scene myScene;
-	private LoginController2 controllerTwo;
     
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
