@@ -17,4 +17,16 @@ public class Users_List {
 		return userArray;
 	}
 	
+	public boolean isValid(String username, String password) {
+    	for (Users user : userArray) {
+    		if (user.getEmail() == username && user.getPassword() == password) {
+    			return true;
+    		}
+    		else {
+    			return false;
+    		}
+    	}
+    	return false;
+    }
+
 }

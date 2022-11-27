@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController2">
 	<children>
-		<Rectangle arcHeight="5.0" arcWidth="5.0" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1280.0">
+		<Rectangle arcHeight="5.0" arcWidth="5.0" height="480.0" stroke="BLACK" strokeType="INSIDE" width="640.0">
 			<fill>
 				<LinearGradient endX="1.0" endY="0.9047619047619048" startX="0.7333333333333333" startY="0.30952380952380953">
 					<stops>
@@ -29,7 +29,7 @@
 				</LinearGradient>
 			</fill>
 		</Rectangle>
-      <VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="15.0">
+      <VBox alignment="CENTER" layoutX="-4.0" prefHeight="480.0" prefWidth="640.0" spacing="15.0">
          <children>
             <TextField fx:id="loginUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="150.0" promptText="Username" />
             <PasswordField fx:id="loginPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Password" />

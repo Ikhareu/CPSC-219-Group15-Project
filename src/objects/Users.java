@@ -1,7 +1,6 @@
 package objects;
 
 import java.util.ArrayList;
-import javafx.scene.control.TextField;
 
 public class Users {
 	private ArrayList <String> coursesToLearn = new ArrayList<String>();
@@ -10,14 +9,16 @@ public class Users {
 	private String phone;
 	private String email;
 	private String name;
+	private String password;
 
-	public Users(String userName, String userEmail, String userPhone) {
+	public Users(String userName, String userEmail, String userPhone, String userPassword) {
 		//phone = fxid:inputPhone;
 		//email = fxid:inputEmail;
 		//name  = fxid:inputName;
 		setName(userName);
 		setEmail(userEmail);
 		setPhone(userPhone);
+		setPassword(userPassword);
 	}
 	
 	
@@ -63,6 +64,14 @@ public class Users {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	
