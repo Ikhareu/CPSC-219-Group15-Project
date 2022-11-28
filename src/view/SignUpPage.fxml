@@ -23,6 +23,8 @@
          <font>
             <Font size="14.0" />
          </font></Label>
+      <TextField fx:id="nameTXT" promptText="Enter Full Name" />
+      <TextField fx:id="phoneNumberTXT" promptText="Enter Phone Number" />
       <TextField fx:id="emailTextField" promptText="Enter Email Address" />
       <TextField fx:id="passwordTextField" promptText="Enter Password" />
       <TextField fx:id="password2TextField" promptText="Repeat Password" />
