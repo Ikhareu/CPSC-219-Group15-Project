@@ -27,9 +27,10 @@ public class Users_List {
     	for (Users user : userArray) {
     		if ((user.getName() == username) && (user.getPassword() == password)) {
     			answer = true;
+    			return true;
     		}
     	}
     	return answer;
-    }
+    	}
 
 }

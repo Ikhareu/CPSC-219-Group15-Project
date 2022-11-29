@@ -52,7 +52,9 @@ public class LoginController2 {
 
     @FXML
     void loginAction(ActionEvent event) {
-    	if (userList.isValid(loginUsername.getText(), loginPassword.getText())) {
+    	String username = loginUsername.getText();
+    	String password = loginPassword.getText();
+    	if (userList.isValid(username, password)) {
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
     			Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
@@ -68,16 +70,6 @@ public class LoginController2 {
         		e.printStackTrace();
         	}
     		controllerTwo.takeFocus();
-    	}
-    	else {
-    		System.out.println("boss");
-    		System.out.println(loginPassword.getText());
-    		for(Users user : userList.getArray()) {
-    			System.out.println(user.getName());
-    			System.out.println(loginUsername.getText());
-    			System.out.println(user.getPassword());
-    			System.out.println(loginPassword.getText());
-    		}
     	}
 
     }
