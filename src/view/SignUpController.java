@@ -67,6 +67,7 @@ public class SignUpController {
     	Users newUser= new Users(name, phone, password, email);
     	
     	
+    	
 
     }
 	
