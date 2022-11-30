@@ -31,14 +31,27 @@ public class LoginController2 {
     @FXML
     private Hyperlink createAccountHyperlink;
     
-    public Users_List userList = new Users_List();
     
 
 	private Stage primaryStage;
 	private Scene myScene;
 	private SignUpController controllerOne;
 	private UserHomepageController controllerTwo;
+	
+
     
+    public Users_List userList = new Users_List();
+	
+	
+	
+	public Users_List getUserList() {
+		return(userList);
+	}
+    
+	public void setUserList(Users_List uList) {
+		userList= uList;
+		
+	}
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}

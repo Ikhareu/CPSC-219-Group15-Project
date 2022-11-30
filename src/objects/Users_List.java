@@ -13,6 +13,7 @@ public class Users_List {
 	
 	private ArrayList <Users> userArray = new ArrayList<Users>();
 	private int numnberOfUsers=1;
+
 	 
 	public void addUser(Users newUser) {
 		userArray.add(newUser);
@@ -28,8 +29,8 @@ public class Users_List {
 	public ArrayList <Users> getArray() {
 		return(userArray);
 	}
-
-
+	
+	
 	public boolean isValid(String username, String password) {
 		boolean answer = false;
     	for (Users user : userArray) {
@@ -40,5 +41,69 @@ public class Users_List {
     	return answer;
     }
 	
+	
+	public ArrayList <Users> getUserList(){
+		return(userArray);
+	}
+	
+	public void setUserList(ArrayList <Users> users) {
+		
+		userArray= users;
+	}
+	
+	
+	
+	
+	public ArrayList <Users> getCourseStudents(String coursename) {
+		ArrayList <Users> usersHavingCourse= new ArrayList <Users>();
 
+		for (int i=0; i<numnberOfUsers; i++ ) {
+
+			Users user= userArray.get(i);
+			ArrayList <String> userCoursesToCheck= user.getcoursesToLearn();
+			
+			
+			for (int j=0; j<userCoursesToCheck.size(); j++)	{
+				
+				String userCourse= userCoursesToCheck.get(j);
+				
+				if (userCourse==coursename) {
+					
+					usersHavingCourse.add(user);
+					
+				}
+				
+			}
+		
+		}
+		
+		return(usersHavingCourse);
+	}
+
+	
+	
+	public ArrayList <Users> getCourseTeachers(String coursename) {
+		ArrayList <Users> usersHavingCourse= new ArrayList <Users>();
+		for (int i=0; i<numnberOfUsers; i++ ) {
+
+			Users user= userArray.get(i);
+			ArrayList <String> userCoursesToCheck= user.getcoursesToTeach();
+			
+			
+			for (int j=0; j<userCoursesToCheck.size(); j++)	{
+				
+				String userCourse= userCoursesToCheck.get(j);
+				
+				if (userCourse==coursename) {
+					
+					usersHavingCourse.add(user);
+					
+				}
+			}
+		}
+		
+		return(usersHavingCourse);
+	}
+	
+	
 }

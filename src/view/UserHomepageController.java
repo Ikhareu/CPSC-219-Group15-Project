@@ -44,7 +44,9 @@ public class UserHomepageController {
 
     @FXML
     private MenuButton nameLabel;
+    
 
+    
     @FXML
     void checkAction(ActionEvent event) {
 
@@ -58,6 +60,35 @@ public class UserHomepageController {
     @FXML
     void logoutAction(ActionEvent event) {
 
+    }
+    
+    
+    private Users user;
+    
+    
+
+    public Users_List userList = new Users_List();
+	
+	
+	
+	public Users_List getUserList() {
+		return(userList);
+	}
+    
+	public void setUserList(Users_List uList) {
+		userList= uList;
+		
+	}
+    
+    
+    public void setUser(Users usr) {
+    	user=usr;
+    	
+    }
+    
+    public Users getUser() {
+    	
+    	return(user);
     }
     
     public void setPrimaryStage(Stage aStage) {

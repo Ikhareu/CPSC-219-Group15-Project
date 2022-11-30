@@ -49,6 +49,23 @@ public class SignUpController {
     @FXML
     private TextField nameTXT; 
     
+    
+    
+    
+    public Users_List userList = new Users_List();
+	
+	
+	
+	public Users_List getUserList() {
+		return(userList);
+	}
+    
+	public void setUserList(Users_List uList) {
+		userList= uList;
+		
+	}
+
+    
     @FXML
     void cancelAction(ActionEvent event) {
     	if (controllerTwo != null) {
@@ -65,6 +82,7 @@ public class SignUpController {
     	String name=nameTXT.getText();
     	
     	Users newUser= new Users(name, phone, password, email);
+    	userList.addUser(newUser);
     	
     	
     	
