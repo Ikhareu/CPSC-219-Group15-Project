@@ -58,7 +58,7 @@ public class Users {
 	}
 	
 	public String toSring(Users user) {
-		String string = String.format("%s %s %s", user.getName(), user.getPhone(), user.getPassword());
+		String string = String.format("%s %s %s\n", user.getName(), user.getPhone(), user.getPassword());
 		return string;
 	}
 	

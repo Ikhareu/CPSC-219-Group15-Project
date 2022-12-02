@@ -34,6 +34,9 @@ public class System extends Application {
 			primaryStage.show();
 			
 			BufferedWriter writer = new BufferedWriter(new FileWriter("usersList.txt"));
+			writer.write("Ohiomah 5875003780 Ohiomah2017");
+			writer.close();
+
 			
 		} catch(Exception e) {
 			e.printStackTrace();
