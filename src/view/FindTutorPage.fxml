@@ -21,5 +21,6 @@
             <Label text="Phone: 4034034433" />
          </children>
       </HBox>
+      <Button mnemonicParsing="false" onAction="#goHomePage" text="Go back" />
    </children>
 </VBox>

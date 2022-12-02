@@ -53,19 +53,114 @@ public class CoursesPageController {
     	
     	return(user);
     }
-	
-	
-	
-	
-	
-	
-	@FXML
-	void addCoursesTeach(ActionEvent event) {
 
+    
+	private Stage primaryStage;
+	private Scene myScene;
+	private SignUpController controllerOne;
+	private UserHomepageController controllerTwo;
+	
+
+
+		
+	
+	public void setPrimaryStage(Stage aStage) {
+		primaryStage = aStage;
 	}
+	
+	public void setMyScene(Scene aScene) {
+		myScene = aScene;
+	}
+	
+	public void takeFocus() {
+		primaryStage.setScene(myScene); 
+	}
+	
+	
+    
+
+    @FXML
+    private VBox userCoursesLearn;
+    
+    
+	public void addUserCoursesLearn() {
+
+		ArrayList <String> coursesToLearn = user.getcoursesToLearn();
+		
+		if (coursesToLearn.size()==0) {
+			Label nothingToLearn= new Label("You have not added any course you need help with");
+			
+		}
+		else {
+			for(String courseLearn: coursesToLearn) {
+				HBox container= new HBox();
+				Label label= new Label("Course name:");
+				TextField courseLearnTxt= new TextField(courseLearn);
+				
+				container.getChildren().addAll(label, courseLearnTxt);
+				userCoursesLearn.getChildren().add(container);
+			}
+		}
+	}
+
+	
 
 	@FXML
 	void addCoursesLearn(ActionEvent event) {
+
+		HBox container= new HBox();
+		Label label= new Label("Course name:");
+		TextField courseLearnTxt= new TextField();
+		
+		container.getChildren().addAll(label, courseLearnTxt);
+		userCoursesLearn.getChildren().add(container);
+		
+		
+	}
+	
+	
+	
+
+    @FXML
+    private VBox userCoursesTeach;
+	
+	
+    
+	public void addUserCoursesTeach() {
+
+		ArrayList <String> coursesToTeach = user.getcoursesToTeach();
+		
+		if (coursesToTeach.size()==0) {
+			Label nothingToTeach= new Label("You have not added any course you can others help with");
+			
+		}
+		else {
+			for(String courseTeach: coursesToTeach) {
+				HBox container= new HBox();
+				Label label= new Label("Course name:");
+				TextField courseTeachTxt= new TextField(courseTeach);
+
+				container.getChildren().addAll(label, courseTeachTxt);
+				userCoursesTeach.getChildren().add(container);
+				
+			}
+			
+		}
+	}
+    
+    
+
+	
+	@FXML
+	void addCoursesTeach(ActionEvent event) {
+		HBox container= new HBox();
+		Label label= new Label("Course name:");
+		TextField courseTeachTxt= new TextField();
+
+		container.getChildren().addAll(label, courseTeachTxt);
+		userCoursesTeach.getChildren().add(container);
+		
+		
 
 	}
 

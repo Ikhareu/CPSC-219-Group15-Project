@@ -76,13 +76,18 @@ public class LoginController2 {
 	}
 	
 	public void takeFocus() {
-		primaryStage.setScene(myScene);
+		primaryStage.setScene(myScene); 
 	}
 
     @FXML
     void loginAction(ActionEvent event) {
-    	Users userCheck= (Users) userList.isValid(loginUsername.getText(), loginPassword.getText());
-    	if (userCheck!=null) {
+    	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
+    	System.out.println(userCheck);
+    	System.out.println(loginUsername.getText());
+
+    	System.out.println(loginPassword.getText());
+    	
+    	if (userCheck==null) { 
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
     			VBox homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
@@ -91,8 +96,8 @@ public class LoginController2 {
     			controllerTwo = loader.getController();
     			controllerTwo.setPrimaryStage(primaryStage);
     			controllerTwo.setMyScene(scene);
-    			controllerTwo.setNextController(this);
-    			controllerTwo.setUser(userCheck); 
+    			controllerTwo.setNextController(this); 
+    			controllerTwo.setUser();  
     			controllerTwo.setUserList(userList); 
     			
     			
@@ -108,13 +113,6 @@ public class LoginController2 {
     	}
     	else {
     		System.out.println("boss");
-    		System.out.println(loginPassword.getText());
-    		for(Users user : userList.getArray()) {
-    			System.out.println(user.getName());
-    			System.out.println(loginUsername.getText());
-    			System.out.println(user.getPassword()); 
-    			System.out.println(loginPassword.getText());
-    		}
     	}
 
     }

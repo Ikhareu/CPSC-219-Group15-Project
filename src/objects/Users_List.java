@@ -7,7 +7,9 @@ public class Users_List {
 	
 	public Users_List(){
 		Users ohiomah = new Users("Ohiomah", "5875003780l", "Ohiomah2017","ohimasEmail");
+		Users irek = new Users("Irek","1234","irek","irek");
 	    this.addUser(ohiomah);
+	    this.addUser(irek);
 	}
 	
 	
@@ -22,7 +24,7 @@ public class Users_List {
 	}
 	
 	public void deleteUser(Users U1) {
-		userArray.remove(U1);
+		userArray.remove(U1); 
 	}
 	
 	
@@ -34,12 +36,14 @@ public class Users_List {
 	public Users isValid(String username, String password) {
 		Users answer = null ;
     	for (Users user : userArray) {
-    		if ((user.getName() == username) && (user.getPassword() == password)) {
-    			answer=user;
+
+			System.out.println(user.getName());
+    		if ((user.getName() == username)) {
+    			answer=user; 
     		}
     		 
     	}
-    	return answer;
+    	return (answer);
     }
 	
 	
@@ -50,6 +54,10 @@ public class Users_List {
 	public void setUserList(ArrayList <Users> users) {
 		
 		userArray= users;
+	}
+	
+	public Users getirek() {
+		return(userArray.get(1));
 	}
 	
 	

@@ -3,7 +3,9 @@ package view;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
@@ -28,7 +30,9 @@ public class UserHomepageController {
 	
 	private Stage primaryStage;
 	private Scene myScene;
-	private LoginController2 controllerThree;
+	private LoginController2 controllerLogin;
+	private FindPagesController controllerFind;
+	private CoursesPageController controllerCourses;
 
     @FXML
     private ChoiceBox<String> courseChoiceBox;
@@ -45,6 +49,9 @@ public class UserHomepageController {
     @FXML
     private MenuButton nameLabel;
     
+    
+    
+   
 
     
     @FXML
@@ -100,7 +107,7 @@ public class UserHomepageController {
 	}
 	
 	public void setNextController(LoginController2 aController) {
-		controllerThree = aController;
+		controllerLogin = aController;
 	}
 	
 	public void takeFocus() {
@@ -112,66 +119,30 @@ public class UserHomepageController {
 	
 	@FXML
 	void coursepageaction(ActionEvent event) {
-
-		Scene MainScene = primaryStage.getScene();
-
-		VBox CourseContainer = new VBox();
-
-		Label teachLabel = new Label("Can Help");
-
-		Label learnLabel = new Label("Need Help");
-
-		Label spacelabel = new Label();
-
-		CourseContainer.getChildren().add(teachLabel);
-
-		ArrayList<String> courseArrayLearn = user.getcoursesToLearn();
-
-		ArrayList<String> courseArrayTeach = user.getcoursesToTeach();
-
-		int i = 0;
-
-		while (i < courseArrayLearn.size()) {
-
-			HBox courseLearn = new HBox();
-			Label courseLearnLabel = new Label("Enter the course:");
-			TextField courseLearnText = new TextField();
-			courseLearnText.setText(courseArrayLearn.get(i));
+		
+		try {
+	    	FXMLLoader loader = new FXMLLoader();
+			VBox homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+			Scene scene = new Scene(homepagePane);
 			
-			courseArrayLearn.add(courseLearnText.getText());
-
-			courseLearn.getChildren().addAll(courseLearnLabel, courseLearnText);
-
-			CourseContainer.getChildren().add(courseLearn);
-			i++;  
-
-		}
-
-		i = 0;
-		
-
-		CourseContainer.getChildren().add(learnLabel);
-
-		while (i < 3) {
- 
-			HBox courseLearn = new HBox();
-			Label courseLearnLabel = new Label("Enter the course:");
-			TextField courseLearnText = new TextField();
-
-			courseArrayLearn.add(courseLearnText.getText());
-
-			courseLearn.getChildren().addAll(courseLearnLabel, courseLearnText);
-
-			CourseContainer.getChildren().add(courseLearn);
-			i++;
-
-		}
-
-		Scene courseScene = new Scene(CourseContainer, 600, 700);
-		primaryStage.setScene(courseScene);
+			controllerCourses = loader.getController();
+			controllerCourses.setPrimaryStage(primaryStage);
+			controllerCourses.setMyScene(scene);
+			controllerCourses.setUser(user); 
+			controllerCourses.setUserList(userList); 
+			
+			
+			
+			
+			
+			
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+		controllerCourses.takeFocus();
 
 		
-		user.addCourses(courseArrayLearn, courseArrayTeach);
 
 	}
 	

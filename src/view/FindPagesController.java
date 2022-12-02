@@ -59,6 +59,27 @@ public class FindPagesController {
     	return(user);
     }
 	
+    
+	private Stage primaryStage;
+	private Scene myScene;
+	private SignUpController controllerOne;
+	private UserHomepageController controllerTwo;
+	
+
+
+		
+	
+	public void setPrimaryStage(Stage aStage) {
+		primaryStage = aStage;
+	}
+	
+	public void setMyScene(Scene aScene) {
+		myScene = aScene;
+	}
+	
+	public void takeFocus() {
+		primaryStage.setScene(myScene); 
+	}
 	
 	
 	
@@ -106,6 +127,10 @@ public class FindPagesController {
 		
 	}
 	
+	@FXML
+    void goHomePage(ActionEvent event) {
+
+    }
 	
 	
 	
