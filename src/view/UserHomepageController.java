@@ -110,5 +110,73 @@ public class UserHomepageController {
 	
 	
 	
+	@FXML
+	void coursepageaction(ActionEvent event) {
+
+		Scene MainScene = primaryStage.getScene();
+
+		VBox CourseContainer = new VBox();
+
+		Label teachLabel = new Label("Can Help");
+
+		Label learnLabel = new Label("Need Help");
+
+		Label spacelabel = new Label();
+
+		CourseContainer.getChildren().add(teachLabel);
+
+		ArrayList<String> courseArrayLearn = user.getcoursesToLearn();
+
+		ArrayList<String> courseArrayTeach = user.getcoursesToTeach();
+
+		int i = 0;
+
+		while (i < courseArrayLearn.size()) {
+
+			HBox courseLearn = new HBox();
+			Label courseLearnLabel = new Label("Enter the course:");
+			TextField courseLearnText = new TextField();
+			courseLearnText.setText(courseArrayLearn.get(i));
+			
+			courseArrayLearn.add(courseLearnText.getText());
+
+			courseLearn.getChildren().addAll(courseLearnLabel, courseLearnText);
+
+			CourseContainer.getChildren().add(courseLearn);
+			i++;  
+
+		}
+
+		i = 0;
+		
+
+		CourseContainer.getChildren().add(learnLabel);
+
+		while (i < 3) {
+ 
+			HBox courseLearn = new HBox();
+			Label courseLearnLabel = new Label("Enter the course:");
+			TextField courseLearnText = new TextField();
+
+			courseArrayLearn.add(courseLearnText.getText());
+
+			courseLearn.getChildren().addAll(courseLearnLabel, courseLearnText);
+
+			CourseContainer.getChildren().add(courseLearn);
+			i++;
+
+		}
+
+		Scene courseScene = new Scene(CourseContainer, 600, 700);
+		primaryStage.setScene(courseScene);
+
+		
+		user.addCourses(courseArrayLearn, courseArrayTeach);
+
+	}
+	
+	
+	
+	
 
 }

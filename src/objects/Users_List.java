@@ -30,13 +30,14 @@ public class Users_List {
 		return(userArray);
 	}
 	
-	
-	public boolean isValid(String username, String password) {
-		boolean answer = false;
+	 
+	public Users isValid(String username, String password) {
+		Users answer = null ;
     	for (Users user : userArray) {
     		if ((user.getName() == username) && (user.getPassword() == password)) {
-    			answer = true;
+    			answer=user;
     		}
+    		 
     	}
     	return answer;
     }
@@ -70,15 +71,14 @@ public class Users_List {
 				if (userCourse==coursename) {
 					
 					usersHavingCourse.add(user);
-					
+				
 				}
 				
 			}
-		
 		}
 		
-		return(usersHavingCourse);
-	}
+		return(usersHavingCourse);   
+	} 
 
 	
 	

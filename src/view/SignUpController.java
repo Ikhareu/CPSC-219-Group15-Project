@@ -68,7 +68,7 @@ public class SignUpController {
     
     @FXML
     void cancelAction(ActionEvent event) {
-    	if (controllerTwo != null) {
+    	if (controllerTwo != null) { 
     		controllerTwo.takeFocus();
     	}
     }

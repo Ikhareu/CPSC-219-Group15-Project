@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+
+import javafx.scene.control.Label;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -24,7 +26,20 @@ public class LoginController2 {
 
     @FXML
     private Button loginButton;
+    
+    @FXML
+    private Pane mainpaneForTest;
 
+    @FXML
+    void testbutton(ActionEvent event) {
+    	Label testLabel = new Label("T-----EST----TEST-TEREEREF");
+    	mainpaneForTest.getChildren().add(testLabel);
+    	
+    	
+    }
+
+    
+    
     @FXML
     private PasswordField loginPassword;
 
@@ -66,16 +81,24 @@ public class LoginController2 {
 
     @FXML
     void loginAction(ActionEvent event) {
-    	if (userList.isValid(loginUsername.getText(), loginPassword.getText())) {
+    	Users userCheck= (Users) userList.isValid(loginUsername.getText(), loginPassword.getText());
+    	if (userCheck!=null) {
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
-    			Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+    			VBox homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
     			Scene scene = new Scene(homepagePane);
     			
     			controllerTwo = loader.getController();
     			controllerTwo.setPrimaryStage(primaryStage);
     			controllerTwo.setMyScene(scene);
     			controllerTwo.setNextController(this);
+    			controllerTwo.setUser(userCheck); 
+    			controllerTwo.setUserList(userList); 
+    			
+    			
+    			
+    			
+    			
     			
         	}
         	catch(Exception e) {
@@ -89,7 +112,7 @@ public class LoginController2 {
     		for(Users user : userList.getArray()) {
     			System.out.println(user.getName());
     			System.out.println(loginUsername.getText());
-    			System.out.println(user.getPassword());
+    			System.out.println(user.getPassword()); 
     			System.out.println(loginPassword.getText());
     		}
     	}
