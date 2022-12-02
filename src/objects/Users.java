@@ -6,11 +6,11 @@ public class Users {
 	private ArrayList <String> coursesToLearn = new ArrayList<String>();
 	private ArrayList <String> coursesToTeach = new ArrayList<String>();
 	
-	private long phone;
+	private String phone;
 	private String name;
 	private String password;
 
-	public Users(String userName, long userPhone, String userPassword) {
+	public Users(String userName, String userPhone, String userPassword) {
 		
 		setName(userName);
 		setPhone(userPhone);
@@ -33,11 +33,11 @@ public class Users {
 	}
 
 
-	public long getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(long phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -55,6 +55,11 @@ public class Users {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String toSring(Users user) {
+		String string = String.format("%s %s %s", user.getName(), user.getPhone(), user.getPassword());
+		return string;
 	}
 	
 	

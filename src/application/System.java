@@ -1,6 +1,9 @@
 package application;
 	
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +32,8 @@ public class System extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");
 			primaryStage.show();
+			
+			BufferedWriter writer = new BufferedWriter(new FileWriter("usersList.txt"));
 			
 		} catch(Exception e) {
 			e.printStackTrace();

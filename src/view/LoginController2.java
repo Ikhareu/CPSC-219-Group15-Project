@@ -30,7 +30,6 @@ public class LoginController2 {
     @FXML
     private Hyperlink createAccountHyperlink;
     
-    public Users_List userList = new Users_List();
     
 
 	private Stage primaryStage;
@@ -54,7 +53,7 @@ public class LoginController2 {
     void loginAction(ActionEvent event) {
     	String username = loginUsername.getText();
     	String password = loginPassword.getText();
-    	if (userList.isValid(username, password)) {
+    	if (Users_List.isValid(username, password)) {
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
     			Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));

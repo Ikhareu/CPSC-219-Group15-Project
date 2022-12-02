@@ -3,14 +3,14 @@ package objects;
 import java.util.ArrayList;
 
 public class Users_List {
+	private static ArrayList <Users> userArray = new ArrayList<Users>();
 	
 	public Users_List(){
-		Users ohiomah = new Users("Ohiomah", 5875003780l, "Ohiomah2017");
-	    this.addUser(ohiomah);
+		Users ohiomah = new Users("Ohiomah", "5875003780", "Ohiomah2017");
+	    Users_List.addUser(ohiomah);
 	}
-	private ArrayList <Users> userArray = new ArrayList<Users>();
 	
-	public void addUser(Users newUser) {
+	public static void addUser(Users newUser) {
 		userArray.add(newUser);
 	}
 	
@@ -22,9 +22,9 @@ public class Users_List {
 		return userArray;
 	}
 	
-	public boolean isValid(String username, String password) {
+	public static boolean isValid(String username, String password) {
 		boolean answer = false;
-    	for (Users user : userArray) {
+    	for (Users user : Users_List.userArray) {
     		if ((user.getName() == username) && (user.getPassword() == password)) {
     			answer = true;
     			return true;
