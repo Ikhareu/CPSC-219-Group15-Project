@@ -33,9 +33,13 @@ public class System extends Application {
 			primaryStage.setTitle("Find your Tutor");
 			primaryStage.show();
 			
-			BufferedWriter writer = new BufferedWriter(new FileWriter("usersList.txt"));
-			writer.write("Ohiomah 5875003780 Ohiomah2017");
-			writer.close();
+			File file = new File("usersList.txt");
+			if (file.length() == 0) {
+				BufferedWriter writer = new BufferedWriter(new FileWriter("usersList.txt"));
+				writer.write("Ohiomah 5875003780 Ohiomah2017\n");
+				writer.close();
+			}
+			
 
 			
 		} catch(Exception e) {

@@ -1,5 +1,8 @@
 package objects;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Users_List {
@@ -11,6 +14,15 @@ public class Users_List {
 	}
 	
 	public static void addUser(Users newUser) {
+		BufferedWriter writer;
+		try {
+			writer = new BufferedWriter(new FileWriter("usersList.txt", true));
+			writer.write(newUser.toSring());
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		userArray.add(newUser);
 	}
 	

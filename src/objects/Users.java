@@ -57,8 +57,8 @@ public class Users {
 		this.password = password;
 	}
 	
-	public String toSring(Users user) {
-		String string = String.format("%s %s %s\n", user.getName(), user.getPhone(), user.getPassword());
+	public String toSring() {
+		String string = String.format("%s %s %s \n", this.getName(), this.getPhone(), this.getPassword());
 		return string;
 	}
 	

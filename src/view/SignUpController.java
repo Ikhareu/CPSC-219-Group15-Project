@@ -45,7 +45,7 @@ public class SignUpController {
     void signUpAction(ActionEvent event) {
     	String name = nameTextField.getText();
     	String phoneNumber = phoneNumberTextField.getText();
-    	String password = password2TextField.getText();
+    	String password = passwordTextField.getText();
     	Users newUser = new Users(name, phoneNumber, password);
     	Users_List.addUser(newUser);
     	if (controllerTwo != null) {
