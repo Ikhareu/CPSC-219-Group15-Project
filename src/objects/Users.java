@@ -19,9 +19,6 @@ public class Users {
 		setEmail(userEmail);
 		setPhone(userPhone);
 	}
-	
-	
-
 
 	public ArrayList <String> getcoursesToLearn(){
 		return(coursesToLearn);
@@ -31,40 +28,51 @@ public class Users {
 		return(coursesToTeach);
 	}
 
-	
-	public void addCourses(ArrayList <String> CoursesToLearn, ArrayList <String> CoursesToTeach) {
+	public void addCourses(ArrayList <String> classesToLearn, ArrayList <String> classesToTeach) {
+		/*
 		coursesToLearn=CoursesToLearn;
 		coursesToTeach=CoursesToTeach;
-		
+		*/
+		int count =0;
+		while (count < classesToLearn.size()) {
+			coursesToLearn.add(classesToLearn.get(count));
+		}
+		count = 0;
+		while (count < classesToTeach.size()) {
+			coursesToTeach.add(classesToTeach.get(count));
+		}
 	}
-
-
-
 
 	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone(String numPhone) {
+		if (numPhone == null) {
+			//exception
+		}
+		this.phone = numPhone;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String emailAdress) {
+		if (emailAdress == null) {
+			//exception
+		}
+		this.email = emailAdress;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String userName) {
+		if (userName == null) {
+			//exception
+		}
+		this.name = userName;
 	}
-	
-	
-	
 }
