@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 
-public class System extends Application {
+public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -39,6 +39,7 @@ public class System extends Application {
 				writer.write("Ohiomah 5875003780 Ohiomah2017\n");
 				writer.close();
 			}
+			
 			
 
 			

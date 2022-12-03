@@ -16,6 +16,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserHomepageController">
    <children>
@@ -24,8 +25,23 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </TextArea>
-      <ChoiceBox fx:id="courseChoiceBox" layoutX="225.0" layoutY="188.0" prefWidth="150.0" />
-      <Label layoutX="191.0" layoutY="151.0" text="Please select courses you need help with." />
+      <ChoiceBox fx:id="courseChoiceBox" layoutX="225.0" layoutY="188.0" prefWidth="150.0" >
+      	<items>
+      		<FXCollections fx:factory="observableArrayList">
+				<String fx:value="CPSC 217" />
+				<String fx:value="CPSC 219" />
+				<String fx:value="CPSC 232" />
+				<String fx:value="CPSC 233" />
+				<String fx:value="CPSC 251" />
+				<String fx:value="CPSC 313" />
+				<String fx:value="CPSC 319" />
+				<String fx:value="CPSC 329" />
+				<String fx:value="CPSC 331" />
+				<String fx:value="CPSC 351" />
+      		</FXCollections>
+      	</items>
+      </ChoiceBox>
+      <Label layoutX="191.0" layoutY="151.0" text="Please select course you need help with." />
       <Button fx:id="checkButton" layoutX="251.0" layoutY="250.0" mnemonicParsing="false" onAction="#checkAction" text="Check for Tutor" />
       <MenuButton fx:id="nameLabel" layoutX="487.0" layoutY="14.0" mnemonicParsing="false">
         <items>

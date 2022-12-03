@@ -53,7 +53,7 @@ public class LoginController2 {
     void loginAction(ActionEvent event) {
     	String username = loginUsername.getText();
     	String password = loginPassword.getText();
-    	if (Users_List.isValid(username, password)) {
+    	
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
     			Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
@@ -69,7 +69,7 @@ public class LoginController2 {
         		e.printStackTrace();
         	}
     		controllerTwo.takeFocus();
-    	}
+    	
 
     }
 
