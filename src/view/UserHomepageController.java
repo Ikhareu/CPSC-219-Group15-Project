@@ -42,7 +42,9 @@ public class UserHomepageController {
 
     @FXML
     void logoutAction(ActionEvent event) {
-
+    	if (controllerThree != null) {
+    		controllerThree.takeFocus();
+    	}
     }
     
     public void setPrimaryStage(Stage aStage) {
