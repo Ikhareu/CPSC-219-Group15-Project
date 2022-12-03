@@ -102,7 +102,7 @@ public class SignUpController {
 		controllerTwo = aController;
 	}
 	
-	public void takeFocus() {
+	public void takeFocus() { 
 		primaryStage.setScene(myScene);
 	}
 }

@@ -30,45 +30,33 @@ public class UserHomepageController {
 	
 	private Stage primaryStage;
 	private Scene myScene;
+	
 	private LoginController2 controllerLogin;
 	private FindPagesController controllerFind;
 	private CoursesPageController controllerCourses;
 
-    @FXML
-    private ChoiceBox<String> courseChoiceBox;
+    public void setPrimaryStage(Stage aStage) {
+		primaryStage = aStage;
+	}
+	
+	public void setMyScene(Scene aScene) {
+		myScene = aScene;
+	}
+	
+//	public void setNextController(LoginController2 aController) {
+//		controllerLogin = aController;
+//	}
+	
+	public void takeFocus() {
+		primaryStage.setScene(myScene);
+	}
 
-    @FXML
-    private MenuItem editProfileButton;
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
 
-    @FXML
-    private Button checkButton;
 
-    @FXML
-    private MenuItem logoutButton;
-
-    @FXML
-    private MenuButton nameLabel;
-    
-    
-    
-   
-
-    
-    @FXML
-    void checkAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void editProfileAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void logoutAction(ActionEvent event) {
-
-    }
-    
+	
+	
     
     private Users user;
     
@@ -98,21 +86,89 @@ public class UserHomepageController {
     	return(user);
     }
     
-    public void setPrimaryStage(Stage aStage) {
-		primaryStage = aStage;
-	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+
 	
-	public void setMyScene(Scene aScene) {
+	public void setUpController(Users usr,Users_List uList, Stage aStage,Scene aScene) {
+		
+		userList= uList;
+		user=usr;
+
+		primaryStage.setScene(myScene);
 		myScene = aScene;
 	}
 	
-	public void setNextController(LoginController2 aController) {
-		controllerLogin = aController;
-	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+
 	
-	public void takeFocus() {
-		primaryStage.setScene(myScene);
-	}
+	
+    @FXML
+    private ChoiceBox<String> courseChoiceBox;
+
+    @FXML
+    private MenuItem editProfileButton;
+
+    @FXML
+    private Button checkButton;
+
+    @FXML
+    private MenuItem logoutButton;
+
+    @FXML
+    private MenuButton nameLabel;
+    
+
+    @FXML
+    private Label idUser;
+
+    @FXML
+    private Label userPhone;
+
+    @FXML
+    private Label UserPassword;
+
+    @FXML
+    private Label userEmail;
+    
+    
+   
+    public void loginUserSetup(Users usr) {
+    	idUser.setText(usr.getUserID()+"");
+    	userPhone.setText(usr.getPhone());
+    	userEmail.setText(usr.getEmail());
+    	
+    }
+    
+    @FXML
+    void checkAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editProfileAction(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void editEmail(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editPhone(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editPassword(ActionEvent event) {
+    }
+
+    @FXML
+    void logoutAction(ActionEvent event) {
+
+    }
+    
+
 	
 	
 	
@@ -122,8 +178,8 @@ public class UserHomepageController {
 		
 		try {
 	    	FXMLLoader loader = new FXMLLoader();
-			VBox homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(homepagePane);
+			VBox root = loader.load(new FileInputStream("src/view/CoursesPage.fxml"));
+			Scene scene = new Scene(root,900,900);
 			
 			controllerCourses = loader.getController();
 			controllerCourses.setPrimaryStage(primaryStage);
@@ -146,6 +202,54 @@ public class UserHomepageController {
 
 	}
 	
+	
+
+    @FXML
+    void findTutor(ActionEvent event) {
+    	try {
+	    	FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml"));
+			Scene scene = new Scene(root,900,900);
+			
+			controllerFind = loader.getController();
+			controllerFind.setPrimaryStage(primaryStage);
+			controllerFind.setMyScene(scene);
+			controllerFind.setUser(user); 
+			controllerFind.setUserList(userList); 
+			
+			
+			
+			
+			
+			
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+		controllerFind.takeFocus();
+
+    }
+
+    @FXML
+    void findStudentAction(ActionEvent event) {
+    	try {
+	    	FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml"));
+			Scene scene = new Scene(root,900,900);
+			
+			controllerFind = loader.getController();
+			controllerFind.setPrimaryStage(primaryStage);
+			controllerFind.setMyScene(scene);
+			controllerFind.setUser(user); 
+			controllerFind.setUserList(userList); 
+			}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+		
+
+
+    }
 	
 	
 	

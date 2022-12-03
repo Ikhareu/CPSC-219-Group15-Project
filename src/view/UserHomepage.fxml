@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.userhomepagecontroller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserHomepageController">
    <children>
       <Label text="Homepage">
          <padding>
@@ -33,8 +33,8 @@
             <Insets />
          </VBox.margin>
          <children>
-            <Label fx:id="idUser" text="User ID: " />
-            <Label fx:id="idUser" text="1" />
+            <Label fx:id="idUser" text="Name: " />
+            <Label fx:id="idUser" />
          </children>
       </HBox>
       <HBox prefHeight="300.0" prefWidth="500.0">
@@ -95,5 +95,10 @@
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#findTutor" text="Find tutor" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#findStudentAction" text="Find students" />
+         </children>
+      </HBox>
    </children>
 </VBox>

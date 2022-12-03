@@ -56,8 +56,8 @@ public class Users_List {
 		userArray= users;
 	}
 	
-	public Users getirek() {
-		return(userArray.get(1));
+	public Users getUser(int id) {
+		return(userArray.get(id));
 	}
 	
 	

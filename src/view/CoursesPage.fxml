@@ -13,5 +13,10 @@
       <Label text="Courses I need help with(10 max)" />
       <VBox fx:id="userCoursesLearn" prefHeight="200.0" prefWidth="100.0" />
       <Button mnemonicParsing="false" onAction="#addCoursesLearn" text="Add" />
+      <VBox fx:id="userCoursesLearn1" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goHomePage" text="Go back" />
+         </children>
+      </VBox>
    </children>
 </VBox>

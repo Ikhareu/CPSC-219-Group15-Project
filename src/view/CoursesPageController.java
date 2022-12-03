@@ -3,7 +3,9 @@ package view;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
@@ -54,15 +56,11 @@ public class CoursesPageController {
     	return(user);
     }
 
-    
+  //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+
 	private Stage primaryStage;
 	private Scene myScene;
-	private SignUpController controllerOne;
 	private UserHomepageController controllerTwo;
-	
-
-
-		
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -77,50 +75,14 @@ public class CoursesPageController {
 	}
 	
 	
-    
-
-    @FXML
-    private VBox userCoursesLearn;
-    
-    
-	public void addUserCoursesLearn() {
-
-		ArrayList <String> coursesToLearn = user.getcoursesToLearn();
-		
-		if (coursesToLearn.size()==0) {
-			Label nothingToLearn= new Label("You have not added any course you need help with");
-			
-		}
-		else {
-			for(String courseLearn: coursesToLearn) {
-				HBox container= new HBox();
-				Label label= new Label("Course name:");
-				TextField courseLearnTxt= new TextField(courseLearn);
-				
-				container.getChildren().addAll(label, courseLearnTxt);
-				userCoursesLearn.getChildren().add(container);
-			}
-		}
-	}
-
-	
-
-	@FXML
-	void addCoursesLearn(ActionEvent event) {
-
-		HBox container= new HBox();
-		Label label= new Label("Course name:");
-		TextField courseLearnTxt= new TextField();
-		
-		container.getChildren().addAll(label, courseLearnTxt);
-		userCoursesLearn.getChildren().add(container);
-		
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	public void controllerSetUp() {
 		
 	}
 	
-	
-	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
+  
     @FXML
     private VBox userCoursesTeach;
 	
@@ -144,7 +106,7 @@ public class CoursesPageController {
 				userCoursesTeach.getChildren().add(container);
 				
 			}
-			
+			 
 		}
 	}
     
@@ -163,5 +125,73 @@ public class CoursesPageController {
 		
 
 	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+
+
+    @FXML
+    private VBox userCoursesLearn;
+    
+    
+	public void addUserCoursesLearn() {
+
+		ArrayList <String> coursesToLearn = user.getcoursesToLearn();
+		
+		if (coursesToLearn.size()==0) {
+			Label nothingToLearn= new Label("You have not added any course you need help with");
+			
+		}
+		else {
+			for(String courseLearn: coursesToLearn) {
+				HBox container= new HBox();
+				Label label= new Label("Course name:");
+				TextField courseLearnTxt= new TextField(courseLearn);
+				 
+				container.getChildren().addAll(label, courseLearnTxt);
+				userCoursesLearn.getChildren().add(container);
+			}
+		}
+	}
+
+	
+
+	@FXML
+	void addCoursesLearn(ActionEvent event) {
+
+		HBox container= new HBox();
+		Label label= new Label("Course name:");
+		TextField courseLearnTxt= new TextField();
+		
+		container.getChildren().addAll(label, courseLearnTxt);
+		userCoursesLearn.getChildren().add(container);
+		
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+	@FXML
+    void goHomePage(ActionEvent event) {
+		
+		
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+			Scene scene = new Scene(root, 900, 900);
+
+			controllerTwo = loader.getController();
+			controllerTwo.setPrimaryStage(primaryStage);
+			controllerTwo.setMyScene(scene);
+			controllerTwo.setUser(userList.getUser(1));
+			controllerTwo.setUserList(userList);
+			controllerTwo.loginUserSetup(userList.getUser(1));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+    
+		
 
 }

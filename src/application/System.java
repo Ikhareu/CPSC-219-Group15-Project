@@ -20,7 +20,7 @@ public class System extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root, 640, 480);
+			Scene scene = new Scene(root, 900,900);
 			
 			
 			LoginController2 controller = (LoginController2)loader.getController();
@@ -28,10 +28,10 @@ public class System extends Application {
 			Users_List allUsers= new Users_List();
 			controller.setUserList(allUsers);
 			
-			controller.setPrimaryStage(primaryStage);
+			controller.setPrimaryStage(primaryStage); 
 			controller.setMyScene(scene);
 			
-			 
+			  
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");

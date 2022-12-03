@@ -31,6 +31,10 @@ import javafx.stage.Stage;
 public class FindPagesController {
 	
 	
+	
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
     private Users user;
     
     
@@ -39,7 +43,7 @@ public class FindPagesController {
 	
 	
 	
-	public Users_List getUserList() {
+	public Users_List getUserList() { 
 		return(userList);
 	}
     
@@ -60,6 +64,11 @@ public class FindPagesController {
     }
 	
     
+    
+    
+    
+//-------------------------------------------------------------------------------------------------------------------------------------------------    
+    
 	private Stage primaryStage;
 	private Scene myScene;
 	private SignUpController controllerOne;
@@ -78,12 +87,13 @@ public class FindPagesController {
 	}
 	
 	public void takeFocus() {
-		primaryStage.setScene(myScene); 
+		primaryStage.setScene(myScene);  
 	}
 	
-	
-	
 
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	//Find Students
 	
     @FXML
     private VBox findStudentPageVbox;
@@ -127,12 +137,10 @@ public class FindPagesController {
 		
 	}
 	
-	@FXML
-    void goHomePage(ActionEvent event) {
 
-    }
 	
-	
+//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+//Find Tutor
 	
 	
     @FXML
@@ -174,5 +182,29 @@ public class FindPagesController {
 		
 		
 	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+	@FXML
+    void goHomePage(ActionEvent event) {
+		
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+			Scene scene = new Scene(root, 900, 900);
+ 
+			controllerTwo = loader.getController();
+			controllerTwo.setPrimaryStage(primaryStage);
+			controllerTwo.setMyScene(scene);
+			controllerTwo.setUser(userList.getUser(1));
+			controllerTwo.setUserList(userList);
+			controllerTwo.loginUserSetup(userList.getUser(1));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+    }
+	
 
 }
