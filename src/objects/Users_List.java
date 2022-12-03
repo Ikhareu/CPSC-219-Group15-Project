@@ -7,7 +7,22 @@ public class Users_List {
 	
 	public Users_List(){
 		Users ohiomah = new Users("Ohiomah", "5875003780l", "Ohiomah2017","ohimasEmail");
-		Users irek = new Users("Irek","1234","irek","irek");
+		Users irek = new Users("Irek","4039189051","123123123","irek@email.ca");
+		
+
+		ArrayList<String> qcoursesToLearnTest = new ArrayList<String>();
+		ArrayList<String> pcoursesToTeachTest = new ArrayList<String>();
+		qcoursesToLearnTest.add("MATH111");
+		qcoursesToLearnTest.add("MATH367");
+		qcoursesToLearnTest.add("CPSC219");
+		
+		pcoursesToTeachTest.add("MATH111");
+		pcoursesToTeachTest.add("MATH222");
+		pcoursesToTeachTest.add("CPSC333");
+		irek.addCourses(qcoursesToLearnTest, pcoursesToTeachTest);
+		ohiomah.addCourses(qcoursesToLearnTest, pcoursesToTeachTest);
+		
+
 	    this.addUser(ohiomah);
 	    this.addUser(irek);
 	}
@@ -66,15 +81,13 @@ public class Users_List {
 	public ArrayList <Users> getCourseStudents(String coursename) {
 		ArrayList <Users> usersHavingCourse= new ArrayList <Users>();
 
-		for (int i=0; i<numnberOfUsers; i++ ) {
+		for (Users user: userArray ) {
 
-			Users user= userArray.get(i);
 			ArrayList <String> userCoursesToCheck= user.getcoursesToLearn();
 			
 			
-			for (int j=0; j<userCoursesToCheck.size(); j++)	{
+			for (String userCourse: userCoursesToCheck)	{
 				
-				String userCourse= userCoursesToCheck.get(j);
 				
 				if (userCourse==coursename) {
 					
@@ -92,18 +105,11 @@ public class Users_List {
 	
 	public ArrayList <Users> getCourseTeachers(String coursename) {
 		ArrayList <Users> usersHavingCourse= new ArrayList <Users>();
-		for (int i=0; i<numnberOfUsers; i++ ) {
-
-			Users user= userArray.get(i);
+		
+		for (Users user: userArray ) {
 			ArrayList <String> userCoursesToCheck= user.getcoursesToTeach();
-			
-			
-			for (int j=0; j<userCoursesToCheck.size(); j++)	{
-				
-				String userCourse= userCoursesToCheck.get(j);
-				
+			for (String userCourse: userCoursesToCheck)	{
 				if (userCourse==coursename) {
-					
 					usersHavingCourse.add(user);
 					
 				}

@@ -3,6 +3,8 @@ package view;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,7 +80,25 @@ public class FindTutorsController {
 
 	
 	
-//-------------------------------------------------------------------------------------------------------------------------------------------------    	
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+
+	private ObservableList<String> test = FXCollections.observableArrayList("","");
+    
+	
+	@FXML
+	private ChoiceBox<String> courseLearnChoiceBox=new ChoiceBox<String>(test);; // learn because these are the courses student need to learn
+
+	public void setChoicebox(ArrayList<String> courses) {
+//		for (String course : courses) {
+//			courseLearnChoiceBox.getItems().add(course);
+//
+//		}
+		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
+		
+		courseLearnChoiceBox.setItems(setupList);
+	}
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------    
 //Find Tutor
 	
 	
@@ -86,11 +106,7 @@ public class FindTutorsController {
     private VBox findTutorPageVbox;
 	
 	
-	@FXML
-    private ChoiceBox<String> courseLearnChoiceBox; // learn because these are the courses student need to learn
-	 
-	
-	
+
 	@FXML
     void actionFindTeachers(ActionEvent event) {
 		String courseToFind="";

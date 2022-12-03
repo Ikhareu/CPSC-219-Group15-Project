@@ -189,6 +189,8 @@ public class UserHomepageController {
 			controllerCourses.setMyScene(scene);
 			controllerCourses.setUser(user); 
 			controllerCourses.setUserList(userList); 
+			controllerCourses.addUserCoursesLearn(); 
+			controllerCourses.addUserCoursesTeach();
 			
 			
 			
@@ -222,6 +224,8 @@ public class UserHomepageController {
 			controllerFindTutors.setUser(user); 
 			controllerFindTutors.setUserList(userList); 
 			controllerFindTutors.takeFocus();
+
+			controllerFindTutors.setChoicebox(user.getcoursesToLearn());
 			
 			
 			
@@ -246,9 +250,9 @@ public class UserHomepageController {
 			controllerFindStudents.setPrimaryStage(primaryStage);
 			controllerFindStudents.setMyScene(scene);
 			controllerFindStudents.setUser(user); 
-			controllerFindStudents.setUserList(userList); 
+			controllerFindStudents.setUserList(userList);  
 			controllerFindStudents.takeFocus();
-			
+			controllerFindStudents.setChoicebox(user.getcoursesToTeach());
 			
 			}
     	catch(Exception e) {

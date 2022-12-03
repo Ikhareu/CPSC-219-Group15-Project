@@ -9,7 +9,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -37,7 +38,7 @@ public class FindStudensController {
 	
     private Users user;
     
-    
+
 
     public Users_List userList = new Users_List();
 	
@@ -91,16 +92,36 @@ public class FindStudensController {
 	
 
 	
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------  
+
+	
+
+	private ObservableList<String> test = FXCollections.observableArrayList("","");
+    
+	
+	@FXML
+    private ChoiceBox<String> courseTeachChoiceBox= new ChoiceBox<String>(test);
+	
+	
+	
+	public void setChoicebox(ArrayList <String> courses) {
+
+		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
+		
+		courseTeachChoiceBox.setItems(setupList);
+	}
+	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	//Find Students
+	
+	
+	
 	
     @FXML
     private VBox findStudentPageVbox;
 	
-	
-	@FXML
-    private ChoiceBox<String> courseTeachChoiceBox;
-	
+
 	
 	@FXML
     void actionFindStudents(ActionEvent event) {
@@ -109,6 +130,7 @@ public class FindStudensController {
 		String courseToFind="";
 		try {
 			courseToFind=courseTeachChoiceBox.getValue();
+			System.out.println("yey");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

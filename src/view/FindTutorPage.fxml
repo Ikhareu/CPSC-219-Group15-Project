@@ -10,7 +10,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
             <Label text="Find students who can help with:" />
-            <ChoiceBox fx:id="courseTeachChoiceBox" prefWidth="150.0" />
+            <ChoiceBox fx:id="courseLearnChoiceBox" prefWidth="150.0" />
             <Button mnemonicParsing="false" onAction="#actionFindTeachers" text="Find" />
          </children>
       </HBox>

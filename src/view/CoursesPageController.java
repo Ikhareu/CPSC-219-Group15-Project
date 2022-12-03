@@ -97,9 +97,17 @@ public class CoursesPageController {
 			
 		}
 		else {
-			for(String courseTeach: coursesToTeach) {
+			
+			for(int i=0; i<10; i++) {
 				HBox container= new HBox();
 				Label label= new Label("Course name:");
+				String courseTeach="";
+				try {
+				courseTeach=coursesToTeach.get(i);
+				}
+				catch(Exception e) {
+					
+				}
 				TextField courseTeachTxt= new TextField(courseTeach);
 
 				container.getChildren().addAll(label, courseTeachTxt);
@@ -109,7 +117,7 @@ public class CoursesPageController {
 			 
 		}
 	}
-    
+     
     
 
 	
@@ -122,7 +130,7 @@ public class CoursesPageController {
 		container.getChildren().addAll(label, courseTeachTxt);
 		userCoursesTeach.getChildren().add(container);
 		
-		
+		 
 
 	}
 	
@@ -133,7 +141,7 @@ public class CoursesPageController {
     private VBox userCoursesLearn;
     
     
-	public void addUserCoursesLearn() {
+	public void addUserCoursesLearn() { 
 
 		ArrayList <String> coursesToLearn = user.getcoursesToLearn();
 		
@@ -142,11 +150,18 @@ public class CoursesPageController {
 			
 		}
 		else {
-			for(String courseLearn: coursesToLearn) {
+			for(int i=0; i<10; i++) {
 				HBox container= new HBox();
 				Label label= new Label("Course name:");
+				String courseLearn="";
+				try {
+				courseLearn=coursesToLearn.get(i);
+				}
+				catch(Exception e) {
+					
+				}
+
 				TextField courseLearnTxt= new TextField(courseLearn);
-				 
 				container.getChildren().addAll(label, courseLearnTxt);
 				userCoursesLearn.getChildren().add(container);
 			}
