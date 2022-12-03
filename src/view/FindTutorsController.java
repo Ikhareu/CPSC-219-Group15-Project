@@ -1,36 +1,21 @@
 package view;
 
-
-
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-
 import java.io.FileInputStream;
 import java.util.ArrayList;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import objects.Users;
 import objects.Users_List;
 
-import javafx.event.ActionEvent;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.control.*;
-
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-
-public class FindPagesController {
-	
-	
+public class FindTutorsController {
 	
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
@@ -92,54 +77,8 @@ public class FindPagesController {
 	
 
 	
-	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
-	//Find Students
 	
-    @FXML
-    private VBox findStudentPageVbox;
-	
-	
-	@FXML
-    private ChoiceBox<String> courseTeachChoiceBox;
-	
-	
-	@FXML
-    void actionFindStudents(ActionEvent event) {
-		
-		
-		String courseToFind="";
-		try {
-			courseToFind=courseLearnChoiceBox.getValue();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		ArrayList <Users> Students = new ArrayList<Users>();
-		
-		Students = userList.getCourseStudents(courseToFind);
-		
-		for (Users indexUser: Students) {
-			
-			HBox container=new HBox();
-			Label fullName= new Label("Name: "+indexUser.getName());
-			Label email= new Label("Email:"+indexUser.getEmail());
-			Label phone= new Label("Phone number: "+indexUser.getPhone());
-			
-			container.getChildren().addAll(fullName,email,phone);
-			
-			findTutorPageVbox.getChildren().add(container);
-			
-			
-		}
-		
-		
-		
-		
-	}
-	
-
-	
-//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+//-------------------------------------------------------------------------------------------------------------------------------------------------    	
 //Find Tutor
 	
 	
@@ -148,7 +87,7 @@ public class FindPagesController {
 	
 	
 	@FXML
-    private ChoiceBox<String> courseLearnChoiceBox;
+    private ChoiceBox<String> courseLearnChoiceBox; // learn because these are the courses student need to learn
 	 
 	
 	
@@ -156,7 +95,7 @@ public class FindPagesController {
     void actionFindTeachers(ActionEvent event) {
 		String courseToFind="";
 		try {
-			courseToFind=courseTeachChoiceBox.getValue();
+			courseToFind=courseLearnChoiceBox.getValue();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -198,7 +137,9 @@ public class FindPagesController {
 			controllerTwo.setMyScene(scene);
 			controllerTwo.setUser(userList.getUser(1));
 			controllerTwo.setUserList(userList);
-			controllerTwo.loginUserSetup(userList.getUser(1));
+
+			controllerTwo.takeFocus();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -32,7 +32,8 @@ public class UserHomepageController {
 	private Scene myScene;
 	
 	private LoginController2 controllerLogin;
-	private FindPagesController controllerFind;
+	private FindStudensController controllerFindStudents;
+	private FindTutorsController controllerFindTutors;
 	private CoursesPageController controllerCourses;
 
     public void setPrimaryStage(Stage aStage) {
@@ -130,7 +131,8 @@ public class UserHomepageController {
     @FXML
     private Label userEmail;
     
-    
+  //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+  
    
     public void loginUserSetup(Users usr) {
     	idUser.setText(usr.getUserID()+"");
@@ -169,7 +171,8 @@ public class UserHomepageController {
     }
     
 
-	
+  //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+
 	
 	
 	
@@ -203,6 +206,7 @@ public class UserHomepageController {
 	}
 	
 	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
     @FXML
     void findTutor(ActionEvent event) {
@@ -211,13 +215,13 @@ public class UserHomepageController {
 			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml"));
 			Scene scene = new Scene(root,900,900);
 			
-			controllerFind = loader.getController();
-			controllerFind.setPrimaryStage(primaryStage);
-			controllerFind.setMyScene(scene);
-			controllerFind.setUser(user); 
-			controllerFind.setUserList(userList); 
-			
-			
+
+			controllerFindTutors = loader.getController();
+			controllerFindTutors.setPrimaryStage(primaryStage);
+			controllerFindTutors.setMyScene(scene);
+			controllerFindTutors.setUser(user); 
+			controllerFindTutors.setUserList(userList); 
+			controllerFindTutors.takeFocus();
 			
 			
 			
@@ -226,9 +230,9 @@ public class UserHomepageController {
     	catch(Exception e) {
     		e.printStackTrace();
     	}
-		controllerFind.takeFocus();
 
     }
+  //-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
     @FXML
     void findStudentAction(ActionEvent event) {
@@ -237,11 +241,15 @@ public class UserHomepageController {
 			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml"));
 			Scene scene = new Scene(root,900,900);
 			
-			controllerFind = loader.getController();
-			controllerFind.setPrimaryStage(primaryStage);
-			controllerFind.setMyScene(scene);
-			controllerFind.setUser(user); 
-			controllerFind.setUserList(userList); 
+			
+			controllerFindStudents = loader.getController();
+			controllerFindStudents.setPrimaryStage(primaryStage);
+			controllerFindStudents.setMyScene(scene);
+			controllerFindStudents.setUser(user); 
+			controllerFindStudents.setUserList(userList); 
+			controllerFindStudents.takeFocus();
+			
+			
 			}
     	catch(Exception e) {
     		e.printStackTrace();

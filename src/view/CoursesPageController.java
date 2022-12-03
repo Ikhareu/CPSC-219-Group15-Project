@@ -186,9 +186,12 @@ public class CoursesPageController {
 			controllerTwo.setUserList(userList);
 			controllerTwo.loginUserSetup(userList.getUser(1));
 
+			controllerTwo.takeFocus();
+			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} 
 		
 	}
     
