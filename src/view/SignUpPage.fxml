@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignUpController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignUpController">
 
    <children>
       <Label text="Sign Up">
@@ -26,7 +26,6 @@
       <TextField fx:id="nameTextField" promptText="Enter Name" />
       <TextField fx:id="phoneNumberTextField" promptText="Enter Phone Number" />
       <TextField fx:id="passwordTextField" promptText="Enter Password" />
-      <TextField fx:id="password2TextField" promptText="Repeat Password" />
       <Label text="By creating an account you agree to our Terms &amp; Privacy.">
          <font>
             <Font size="14.0" />

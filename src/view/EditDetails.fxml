@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditDetailsController">
+   <children>
+      <Label text="Edit Profile">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER_LEFT" prefHeight="381.0" prefWidth="640.0" spacing="20.0">
+         <children>
+            <Label fx:id="nameLabel" />
+            <Label text="Email Address">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailText">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="-10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Username">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameText">
+               <VBox.margin>
+                  <Insets top="-10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </TextField>
+            <Label text="Password">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="passwordText">
+               <VBox.margin>
+                  <Insets top="-10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </TextField>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="580.0">
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: red;" text="&lt; Back" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveChanges" style="-fx-background-color: lime;" text="Save Changes &gt;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </VBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets top="15.0" />
+   </padding>
+</VBox>

@@ -44,7 +44,7 @@
       </ChoiceBox>
       <Label layoutX="191.0" layoutY="151.0" text="Please select course you need help with." />
       <Button fx:id="checkButton" layoutX="251.0" layoutY="250.0" mnemonicParsing="false" onAction="#checkAction" text="Check for Tutor" />
-      <MenuButton fx:id="nameLabel" layoutX="487.0" layoutY="14.0" mnemonicParsing="false" text="Welcome">
+      <MenuButton fx:id="nameLabel" layoutX="487.0" layoutY="14.0" mnemonicParsing="false" text="My Account">
         <items>
           <MenuItem fx:id="editProfileButton" onAction="#editProfileAction" text="Edit Profile" />
           <MenuItem fx:id="logoutButton" onAction="#logoutAction" text="Logout" />
