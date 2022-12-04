@@ -18,13 +18,13 @@ public class Users_List {
 		userArray.remove(U1);
 	}
 	
-	public ArrayList<Users> getArray() {
+	public static ArrayList<Users> getArray() {
 		return userArray;
 	}
 	
-	public static boolean isValid(String username, String password) {
+	public static boolean isValid(String username, String password, ArrayList <Users> list) {
 		boolean answer = false;
-    	for (Users user : userArray) {
+    	for (Users user : list) {
     		if ((user.getName().equals(username)) && (user.getPassword().equals(password))) {
     			answer = true;
     			return true;

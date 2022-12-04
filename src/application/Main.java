@@ -20,10 +20,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			Scene scene = new Scene(root, 640, 480);
-			
 			LoginController2 controller = (LoginController2)loader.getController();
 			controller.setPrimaryStage(primaryStage);
 			controller.setMyScene(scene);
