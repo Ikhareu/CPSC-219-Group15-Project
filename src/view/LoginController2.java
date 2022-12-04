@@ -1,6 +1,7 @@
 package view;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import objects.Users;
 import objects.Users_List;
 
 public class LoginController2 {
+	Users_List u1 = new Users_List();
 	
 	@FXML
 	public Label everythingLabel;
@@ -57,35 +59,31 @@ public class LoginController2 {
     void loginAction(ActionEvent event) {
     	String username = loginUsername.getText();
     	String password = loginPassword.getText();
-    	
-    		try {
-    			if (Users_List.isValid(username, password, Users_List.getArray())) {
-	    	    	FXMLLoader loader = new FXMLLoader();
-	    			Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-	    			Scene scene = new Scene(homepagePane);
+    	ArrayList <Users> array = Users_List.getArray();
+    	try {
+    		if (isValid(username, password, array)) {
+	    	    FXMLLoader loader = new FXMLLoader();
+	    		Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+	    		Scene scene = new Scene(homepagePane);
 	    			
-	    			controllerTwo = loader.getController();
-	    			controllerTwo.setPrimaryStage(primaryStage);
-	    			controllerTwo.setMyScene(scene);
-	    			controllerTwo.setNextController(this);
-	        		controllerTwo.takeFocus();
-	        		loginUsername.clear();
-	        		loginPassword.clear();
+	    		controllerTwo = loader.getController();
+	    		controllerTwo.setPrimaryStage(primaryStage);
+	    		controllerTwo.setMyScene(scene);
+	    		controllerTwo.setNextController(this);
+	        	controllerTwo.takeFocus();
 	        		
-    			}
-        	}
-        	catch(Exception e) {
-        		e.printStackTrace();
-        	}
-    	
-
+	        		
+    		}
+        }
+        catch(Exception e) {
+        	e.printStackTrace();
+        }
+    	loginUsername.clear();
+    	loginPassword.clear();
     }
 
     @FXML
     void signUpAction(ActionEvent event) {
-    	if (Users_List.isValid("Charlie", "Charlie2017", Users_List.getArray())) {
-    		System.out.println("abcdef");
-    	}
     	try {
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
@@ -97,15 +95,23 @@ public class LoginController2 {
 			controllerOne.setNextController(this);
 			
 			controllerOne.takeFocus();
-			loginUsername.clear();
-    		loginPassword.clear();
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
-    	
+    	loginUsername.clear();
+		loginPassword.clear();
     }
     
-    
+    boolean isValid(String username, String password, ArrayList <Users> list) {
+		boolean answer = false;
+    	for (Users user : list) {
+    		if ((user.getName().equals(username)) && (user.getPassword().equals(password))) {
+    			answer = true;
+    			return true;
+    		}
+    	}
+    	return answer;
+    	}    
 }
 

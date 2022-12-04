@@ -6,31 +6,22 @@ public class Users_List {
 	private static ArrayList <Users> userArray = new ArrayList<Users>();
 	
 	public Users_List(){
-		Users ohiomah = new Users("Charlie", "0123456789", "Charlie2017");
-	    Users_List.addUser(ohiomah);
+		if (userArray == null) {
+			Users ohiomah = new Users("Charlie", "0123456789", "Charlie2017");
+			Users_List.addUser(ohiomah);
+		}
 	}
 	
 	public static void addUser(Users newUser) {
 		userArray.add(newUser);
 	}
 	
-	public void deleteUser(Users U1) {
+	public static void deleteUser(Users U1) {
 		userArray.remove(U1);
 	}
 	
 	public static ArrayList<Users> getArray() {
 		return userArray;
 	}
-	
-	public static boolean isValid(String username, String password, ArrayList <Users> list) {
-		boolean answer = false;
-    	for (Users user : list) {
-    		if ((user.getName().equals(username)) && (user.getPassword().equals(password))) {
-    			answer = true;
-    			return true;
-    		}
-    	}
-    	return answer;
-    	}
 
 }
