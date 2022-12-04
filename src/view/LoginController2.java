@@ -41,7 +41,7 @@ public class LoginController2 {
 	private Stage primaryStage;
 	private Scene myScene;
 	private SignUpController controllerOne;
-	private UserHomepageController controllerTwo;
+	private UserHomepageController controllerTwo = new UserHomepageController();
     
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -55,17 +55,21 @@ public class LoginController2 {
 		primaryStage.setScene(myScene);
 	}
 
+	
+	
     @FXML
     void loginAction(ActionEvent event) {
     	String username = loginUsername.getText();
     	String password = loginPassword.getText();
     	ArrayList <Users> array = Users_List.getArray();
     	try {
-    		if (isValid(username, password, array)) {
+    		if (isValid(username, password, array) != null) {
+    			Users user = isValid(username, password, array);
 	    	    FXMLLoader loader = new FXMLLoader();
 	    		Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
 	    		Scene scene = new Scene(homepagePane);
-	    			
+	    		
+	    		controllerTwo.setUser(user);
 	    		controllerTwo = loader.getController();
 	    		controllerTwo.setPrimaryStage(primaryStage);
 	    		controllerTwo.setMyScene(scene);
@@ -103,12 +107,12 @@ public class LoginController2 {
 		loginPassword.clear();
     }
     
-    boolean isValid(String username, String password, ArrayList <Users> list) {
-		boolean answer = false;
+    Users isValid(String username, String password, ArrayList <Users> list) {
+		Users answer = null;
     	for (Users user : list) {
     		if ((user.getName().equals(username)) && (user.getPassword().equals(password))) {
-    			answer = true;
-    			return true;
+    			answer = user;
+    			return user;
     		}
     	}
     	return answer;

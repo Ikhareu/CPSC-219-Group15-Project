@@ -1,19 +1,26 @@
 package view;
 
+import java.io.FileInputStream;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import objects.Users;
 
 public class UserHomepageController {
 	
 	private Stage primaryStage;
 	private Scene myScene;
-	private LoginController2 controllerThree;
+	private LoginController2 controllerOne;
+	private EditDetailsController controllerTwo;
+	private Users user;
 
     @FXML
     private ChoiceBox<String> courseChoiceBox;
@@ -30,20 +37,41 @@ public class UserHomepageController {
     @FXML
     private MenuButton nameLabel;
 
-    @FXML
+    public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	@FXML
     void checkAction(ActionEvent event) {
 
     }
 
     @FXML
     void editProfileAction(ActionEvent event) {
-
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox homepageVBox = loader.load(new FileInputStream("src/view/EditDetails.fxml"));
+    		Scene scene = new Scene(homepageVBox);
+    		
+    		controllerTwo = loader.getController();
+    		controllerTwo.setPrimaryStage(primaryStage);
+    		controllerTwo.setMyScene(scene);
+    		controllerTwo.setNextController(this);
+    		
+    		controllerTwo.takeFocus();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
     }
 
     @FXML
     void logoutAction(ActionEvent event) {
-    	if (controllerThree != null) {
-    		controllerThree.takeFocus();
+    	if (controllerOne != null) {
+    		controllerOne.takeFocus();
     	}
     }
     
@@ -56,7 +84,7 @@ public class UserHomepageController {
 	}
 	
 	public void setNextController(LoginController2 aController) {
-		controllerThree = aController;
+		controllerOne = aController;
 	}
 	
 	public void takeFocus() {

@@ -6,7 +6,7 @@ public class Users_List {
 	private static ArrayList <Users> userArray = new ArrayList<Users>();
 	
 	public Users_List(){
-		if (userArray == null) {
+		if (userArray.isEmpty()) {
 			Users ohiomah = new Users("Charlie", "0123456789", "Charlie2017");
 			Users_List.addUser(ohiomah);
 		}
