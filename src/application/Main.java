@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import view.LoginController2;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 
 public class Main extends Application {
@@ -15,9 +16,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
+			VBox root = loader.load(new FileInputStream("src/application/FirstPage.fxml"));
 			Scene scene = new Scene(root, 640, 480);
-			LoginController2 controller = (LoginController2)loader.getController();
+			FirstPageController controller = (FirstPageController)loader.getController();
 			controller.setPrimaryStage(primaryStage);
 			controller.setMyScene(scene);
 			
