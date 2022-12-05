@@ -20,6 +20,88 @@ public class Users {
 		setEmail(email);
 	}
 	
+	
+	public Users(String userInfo) {
+		int valueIndex=0;
+		
+		String course="";
+		String userName = "";
+		String userPhone= "";
+		String userPassword= "";
+		String userEmail= "";
+		
+		ArrayList <String> txtCoursesToLearn = new ArrayList<String>();
+		ArrayList <String> txtCoursesToTeach = new ArrayList<String>();
+		
+		for (int i = 0; i<userInfo.length(); i++) {
+
+			if (userInfo.charAt(i)!='|' && valueIndex==0) {
+				userName=userName+userInfo.charAt(i);
+			}
+			
+			if ((userInfo.charAt(i)=='|' && valueIndex==0)) valueIndex=1;
+			
+			
+			if (userInfo.charAt(i)!='|' && valueIndex==1) {
+				userEmail=userEmail+userInfo.charAt(i);
+			}
+			if ((userInfo.charAt(i)=='|' && valueIndex==1)) valueIndex=2;
+
+			
+			if (userInfo.charAt(i)!='|' && valueIndex==2) {
+				userPassword=userPassword+userInfo.charAt(i);
+			}
+			if ((userInfo.charAt(i)=='|' && valueIndex==2)) valueIndex=3;
+			
+			
+
+			if (userInfo.charAt(i)!='|' && valueIndex==3) {
+				userPhone=userPhone+userInfo.charAt(i);
+			}
+			if ((userInfo.charAt(i)=='|' && valueIndex==3)) valueIndex=4;
+		
+			
+
+			if ((userInfo.charAt(i)=='|' && valueIndex==4)) valueIndex=5;
+			course="";
+			if (valueIndex==4 &&  userInfo.charAt(i)!='|') {
+				if (userInfo.charAt(i)!='+') {
+					course=course+userInfo.charAt(i);
+				}
+				if (userInfo.charAt(i)=='+') {
+					txtCoursesToLearn.add(course);
+					course="";
+				}
+			}
+			
+			course="";
+			if (valueIndex == 5 && userInfo.charAt(i) != '|') {
+				if (userInfo.charAt(i) != '+') {
+					course = course + userInfo.charAt(i);
+				}
+				if (userInfo.charAt(i) == '+') {
+					txtCoursesToTeach.add(course);
+					course = "";
+
+				}
+
+			}
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 	public ArrayList <String> getcoursesToLearn(){
 		return(coursesToLearn);
 	}

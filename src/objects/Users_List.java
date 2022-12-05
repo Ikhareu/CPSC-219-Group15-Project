@@ -1,9 +1,50 @@
 package objects;
 
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.util.ArrayList;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 
 
 public class Users_List {
+	
+	
+	public void getUserListFromTxt() {
+		
+		
+		
+		
+		
+		try { 
+	        // Passing the path to the file as a parameter
+	        FileReader fr = new FileReader(
+	            "C:\\Users\\pankaj\\Desktop\\test.txt");
+	 
+	        // Declaring loop variable
+	        int i;
+	        // Holds true till there is nothing to read
+	        while ((i = fr.read()) != -1)
+	 
+	            // Print all the content of a file
+	            System.out.print((char)i);
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public Users_List(){
 		Users ohiomah = new Users("Ohiomah", "5875003780l", "Ohiomah2017","ohimasEmail");
