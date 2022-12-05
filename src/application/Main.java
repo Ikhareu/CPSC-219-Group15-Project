@@ -1,18 +1,13 @@
 package application;
 	
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
 
+import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import view.LoginController2;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 
 public class Main extends Application {
@@ -30,16 +25,6 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");
 			primaryStage.show();
-			
-			File file = new File("usersList.txt");
-			if (file.length() == 0) {
-				BufferedWriter writer = new BufferedWriter(new FileWriter("usersList.txt"));
-				writer.write("Ohiomah 5875003780 Ohiomah2017\n");
-				writer.close();
-			}
-			
-			
-
 			
 		} catch(Exception e) {
 			e.printStackTrace();
