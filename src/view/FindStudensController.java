@@ -4,6 +4,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -136,12 +137,14 @@ public class FindStudensController {
 		}
 		
 		ArrayList <Users> Students = new ArrayList<Users>();
+		findStudentPageVbox=new VBox();
 		
 		Students = userList.getCourseStudents(courseToFind);
 		
 		for (Users indexUser: Students) {
 			
-			HBox container=new HBox();
+			HBox container=new HBox(50);
+			container.setAlignment(Pos.CENTER);
 			Label fullName= new Label("Name: "+indexUser.getName());
 			Label email= new Label("Email:"+indexUser.getEmail());
 			Label phone= new Label("Phone number: "+indexUser.getPhone());
@@ -176,6 +179,8 @@ public class FindStudensController {
 			controllerTwo.setMyScene(scene);
 			controllerTwo.setUser(userList.getUser(1));
 			controllerTwo.setUserList(userList);
+
+			controllerTwo.loginUserSetup(userList.getUser(1));
 			controllerTwo.takeFocus();
 			
 

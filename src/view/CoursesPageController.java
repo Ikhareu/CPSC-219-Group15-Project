@@ -29,7 +29,9 @@ import javafx.stage.Stage;
 public class CoursesPageController {
 
     private Users user;
-    
+
+    private ArrayList<TextField> coursesLearnAfter= new ArrayList<TextField>();
+    private ArrayList<TextField> coursesTeachAfter= new ArrayList<TextField>();
     
 
     public Users_List userList = new Users_List();
@@ -109,6 +111,8 @@ public class CoursesPageController {
 					
 				}
 				TextField courseTeachTxt= new TextField(courseTeach);
+				coursesTeachAfter.add(courseTeachTxt);
+				
 
 				container.getChildren().addAll(label, courseTeachTxt);
 				userCoursesTeach.getChildren().add(container);
@@ -145,6 +149,7 @@ public class CoursesPageController {
 
 		ArrayList <String> coursesToLearn = user.getcoursesToLearn();
 		
+		
 		if (coursesToLearn.size()==0) {
 			Label nothingToLearn= new Label("You have not added any course you need help with");
 			
@@ -160,15 +165,17 @@ public class CoursesPageController {
 				catch(Exception e) {
 					
 				}
-
+				
 				TextField courseLearnTxt= new TextField(courseLearn);
+				
+				coursesLearnAfter.add(courseLearnTxt);
 				container.getChildren().addAll(label, courseLearnTxt);
 				userCoursesLearn.getChildren().add(container);
 			}
 		}
 	}
 
-	
+	 
 
 	@FXML
 	void addCoursesLearn(ActionEvent event) {
@@ -188,12 +195,37 @@ public class CoursesPageController {
 	@FXML
     void goHomePage(ActionEvent event) {
 		
+		Users usr = userList.getUser(1);
+
+		ArrayList<String> coursesToLearnGoHome = new ArrayList<String>();
+		ArrayList<String> coursesToTeachGoHome = new ArrayList<String>();
+		for (TextField courseTeachTXT : coursesTeachAfter) {
+			if (courseTeachTXT.getText() != "") {
+				coursesToTeachGoHome.add(courseTeachTXT.getText());
+			}
+		}
+		for (TextField courseLearnTXT : coursesLearnAfter) {
+			if (courseLearnTXT.getText() != "") {
+				coursesToLearnGoHome.add(courseLearnTXT.getText());
+			}
+			
+			
+		}
+		userList.getUser(1).addCourses(coursesToLearnGoHome, coursesToTeachGoHome);
+		
+		
+		
+		for (Users id: userList.getArray())
+		System.out.println(id.getcoursesToTeach()+"|||"+id.getcoursesToLearn());
+		
+		
+		
 		
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
 			Scene scene = new Scene(root, 900, 900);
-
+			
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
@@ -201,7 +233,7 @@ public class CoursesPageController {
 			controllerTwo.setUserList(userList);
 			controllerTwo.loginUserSetup(userList.getUser(1));
 
-			controllerTwo.takeFocus();
+			controllerTwo.takeFocus();  
 			
 
 		} catch (Exception e) {

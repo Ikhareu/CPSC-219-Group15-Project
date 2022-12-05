@@ -51,12 +51,12 @@ public class Users_List {
 	public Users isValid(String username, String password) {
 		Users answer = null ;
     	for (Users user : userArray) {
-
-			System.out.println(user.getName());
-    		if ((user.getName() == username)) {
-    			answer=user; 
+			
+    		if ((user.getName().equalsIgnoreCase(username) && user.getPassword().equals(password))) {
+    			
+    			answer=user;  
     		}
-    		 
+
     	}
     	return (answer);
     }
@@ -89,7 +89,7 @@ public class Users_List {
 			for (String userCourse: userCoursesToCheck)	{
 				
 				
-				if (userCourse==coursename) {
+				if (userCourse.equalsIgnoreCase(coursename)) {
 					
 					usersHavingCourse.add(user);
 				
@@ -105,17 +105,24 @@ public class Users_List {
 	
 	public ArrayList <Users> getCourseTeachers(String coursename) {
 		ArrayList <Users> usersHavingCourse= new ArrayList <Users>();
-		
+
+		System.out.println(coursename);
 		for (Users user: userArray ) {
 			ArrayList <String> userCoursesToCheck= user.getcoursesToTeach();
+			System.out.print("Name: "+user.getName());
+			System.out.println("\\\\courses user teacher=>"+userCoursesToCheck);
+			
 			for (String userCourse: userCoursesToCheck)	{
-				if (userCourse==coursename) {
+				System.out.print("((("+
+			coursename+"|||"+userCourse+")))");
+				if (userCourse.equalsIgnoreCase(coursename)) {
+					System.out.println("IT WORKS");
 					usersHavingCourse.add(user);
 					
 				}
 			}
-		}
-		
+		} 
+		System.out.println("-------------------------------------------------");
 		return(usersHavingCourse);
 	}
 	

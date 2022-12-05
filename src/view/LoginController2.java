@@ -85,12 +85,9 @@ public class LoginController2 {
     @FXML
     void loginAction(ActionEvent event) {
     	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
-    	System.out.println(userCheck);
-    	System.out.println(loginUsername.getText());
-
-    	System.out.println(loginPassword.getText());
     	
-    	if (userCheck==null) { 
+    	
+    	if (userCheck!=null) { 
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
     			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
@@ -100,10 +97,10 @@ public class LoginController2 {
     			controllerTwo.setPrimaryStage(primaryStage);
     			controllerTwo.setMyScene(scene);
     			//controllerTwo.setNextController(this); 
-    			controllerTwo.setUser(userList.getUser(1));  
+    			controllerTwo.setUser(userCheck);  
     			controllerTwo.setUserList(userList); 
-    			controllerTwo.loginUserSetup(userList.getUser(1));
-    			
+    			controllerTwo.loginUserSetup(userCheck);
+    			 
     			
         	}
         	catch(Exception e) {

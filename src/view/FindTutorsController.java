@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -99,7 +100,7 @@ public class FindTutorsController {
 	}
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------    
-//Find Tutor
+//Find Tutor 
 	
 	
     @FXML
@@ -119,10 +120,12 @@ public class FindTutorsController {
 		ArrayList <Users> Teachers = new ArrayList<Users>();
 		
 		Teachers = userList.getCourseTeachers(courseToFind);
+		findTutorPageVbox=new VBox();
 		
 		for (Users indexUser: Teachers) {
 			
-			HBox container=new HBox();
+			HBox container=new HBox(50);
+			container.setAlignment(Pos.CENTER);
 			Label fullName= new Label("Name: "+indexUser.getName());
 			Label email= new Label("Email:"+indexUser.getEmail());
 			Label phone= new Label("Phone number: "+indexUser.getPhone());
@@ -154,6 +157,7 @@ public class FindTutorsController {
 			controllerTwo.setUser(userList.getUser(1));
 			controllerTwo.setUserList(userList);
 
+			controllerTwo.loginUserSetup(userList.getUser(1));
 			controllerTwo.takeFocus();
 			
 

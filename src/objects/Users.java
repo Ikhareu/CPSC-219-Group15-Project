@@ -9,6 +9,7 @@ public class Users {
 	private String phone;
 	private String name;
 	private String password;
+	private String email;
 	private int userID;
 
 	public Users(String userName, String userPhone, String userPassword, String email) {
@@ -54,11 +55,11 @@ public class Users {
 
 	
 	public String getEmail() {
-		return phone;
+		return email;
 	}
 
-	public void setEmail(String phone) {
-		this.phone = phone;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public String getName() {

@@ -131,45 +131,167 @@ public class UserHomepageController {
     @FXML
     private Label userEmail;
     
+    @FXML
+    private HBox saveHbox;
+
+    @FXML
+    private VBox editVbox;
+
+    @FXML
+    private VBox editVbox2;
+
+    @FXML
+    private VBox editVbox1;
+    
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
   
    
     public void loginUserSetup(Users usr) {
-    	idUser.setText(usr.getUserID()+"");
+    	System.out.println(("name"+usr.getName()));
+    	System.out.println(("phone"+usr.getPhone()));
+    	System.out.println(("email"+usr.getEmail()));
+    	System.out.println("password"+usr.getPassword());
+    	
+    	
+    	userNameLabel.setText(usr.getName());
     	userPhone.setText(usr.getPhone());
     	userEmail.setText(usr.getEmail());
     	
-    }
+    	passwordTXT.setText(usr.getPassword()); 
+		phoneTXT.setText(usr.getPhone());
+		emailTXT.setText(usr.getEmail());
+		
+    	passwordTXT.setVisible(false);
+		emailTXT.setVisible(false);
+		phoneTXT.setVisible(false);
+		saveChangesbutton.setVisible(false);
+	}
+    	
+    //------------------------------------------------------------------------------------------------------------------------------------------------- 
+    @FXML
+    private Label userNameLabel;
+
+    @FXML
+    private TextField passwordTXT;
+    @FXML
+    private TextField emailTXT;
+    @FXML
+    private TextField phoneTXT;
+    
     
     @FXML
-    void checkAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void editProfileAction(ActionEvent event) {
-
-    }
+    private Button editbutton;
     
     @FXML
-    void editEmail(ActionEvent event) {
+    private Button saveChangesbutton;
+    
 
-    }
-
+    //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+    
     @FXML
-    void editPhone(ActionEvent event) {
+    void saveChanges() {
+    	editbutton.setVisible(true);
+    	saveChangesbutton.setVisible(false);
+    	
+    	try {
+    		
+    		
+    		if (!passwordTXT.getText().equals("")) {
 
+    			String pasSTR=passwordTXT.getText();
+    			user.setPassword(pasSTR);
+    			}
+    	}
+    	catch(Exception e) {
+
+
+    		System.out.println("password empty");
+    		e.printStackTrace();
+    	}
+		
+		try {
+			if (!emailTXT.getText().equals("")) {
+			String emailSTR=emailTXT.getText();
+			user.setEmail(emailSTR);
+			}
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+
+    		System.out.println("email empty");
+    	}
+		
+		try {
+			if (!phoneTXT.getText().equals("")) {
+			String phoneSTR=phoneTXT.getText();
+			user.setPhone(phoneSTR);
+			}
+		}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    		System.out.println("phone empty");
+    	}
+
+    	userNameLabel.setText(user.getName()+"");
+    	
+    	userPhone.setText(user.getPhone());
+    	userEmail.setText(user.getEmail());
+    	//UserPassword.setText(user.getPassword());
+    	
+		passwordTXT.setVisible(false);
+		emailTXT.setVisible(false);
+		phoneTXT.setVisible(false);
+    	
     }
-
+    
+    
     @FXML
-    void editPassword(ActionEvent event) {
+	void editInfoAction(ActionEvent event) {
+    	saveChangesbutton.setVisible(true);
+    	editbutton.setVisible(false);
+
+		passwordTXT.setVisible(true);
+		emailTXT.setVisible(true); 
+		phoneTXT.setVisible(true);
+
+		
     }
 
+    
+    
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+    
     @FXML
     void logoutAction(ActionEvent event) {
+    	
+    	
+		try {
+	    	FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
+			Scene scene = new Scene(root,900,900);
+			
+			controllerLogin = loader.getController();
+			controllerLogin.setPrimaryStage(primaryStage);
+			controllerLogin.setMyScene(scene);
+			controllerLogin.setUserList(userList); 
+			
+			
+			
+			
+			
+			
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+		controllerLogin.takeFocus();
 
+    	
+    	
+    	
+    	
     }
-    
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
@@ -189,7 +311,7 @@ public class UserHomepageController {
 			controllerCourses.setMyScene(scene);
 			controllerCourses.setUser(user); 
 			controllerCourses.setUserList(userList); 
-			controllerCourses.addUserCoursesLearn(); 
+			controllerCourses.addUserCoursesLearn();  
 			controllerCourses.addUserCoursesTeach();
 			
 			
@@ -254,7 +376,7 @@ public class UserHomepageController {
 			controllerFindStudents.takeFocus();
 			controllerFindStudents.setChoicebox(user.getcoursesToTeach());
 			
-			}
+			} 
     	catch(Exception e) {
     		e.printStackTrace();
     	}
