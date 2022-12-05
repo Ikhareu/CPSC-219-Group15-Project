@@ -26,7 +26,7 @@ public class Tutors_List {
 	public ArrayList<Tutor> getCPSC_233() {
 		return CPSC_233;
 	}
-	public ArrayList<Tutor> getCPSC_251() {
+	public ArrayList<Tutor> getCPSC_253() {
 		return CPSC_251;
 	}
 	public ArrayList<Tutor> getCPSC_313() {
