@@ -11,6 +11,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import objects.Users;
 
@@ -73,6 +74,8 @@ public class UserHomepageController {
     	if (controllerOne != null) {
     		controllerOne.takeFocus();
     	}
+    	controllerOne.everythingLabel.setTextFill(Color.LIME);
+    	controllerOne.everythingLabel.setText("Logout successful");
     }
     
     public void setPrimaryStage(Stage aStage) {

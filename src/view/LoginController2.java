@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import objects.Users;
 import objects.Users_List;
@@ -76,7 +77,10 @@ public class LoginController2 {
 	    		controllerTwo.setNextController(this);
 	        	controllerTwo.takeFocus();
 	        		
-	        		
+    		}
+    		else {
+    			everythingLabel.setTextFill(Color.RED);
+    			everythingLabel.setText("Incorrect Username or Password");
     		}
         }
         catch(Exception e) {

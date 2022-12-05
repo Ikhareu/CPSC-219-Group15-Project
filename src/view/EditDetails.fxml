@@ -22,22 +22,6 @@
       <VBox alignment="CENTER_LEFT" prefHeight="381.0" prefWidth="640.0" spacing="20.0">
          <children>
             <Label fx:id="nameLabel" />
-            <Label text="Email Address">
-               <font>
-                  <Font name="Calibri Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="emailText">
-               <font>
-                  <Font name="Calibri" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets top="-10.0" />
-               </VBox.margin>
-            </TextField>
             <Label text="Username">
                <font>
                   <Font name="Calibri Bold" size="14.0" />
@@ -50,6 +34,22 @@
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>
+            </TextField>
+            <Label text="Phone Number">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="phoneText">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="-10.0" />
+               </VBox.margin>
             </TextField>
             <Label text="Password">
                <font>
