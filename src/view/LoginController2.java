@@ -1,6 +1,7 @@
 package view;
 
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -86,13 +87,8 @@ public class LoginController2 {
     @FXML
     void loginAction(ActionEvent event) throws IOException {
     	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
-    	userList.getUserListFromTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
-    	for (Users usr: userList.getArray()) {
-    		System.out.println(usr.getName()+"|"+usr.getEmail()+"|"+usr.getPhone()+"|"+usr.getPassword()+"|");
-    		System.out.println("courses to Tearn"+usr.getcoursesToLearn());
-    		System.out.println("courses to Teach"+usr.getcoursesToTeach());
-    	}
-    	
+    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\test");
+
     	if (userCheck!=null) { 
     		try {
     	    	FXMLLoader loader = new FXMLLoader();
@@ -102,7 +98,7 @@ public class LoginController2 {
     			controllerTwo = loader.getController();
     			controllerTwo.setPrimaryStage(primaryStage);
     			controllerTwo.setMyScene(scene);
-    			//controllerTwo.setNextController(this); 
+    			//controllerTwo.setNextController(this);  
     			controllerTwo.setUser(userCheck);  
     			controllerTwo.setUserList(userList); 
     			controllerTwo.loginUserSetup(userCheck);
@@ -115,22 +111,22 @@ public class LoginController2 {
     		controllerTwo.takeFocus();
     	}
     	else {
-    		System.out.println("boss");
-    	}
+     	}
 
     }
 
     @FXML
     void signUpAction(ActionEvent event) {
-    	try {
+    	try { 
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
 			Scene scene = new Scene(homepageVbox);
 			
 			controllerOne = loader.getController();
 			controllerOne.setPrimaryStage(primaryStage);
-			controllerOne.setMyScene(scene);
-			controllerOne.setNextController(this);
+			controllerOne.setMyScene(scene); 
+			controllerOne.setUserList(userList);
+			
     	}
     	catch(Exception e) {
     		e.printStackTrace();

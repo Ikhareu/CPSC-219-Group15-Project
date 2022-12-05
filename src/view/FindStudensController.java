@@ -109,8 +109,6 @@ public class FindStudensController {
 	public void setChoicebox(ArrayList <String> courses) {
 
 		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
-		
-		courseTeachChoiceBox.setItems(setupList);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
@@ -170,6 +168,7 @@ public class FindStudensController {
     void goHomePage(ActionEvent event) {
 		
 		try {
+			
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
 			Scene scene = new Scene(root, 900, 900);

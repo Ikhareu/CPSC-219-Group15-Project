@@ -21,6 +21,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.control.*;
 
 import javafx.scene.Scene;
@@ -63,7 +64,7 @@ public class UserHomepageController {
     
     
 
-    public Users_List userList = new Users_List();
+    public Users_List userList = new Users_List(); 
 	
 	
 	
@@ -268,7 +269,7 @@ public class UserHomepageController {
     	
 		try {
 	    	FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
+			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			Scene scene = new Scene(root,900,900);
 			
 			controllerLogin = loader.getController();

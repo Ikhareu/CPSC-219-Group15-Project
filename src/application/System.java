@@ -25,8 +25,8 @@ public class System extends Application {
 			
 			LoginController2 controller = (LoginController2)loader.getController();
 
-			Users_List allUsers= new Users_List();
-			controller.setUserList(allUsers);
+			Users_List userList= new Users_List();
+			controller.setUserList(userList);
 			
 			controller.setPrimaryStage(primaryStage); 
 			controller.setMyScene(scene);

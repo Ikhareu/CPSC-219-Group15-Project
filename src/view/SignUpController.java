@@ -1,7 +1,9 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
@@ -26,7 +28,12 @@ public class SignUpController {
 	
 	private Stage primaryStage;
 	private Scene myScene;
-	private LoginController2 controllerTwo;
+	private LoginController2 controllerLogin;
+	private SignUpController controllerOne;
+	private UserHomepageController controllerTwo;
+	
+	
+	
 	
     @FXML
     private TextField passwordTextField;
@@ -64,13 +71,29 @@ public class SignUpController {
 		userList= uList;
 		
 	}
-
+ 
     
     @FXML
     void cancelAction(ActionEvent event) {
-    	if (controllerTwo != null) { 
-    		controllerTwo.takeFocus();
+    	
+ 		try {
+ 			
+	    	FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+			Scene scene = new Scene(root,900,900);
+			
+			controllerLogin = loader.getController();
+			controllerLogin.setPrimaryStage(primaryStage);
+			controllerLogin.setMyScene(scene);
+			//controllerLogin.setNextController(this);  
+			controllerLogin.setUserList(userList); 
+			 
+			
     	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+ 		controllerLogin.takeFocus();
     }
 
     @FXML
@@ -78,17 +101,36 @@ public class SignUpController {
     	
     	String email=emailTextField.getText();
     	String password=passwordTextField.getText();
-    	String phone= phoneNumberTXT.getText();
+    	String phone= phoneNumberTXT.getText(); 
     	String name=nameTXT.getText();
     	
     	Users newUser= new Users(name, phone, password, email);
     	userList.addUser(newUser);
     	
-    	
+ 		try {
+ 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\test");
+	    	FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+			Scene scene = new Scene(root,900,900);
+			
+			controllerTwo = loader.getController();
+			controllerTwo.setPrimaryStage(primaryStage);
+			controllerTwo.setMyScene(scene);
+			//controllerTwo.setNextController(this);  
+			controllerTwo.setUser(newUser);  
+			controllerTwo.setUserList(userList); 
+			controllerTwo.loginUserSetup(newUser);
+			 
+			
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+		controllerTwo.takeFocus();
     	
 
     }
-	
+	 
     
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -96,10 +138,6 @@ public class SignUpController {
 	
 	public void setMyScene(Scene aScene) {
 		myScene = aScene;
-	}
-	
-	public void setNextController(LoginController2 aController) {
-		controllerTwo = aController;
 	}
 	
 	public void takeFocus() { 

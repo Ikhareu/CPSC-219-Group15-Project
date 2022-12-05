@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane fx:id="mainpaneForTest" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController2">
+<Pane fx:id="mainpaneForTest" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController2">
 	<children>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" height="480.0" stroke="BLACK" strokeType="INSIDE" width="640.0">
 			<fill>
@@ -31,7 +31,7 @@
 		</Rectangle>
       <VBox alignment="CENTER" layoutX="-4.0" prefHeight="480.0" prefWidth="640.0" spacing="15.0">
          <children>
-            <TextField fx:id="loginUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="150.0" promptText="Username" />
+            <TextField fx:id="loginUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="150.0" promptText="Email" />
             <PasswordField fx:id="loginPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Password" />
             <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="100.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -40,6 +40,5 @@
             </Button>
             <Hyperlink fx:id="createAccountHyperlink" onAction="#signUpAction" text="Create an Account" textFill="WHITE" />
          </children></VBox>
-      <Button mnemonicParsing="false" onAction="#testbutton" text="Button" />
 	</children>
 </Pane>
