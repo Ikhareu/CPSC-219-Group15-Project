@@ -1,7 +1,10 @@
 package objects;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
@@ -12,29 +15,17 @@ import javafx.scene.layout.VBox;
 public class Users_List {
 	
 	
-	public void getUserListFromTxt() {
+	public void getUserListFromTxt(String filename) throws IOException, IOException {
 		
 		
-		
-		
-		
-		try { 
-	        // Passing the path to the file as a parameter
-	        FileReader fr = new FileReader(
-	            "C:\\Users\\pankaj\\Desktop\\test.txt");
-	 
-	        // Declaring loop variable
-	        int i;
-	        // Holds true till there is nothing to read
-	        while ((i = fr.read()) != -1)
-	 
-	            // Print all the content of a file
-	            System.out.print((char)i);
-			
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		try 
+		(BufferedReader br = new BufferedReader(new FileReader(filename))) {
+		    String line;
+		    while ((line = br.readLine()) != null) {
+		       this.userArray.add(new Users(line));
+		    }
 		}
+		
 		
 		
 	}

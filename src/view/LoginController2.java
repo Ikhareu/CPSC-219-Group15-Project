@@ -1,6 +1,7 @@
 package view;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -83,9 +84,14 @@ public class LoginController2 {
 	
 	
     @FXML
-    void loginAction(ActionEvent event) {
+    void loginAction(ActionEvent event) throws IOException {
     	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
-    	
+    	userList.getUserListFromTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+    	for (Users usr: userList.getArray()) {
+    		System.out.println(usr.getName()+"|"+usr.getEmail()+"|"+usr.getPhone()+"|"+usr.getPassword()+"|");
+    		System.out.println("courses to Tearn"+usr.getcoursesToLearn());
+    		System.out.println("courses to Teach"+usr.getcoursesToTeach());
+    	}
     	
     	if (userCheck!=null) { 
     		try {

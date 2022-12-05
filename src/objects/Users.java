@@ -12,18 +12,18 @@ public class Users {
 	private String email;
 	private int userID;
 
-	public Users(String userName, String userPhone, String userPassword, String email) {
+	public Users(String userName, String userPhone, String userPassword, String userEmail) {
 		
 		setName(userName);
 		setPhone(userPhone);
 		setPassword(userPassword);
-		setEmail(email);
+		setEmail(userEmail);
 	}
 	
 	
 	public Users(String userInfo) {
 		int valueIndex=0;
-		
+		int arrayIndex=0;
 		String course="";
 		String userName = "";
 		String userPhone= "";
@@ -32,60 +32,77 @@ public class Users {
 		
 		ArrayList <String> txtCoursesToLearn = new ArrayList<String>();
 		ArrayList <String> txtCoursesToTeach = new ArrayList<String>();
+		txtCoursesToTeach.add("");
+		txtCoursesToLearn.add("");
 		
 		for (int i = 0; i<userInfo.length(); i++) {
-
+			
 			if (userInfo.charAt(i)!='|' && valueIndex==0) {
 				userName=userName+userInfo.charAt(i);
 			}
 			
-			if ((userInfo.charAt(i)=='|' && valueIndex==0)) valueIndex=1;
+			if ((userInfo.charAt(i)=='|' && valueIndex==0)) { valueIndex=1; continue;}
 			
 			
 			if (userInfo.charAt(i)!='|' && valueIndex==1) {
 				userEmail=userEmail+userInfo.charAt(i);
 			}
-			if ((userInfo.charAt(i)=='|' && valueIndex==1)) valueIndex=2;
+			if ((userInfo.charAt(i)=='|' && valueIndex==1)) { valueIndex=2; continue;}
 
 			
 			if (userInfo.charAt(i)!='|' && valueIndex==2) {
 				userPassword=userPassword+userInfo.charAt(i);
 			}
-			if ((userInfo.charAt(i)=='|' && valueIndex==2)) valueIndex=3;
+			if ((userInfo.charAt(i)=='|' && valueIndex==2)){ valueIndex=3; continue;}
 			
 			
 
 			if (userInfo.charAt(i)!='|' && valueIndex==3) {
 				userPhone=userPhone+userInfo.charAt(i);
 			}
-			if ((userInfo.charAt(i)=='|' && valueIndex==3)) valueIndex=4;
+			if ((userInfo.charAt(i)=='|' && valueIndex==3)) { valueIndex=4; continue;}
 		
 			
 
-			if ((userInfo.charAt(i)=='|' && valueIndex==4)) valueIndex=5;
-			course="";
+			if ((userInfo.charAt(i)=='|' && valueIndex==4)) { valueIndex=5;arrayIndex=0; continue;}
 			if (valueIndex==4 &&  userInfo.charAt(i)!='|') {
 				if (userInfo.charAt(i)!='+') {
-					course=course+userInfo.charAt(i);
+					txtCoursesToLearn.set(arrayIndex,txtCoursesToLearn.get(arrayIndex)+userInfo.charAt(i));
 				}
 				if (userInfo.charAt(i)=='+') {
-					txtCoursesToLearn.add(course);
-					course="";
+					txtCoursesToLearn.add("");
+					arrayIndex++;
 				}
 			}
 			
 			course="";
 			if (valueIndex == 5 && userInfo.charAt(i) != '|') {
 				if (userInfo.charAt(i) != '+') {
-					course = course + userInfo.charAt(i);
+
+					txtCoursesToTeach.set(arrayIndex,txtCoursesToTeach.get(arrayIndex)+userInfo.charAt(i));
+					
 				}
 				if (userInfo.charAt(i) == '+') {
-					txtCoursesToTeach.add(course);
-					course = "";
+					txtCoursesToTeach.add("");
+					arrayIndex++;
 
 				}
 
 			}
+			setName(userName);
+			setPhone(userPhone);
+			setPassword(userPassword);
+			setEmail(userEmail);
+			addCourses(txtCoursesToLearn, txtCoursesToTeach);
+			System.out.println(userName);
+			System.out.println(userEmail);
+			System.out.println(userPassword);
+			System.out.println(userPhone);
+			System.out.println(txtCoursesToLearn);
+			System.out.println(txtCoursesToTeach);
+			
+			
+			
 			
 			
 			
