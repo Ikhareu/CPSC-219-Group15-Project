@@ -167,28 +167,50 @@ public class Users {
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
 
+
 	public String getPhone() {
-		return phone;
+		try {
+			return this.phone;
+		}catch (NullPointerException npe) {
+			return ("Error; No phone number");
+		}
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone(String numPhone) {
+		try {
+			this.phone = numPhone;
+		}catch (NullPointerException npe) {	
+		}
 	}
 
 	public String getEmail() {
-		return email;
+		try {
+			return this.email;
+		}catch (NullPointerException npe) {
+			return ("Error; no email");
+		}
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	public void setEmail(String emailAdress) {
+		try {
+			this.email = emailAdress;
+		}catch (NullPointerException npe) {
+		}
+	}	
+		
 	public String getName() {
-		return name;
+		try {
+			return this.name;
+		}catch (NullPointerException npe) {
+			return ("Error; no name");
+		}
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String userName) {
+		try {
+			this.name = userName;
+		}catch (NullPointerException npe) {
+		}
 	}
 
 	public String getPassword() {
