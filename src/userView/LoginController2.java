@@ -1,8 +1,9 @@
-package view;
+package userView;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
+import application.FirstPageController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +44,7 @@ public class LoginController2 {
 	private Scene myScene;
 	private SignUpController controllerOne;
 	private UserHomepageController controllerTwo = new UserHomepageController();
+	private FirstPageController controllerThree;
     
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -50,6 +52,10 @@ public class LoginController2 {
 	
 	public void setMyScene(Scene aScene) {
 		myScene = aScene;
+	}
+	
+	public void setNextController(FirstPageController aController) {
+		controllerThree = aController;
 	}
 	
 	public void takeFocus() {
@@ -67,7 +73,7 @@ public class LoginController2 {
     		if (isValid(username, password, array) != null) {
     			Users user = isValid(username, password, array);
 	    	    FXMLLoader loader = new FXMLLoader();
-	    		Pane homepagePane = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+	    		Pane homepagePane = loader.load(new FileInputStream("src/userView/UserHomepage.fxml"));
 	    		Scene scene = new Scene(homepagePane);
 	    		
 	    		controllerTwo.setUser(user);
@@ -94,7 +100,7 @@ public class LoginController2 {
     void signUpAction(ActionEvent event) {
     	try {
 	    	FXMLLoader loader = new FXMLLoader();
-			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
+			VBox homepageVbox = loader.load(new FileInputStream("src/userView/SignUpPage.fxml"));
 			Scene scene = new Scene(homepageVbox);
 			
 			controllerOne = loader.getController();

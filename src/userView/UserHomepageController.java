@@ -1,4 +1,4 @@
-package view;
+package userView;
 
 import java.io.FileInputStream;
 
@@ -55,7 +55,7 @@ public class UserHomepageController {
     void editProfileAction(ActionEvent event) {
     	try {
     		FXMLLoader loader = new FXMLLoader();
-    		VBox homepageVBox = loader.load(new FileInputStream("src/view/EditDetails.fxml"));
+    		VBox homepageVBox = loader.load(new FileInputStream("src/userView/EditDetails.fxml"));
     		Scene scene = new Scene(homepageVBox);
     		
     		controllerTwo = loader.getController();

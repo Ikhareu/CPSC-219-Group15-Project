@@ -5,6 +5,6 @@ module OnlineHouseRentingSystem {
 	requires javafx.graphics;
 
 	opens application to javafx.graphics, javafx.fxml;
-	opens view to javafx.graphics, javafx.fxml;
+	opens userView to javafx.graphics, javafx.fxml;
 	
 }

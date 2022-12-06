@@ -11,7 +11,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/JavaFX/javafx-sdk-16/lib/javafx.fxml.jar" rootpath="." sourcepath="C:/JavaFX/javafx-sdk-16/lib/src.zip">
+	<classpathentry kind="lib" path="C:/JavaFX/javafx-sdk-16/lib/javafx.fxml.jar" sourcepath="C:/JavaFX/javafx-sdk-16/lib/src.zip">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -21,7 +21,7 @@
 			<accessrule kind="discouraged" pattern="netscape/javascript/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/JavaFX/javafx-sdk-16/lib/javafx.graphics.jar" rootpath="." sourcepath="C:/JavaFX/javafx-sdk-16/lib/src.zip">
+	<classpathentry kind="lib" path="C:/JavaFX/javafx-sdk-16/lib/javafx.graphics.jar" sourcepath="C:/JavaFX/javafx-sdk-16/lib/src.zip">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

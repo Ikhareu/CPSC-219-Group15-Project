@@ -1,7 +1,6 @@
-package view;
+package userView;
 
 import javafx.event.ActionEvent;
-import view.LoginController2;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import objects.Users;
 import objects.Users_List;
+import userView.LoginController2;
 
 public class SignUpController {
 	
