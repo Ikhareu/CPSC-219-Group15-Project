@@ -83,11 +83,10 @@ public class FindTutorsController {
 	
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 
-	private ObservableList<String> test = FXCollections.observableArrayList("","");
     
 	
 	@FXML
-	private ChoiceBox<String> courseLearnChoiceBox=new ChoiceBox<String>(test);; // learn because these are the courses student need to learn
+	private ChoiceBox<String> courseLearnChoiceBox;// learn because these are the courses student need to learn
 
 	public void setChoicebox(ArrayList<String> courses) {
 //		for (String course : courses) {
@@ -120,19 +119,18 @@ public class FindTutorsController {
 		ArrayList <Users> Teachers = new ArrayList<Users>();
 		
 		Teachers = userList.getCourseTeachers(courseToFind);
-		findTutorPageVbox=new VBox();
 		
-		for (Users indexUser: Teachers) {
+		for (Users indexUser: Teachers) { 
 			
-			HBox container=new HBox(50);
+			HBox container=new HBox(100);
 			container.setAlignment(Pos.CENTER);
 			Label fullName= new Label("Name: "+indexUser.getName());
 			Label email= new Label("Email:"+indexUser.getEmail());
 			Label phone= new Label("Phone number: "+indexUser.getPhone());
 			
 			container.getChildren().addAll(fullName,email,phone);
-			
-			findTutorPageVbox.getChildren().add(container);
+			HBox space=new HBox();
+			findTutorPageVbox.getChildren().addAll(container,space);
 			
 			
 		}
@@ -154,10 +152,10 @@ public class FindTutorsController {
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
-			controllerTwo.setUser(userList.getUser(1));
+			controllerTwo.setUser(user);
 			controllerTwo.setUserList(userList);
 
-			controllerTwo.loginUserSetup(userList.getUser(1));
+			controllerTwo.loginUserSetup(user);
 			controllerTwo.takeFocus();
 			
 

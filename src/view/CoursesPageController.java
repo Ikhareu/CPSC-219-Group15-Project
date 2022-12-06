@@ -136,30 +136,22 @@ public class CoursesPageController {
 	public void addUserCoursesLearn() { 
 
 		ArrayList <String> coursesToLearn = user.getcoursesToLearn();
-		
-		
-		if (coursesToLearn.size()==0) {
-			Label nothingToLearn= new Label("You have not added any course you need help with");
-			
-		}
-		else {
-			for(int i=0; i<10; i++) {
-				HBox container= new HBox();
-				Label label= new Label("Course name:");
-				String courseLearn="";
-				try {
-				courseLearn=coursesToLearn.get(i);
-				}
-				catch(Exception e) {
-					
-				}
-				
-				TextField courseLearnTxt= new TextField(courseLearn);
-				
-				coursesLearnAfter.add(courseLearnTxt);
-				container.getChildren().addAll(label, courseLearnTxt);
-				userCoursesLearn.getChildren().add(container);
+		for(int i=0; i<10; i++) {
+			HBox container= new HBox();
+			Label label= new Label("Course name:");
+			String courseLearn="";
+			try {
+			courseLearn=coursesToLearn.get(i);
 			}
+			catch(Exception e) {
+				
+			}
+			
+			TextField courseLearnTxt= new TextField(courseLearn);
+			
+			coursesLearnAfter.add(courseLearnTxt);
+			container.getChildren().addAll(label, courseLearnTxt);
+			userCoursesLearn.getChildren().add(container);
 		}
 	}
 
@@ -182,11 +174,10 @@ public class CoursesPageController {
 	
 	@FXML
     void goHomePage(ActionEvent event) {
-		
-		Users usr = userList.getUser(1);
 
 		ArrayList<String> coursesToLearnGoHome = new ArrayList<String>();
 		ArrayList<String> coursesToTeachGoHome = new ArrayList<String>();
+		
 		for (TextField courseTeachTXT : coursesTeachAfter) {
 			if (courseTeachTXT.getText() != "") {
 				coursesToTeachGoHome.add(courseTeachTXT.getText());
@@ -196,17 +187,10 @@ public class CoursesPageController {
 			if (courseLearnTXT.getText() != "") {
 				coursesToLearnGoHome.add(courseLearnTXT.getText());
 			}
-			
-			
 		}
-		userList.getUser(1).addCourses(coursesToLearnGoHome, coursesToTeachGoHome);
 		
-		
-		
-		for (Users id: userList.getArray())
-		System.out.println(id.getcoursesToTeach()+"|||"+id.getcoursesToLearn());
-		
-		
+		user.addCourses(coursesToLearnGoHome, coursesToTeachGoHome);
+		System.out.println(user.getcoursesToTeach()+"|||"+user.getcoursesToLearn());
 		
 		
 		try {
@@ -219,9 +203,9 @@ public class CoursesPageController {
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
-			controllerTwo.setUser(userList.getUser(1));
+			controllerTwo.setUser(user);
 			controllerTwo.setUserList(userList);
-			controllerTwo.loginUserSetup(userList.getUser(1));
+			controllerTwo.loginUserSetup(user);
 
 			controllerTwo.takeFocus();  
 			

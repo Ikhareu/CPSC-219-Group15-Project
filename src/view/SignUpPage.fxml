@@ -19,7 +19,7 @@
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label text="Please fill in this form to create an account.">
+      <Label fx:id="signUpLabel" text="Please fill in this form to create an account.">
          <font>
             <Font size="14.0" />
          </font></Label>
