@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.signupcontroller">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignUpController">
 
    <children>
       <Label text="Sign Up">
@@ -17,34 +16,32 @@
             <Insets top="10.0" />
          </VBox.margin>
          <font>
-            <Font name="Segoe UI Bold" size="18.0" />
+            <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </Label>
-      <Label text="Please fill in this form to create an account." />
-      <Line startX="350.0" />
-      <Label text="Email">
+      <Label text="Please fill in this form to create an account.">
          <font>
-            <Font name="Segoe UI Bold" size="13.0" />
-         </font>
-      </Label>
-      <TextField promptText="Enter Email" />
-      <Label text="Password">
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="nameTXT" promptText="Enter Full Name" />
+      <TextField fx:id="phoneNumberTXT" promptText="Enter Phone Number" />
+      <TextField fx:id="emailTextField" promptText="Enter Email Address" />
+      <TextField fx:id="passwordTextField" promptText="Enter Password" />
+      <TextField fx:id="password2TextField" promptText="Repeat Password" />
+      <Label text="By creating an account you agree to our Terms &amp; Privacy.">
          <font>
-            <Font name="Segoe UI Bold" size="13.0" />
-         </font>
-      </Label>
-      <TextField promptText="Enter Password" />
-      <Label text="Repeat Password">
-         <font>
-            <Font name="Segoe UI Bold" size="13.0" />
-         </font>
-      </Label>
-      <TextField promptText="Repeat Password" />
-      <Label text="By creating an account you agree to our Terms &amp; Privacy." />
+            <Font size="14.0" />
+         </font></Label>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: red;" text="Cancel" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: lime;" text="Sign Up" textFill="WHITE" />
+            <Button fx:id="cancelButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#cancelAction" prefWidth="100.0" style="-fx-background-color: red;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpAction" prefWidth="100.0" style="-fx-background-color: lime;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

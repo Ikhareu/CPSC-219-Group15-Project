@@ -1,47 +1,172 @@
 package objects;
 
 import java.util.ArrayList;
-import javafx.scene.control.TextField;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Users {
-	private ArrayList <String> coursesToLearn = new ArrayList<String>();
-	private ArrayList <String> coursesToTeach = new ArrayList<String>();
 	
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	private ArrayList<String> coursesToLearn = new ArrayList<String>();
+	private ArrayList<String> coursesToTeach = new ArrayList<String>();
+
 	private String phone;
-	private String email;
 	private String name;
+	private String password;
+	private String email;
+	private int userID;
 
-	public Users(String userName, String userEmail, String userPhone) {
-		//phone = fxid:inputPhone;
-		//email = fxid:inputEmail;
-		//name  = fxid:inputName;
+	public Users(String userName, String userPhone, String userPassword, String userEmail) {
+
 		setName(userName);
-		setEmail(userEmail);
 		setPhone(userPhone);
+		setPassword(userPassword);
+		setEmail(userEmail);
 	}
 
-	public ArrayList <String> getcoursesToLearn(){
-		return(coursesToLearn);
-	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
-	public ArrayList <String> getcoursesToTeach(){
-		return(coursesToTeach);
-	}
+	public Users(String userInfo) {
+		int valueIndex = 0;
+		int arrayIndex = 0;
+		String course = "";
+		String userName = "";
+		String userPhone = "";
+		String userPassword = "";
+		String userEmail = "";
 
-	public void addCourses(ArrayList <String> classesToLearn, ArrayList <String> classesToTeach) {
-		/*
-		coursesToLearn=CoursesToLearn;
-		coursesToTeach=CoursesToTeach;
-		*/
-		int count =0;
-		while (count < classesToLearn.size()) {
-			coursesToLearn.add(classesToLearn.get(count));
+		ArrayList<String> txtCoursesToLearn = new ArrayList<String>();
+		ArrayList<String> txtCoursesToTeach = new ArrayList<String>();
+		txtCoursesToTeach.add("");
+		txtCoursesToLearn.add("");
+
+		for (int i = 0; i < userInfo.length(); i++) {
+
+			if (userInfo.charAt(i) != '|' && valueIndex == 0) {
+				userName = userName + userInfo.charAt(i);
+			}
+
+			if ((userInfo.charAt(i) == '|' && valueIndex == 0)) {
+				valueIndex = 1;
+				continue;
+			}
+
+			if (userInfo.charAt(i) != '|' && valueIndex == 1) {
+				userEmail = userEmail + userInfo.charAt(i);
+			}
+			if ((userInfo.charAt(i) == '|' && valueIndex == 1)) {
+				valueIndex = 2;
+				continue;
+			}
+
+			if (userInfo.charAt(i) != '|' && valueIndex == 2) {
+				userPassword = userPassword + userInfo.charAt(i);
+			}
+			if ((userInfo.charAt(i) == '|' && valueIndex == 2)) {
+				valueIndex = 3;
+				continue;
+			}
+
+			if (userInfo.charAt(i) != '|' && valueIndex == 3) {
+				userPhone = userPhone + userInfo.charAt(i);
+			}
+			if ((userInfo.charAt(i) == '|' && valueIndex == 3)) {
+				valueIndex = 4;
+				continue;
+			}
+
+			if ((userInfo.charAt(i) == '|' && valueIndex == 4)) {
+				valueIndex = 5;
+				arrayIndex = 0;
+				continue;
+			}
+			if (valueIndex == 4 && userInfo.charAt(i) != '|') {
+				if (userInfo.charAt(i) != '+') {
+					txtCoursesToLearn.set(arrayIndex, txtCoursesToLearn.get(arrayIndex) + userInfo.charAt(i));
+				}
+				if (userInfo.charAt(i) == '+') {
+					txtCoursesToLearn.add("");
+					arrayIndex++;
+				}
+			}
+
+			course = "";
+			if (valueIndex == 5 && userInfo.charAt(i) != '|') {
+				if (userInfo.charAt(i) != '+') {
+
+					txtCoursesToTeach.set(arrayIndex, txtCoursesToTeach.get(arrayIndex) + userInfo.charAt(i));
+
+				}
+				if (userInfo.charAt(i) == '+') {
+					txtCoursesToTeach.add("");
+					arrayIndex++;
+				}
+			}
+
 		}
-		count = 0;
-		while (count < classesToTeach.size()) {
-			coursesToTeach.add(classesToTeach.get(count));
-		}
+
+		if (txtCoursesToTeach.size() > 1)
+			txtCoursesToTeach.remove(txtCoursesToTeach.size() - 1);
+
+		if (txtCoursesToLearn.size() > 1)
+			txtCoursesToLearn.remove(txtCoursesToLearn.size() - 1);
+		setName(userName);
+		setPhone(userPhone);
+		setPassword(userPassword);
+		setEmail(userEmail);
+		addCourses(txtCoursesToLearn, txtCoursesToTeach);
+
 	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+	public ArrayList<String> getcoursesToLearn() {
+		return (coursesToLearn);
+	}
+
+	public ArrayList<String> getcoursesToTeach() {
+		return (coursesToTeach);
+	}
+
+
+
+	public void addCourses(ArrayList<String> CoursesToLearnP, ArrayList<String> CoursesToTeachP) {
+
+		ArrayList<String> CTL = new ArrayList<String>();
+		ArrayList<String> CTP = new ArrayList<String>();
+		
+		
+		if(CoursesToLearnP.size()>0) {
+			for (String str: CoursesToLearnP) {
+				if (str.length()>1) {
+					CTL.add(str);
+				}
+			}
+		}
+		if(CoursesToTeachP.size()>0) {
+			for (String str: CoursesToTeachP) {
+				if (str.length()>1) {
+					CTP.add(str);
+				}
+			}
+		}
+		
+		coursesToLearn = CTL;
+		coursesToTeach = CTP;
+
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	public void printUserInfo() {
+		System.out.println("name => "+name+"|||"+"email => "+email+"|||"+"phone => "+phone+"|||"+"password => "+password);
+		System.out.println("courses to Learn:"+coursesToLearn);
+		System.out.println("courses to Learn:"+coursesToTeach);
+		System.out.println("//------------------------------------------------------------------------------"); 
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+
 
 	public String getPhone() {
 		try {
@@ -87,4 +212,27 @@ public class Users {
 		}catch (NullPointerException npe) {
 		}
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void setUserID(int id) {
+		this.userID = id;
+
+	}
+
+	public int getUserID() {
+
+		return (userID);
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+	
+	
 }
