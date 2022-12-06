@@ -138,6 +138,17 @@ public class Users_List {
 		}
 		return (answer);
 	}
+	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
+	public boolean newUserGood(String email) {
+		boolean userGood=true;
+		for (Users user : userArray) {
+			if (user.getEmail().equalsIgnoreCase(email)) {
+				userGood = false;
+				return(userGood);
+			}
+		}
+		return (userGood);
+	}
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
 	public void printUserList() {
@@ -161,7 +172,7 @@ public class Users_List {
 		File usersTxt= new File(filename);
 		FileWriter writer = new FileWriter(filename);
 		 
-		System.out.println("number of users: " +numberOfUsers);
+		//System.out.println("number of users: " +numberOfUsers);
 		for (Users usr: userArray) {
  
     		if (firstline==false) writer.write(System.getProperty( "line.separator" ));

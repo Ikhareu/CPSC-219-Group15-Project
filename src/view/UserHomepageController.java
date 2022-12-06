@@ -303,6 +303,8 @@ public class UserHomepageController {
 	void coursepageaction(ActionEvent event) {
 		
 		try {
+
+	    	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/CoursesPage.fxml"));
 			Scene scene = new Scene(root,900,900);
@@ -336,6 +338,9 @@ public class UserHomepageController {
     @FXML
     void findTutor(ActionEvent event) {
     	try {
+
+        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+    		
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml"));
 			Scene scene = new Scene(root,900,900);
@@ -364,6 +369,8 @@ public class UserHomepageController {
     @FXML
     void findStudentAction(ActionEvent event) {
     	try {
+
+        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml"));
 			Scene scene = new Scene(root,900,900);
