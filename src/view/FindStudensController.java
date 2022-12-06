@@ -98,17 +98,17 @@ public class FindStudensController {
 
 	
 
-	private ObservableList<String> test = FXCollections.observableArrayList("","");
     
 	
 	@FXML
-    private ChoiceBox<String> courseTeachChoiceBox= new ChoiceBox<String>(test);
+    private ChoiceBox<String> courseTeachChoiceBox;
 	
 	
 	
 	public void setChoicebox(ArrayList <String> courses) {
-
+		System.out.println(courses);
 		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
+		courseTeachChoiceBox.setItems(setupList);
 	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
@@ -129,27 +129,31 @@ public class FindStudensController {
 		String courseToFind="";
 		try {
 			courseToFind=courseTeachChoiceBox.getValue();
-			System.out.println("yey");
+			System.out.println(courseToFind);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 		ArrayList <Users> Students = new ArrayList<Users>();
-		findStudentPageVbox=new VBox();
 		
 		Students = userList.getCourseStudents(courseToFind);
 		
 		for (Users indexUser: Students) {
 			
-			HBox container=new HBox(50);
+			HBox container=new HBox();
 			container.setAlignment(Pos.CENTER);
+			container.setSpacing(50);
 			Label fullName= new Label("Name: "+indexUser.getName());
 			Label email= new Label("Email:"+indexUser.getEmail());
 			Label phone= new Label("Phone number: "+indexUser.getPhone());
 			
 			container.getChildren().addAll(fullName,email,phone);
+			HBox space=new HBox();
 			
-			findStudentPageVbox.getChildren().add(container);
+			findStudentPageVbox.getChildren().addAll(container,space);
+			
+		
+			
 			
 			
 		}
@@ -176,10 +180,10 @@ public class FindStudensController {
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
-			controllerTwo.setUser(userList.getUser(1));
+			controllerTwo.setUser(user);
 			controllerTwo.setUserList(userList);
 
-			controllerTwo.loginUserSetup(userList.getUser(1));
+			controllerTwo.loginUserSetup(user);
 			controllerTwo.takeFocus();
 			
 

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
@@ -148,10 +149,6 @@ public class UserHomepageController {
   
    
     public void loginUserSetup(Users usr) {
-    	System.out.println(("name"+usr.getName()));
-    	System.out.println(("phone"+usr.getPhone()));
-    	System.out.println(("email"+usr.getEmail()));
-    	System.out.println("password"+usr.getPassword());
     	
     	
     	userNameLabel.setText(usr.getName());
@@ -190,7 +187,7 @@ public class UserHomepageController {
     //-------------------------------------------------------------------------------------------------------------------------------------------------   	
     
     @FXML
-    void saveChanges() {
+    void saveChanges() throws IOException {
     	editbutton.setVisible(true);
     	saveChangesbutton.setVisible(false);
     	
@@ -242,7 +239,8 @@ public class UserHomepageController {
 		passwordTXT.setVisible(false);
 		emailTXT.setVisible(false);
 		phoneTXT.setVisible(false);
-    	
+
+    	userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
     }
     
     
@@ -303,6 +301,8 @@ public class UserHomepageController {
 	void coursepageaction(ActionEvent event) {
 		
 		try {
+
+	    	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/CoursesPage.fxml"));
 			Scene scene = new Scene(root,900,900);
@@ -336,6 +336,9 @@ public class UserHomepageController {
     @FXML
     void findTutor(ActionEvent event) {
     	try {
+
+        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+    		
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml"));
 			Scene scene = new Scene(root,900,900);
@@ -347,7 +350,6 @@ public class UserHomepageController {
 			controllerFindTutors.setUser(user); 
 			controllerFindTutors.setUserList(userList); 
 			controllerFindTutors.takeFocus();
-
 			controllerFindTutors.setChoicebox(user.getcoursesToLearn());
 			
 			
@@ -364,6 +366,8 @@ public class UserHomepageController {
     @FXML
     void findStudentAction(ActionEvent event) {
     	try {
+
+        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml"));
 			Scene scene = new Scene(root,900,900);

@@ -82,43 +82,63 @@ public class Users_List {
 	public ArrayList<Users> getCourseStudents(String coursename) {
 		ArrayList<Users> usersHavingCourse = new ArrayList<Users>();
 
-		for (Users user : userArray) {
+		System.out.println("to find  "+coursename);
+		for (Users usr : userArray) {
+			
+			ArrayList<String> userCoursesToCheck = usr.getcoursesToLearn();
+//			System.out.print("Name: " + usr.getName());
+//			System.out.println("\\\\courses user teacher=>" + userCoursesToCheck);
 
-			ArrayList<String> userCoursesToCheck = user.getcoursesToLearn();
+			System.out.println("-----------------------------");
 
+			System.out.println("-----------------------------");
 			for (String userCourse : userCoursesToCheck) {
 
 				if (userCourse.equalsIgnoreCase(coursename)) {
 
-					usersHavingCourse.add(user);
+					usersHavingCourse.add(usr);
+
+					System.out.println("user found|| name:"+ usr.getName());
+
+
 
 				}
-
+ 
 			} 
-		}
 
+			System.out.println("-----------------------------");
+			System.out.println("-----------------------------");
+		}
+		System.out.println("search done students course:  "+coursename);
 		return (usersHavingCourse);
 	}
 
 	public ArrayList<Users> getCourseTeachers(String coursename) {
 		ArrayList<Users> usersHavingCourse = new ArrayList<Users>();
+		System.out.println("-----------------------------");
+		System.out.println("-----------------------------");
+		System.out.println("to find  "+coursename);
+		for (Users usr : userArray) {
+			ArrayList<String> userCoursesToCheck = usr.getcoursesToTeach();
+//			System.out.print("Name: " + usr.getName());
+//			System.out.println("\\\\courses user teacher=>" + userCoursesToCheck);
 
-		System.out.println(coursename);
-		for (Users user : userArray) {
-			ArrayList<String> userCoursesToCheck = user.getcoursesToTeach();
-			System.out.print("Name: " + user.getName());
-			System.out.println("\\\\courses user teacher=>" + userCoursesToCheck);
-
+			
 			for (String userCourse : userCoursesToCheck) {
-				System.out.print("(((" + coursename + "|||" + userCourse + ")))");
 				if (userCourse.equalsIgnoreCase(coursename)) {
-					System.out.println("IT WORKS");
-					usersHavingCourse.add(user);
+					
+					usersHavingCourse.add(usr);
+					System.out.println("user found|| name:"+ usr.getName());
 
 				}
 			}
+			
 		}
+		
+		System.out.println("search done tutors for:  "+coursename);
 		System.out.println("-------------------------------------------------");
+		System.out.println("-----------------------------");
+		System.out.println("-----------------------------");
 		return (usersHavingCourse);
 	}
 
@@ -127,16 +147,28 @@ public class Users_List {
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
 	public Users isValid(String email, String password) {
 		Users answer = null;
-		for (Users user : userArray) {
-//			System.out.println(username+"||"+user.getName());
-//			System.out.println(password+"||"+user.getPassword());
-//			System.out.println("---------------------------");
-			if ((user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password))) {
-				answer = user;
+		for (Users usr : userArray) {
+//			System.out.println(email+"|||"+usr.getEmail());
+//
+//			System.out.println(password+"|||"+usr.getPassword());
+//			System.out.println("----------------------------");
+			if ((usr.getEmail().equalsIgnoreCase(email) && usr.getPassword().equals(password))) {
+				answer = usr;
 				return(answer);
 			}
 		}
 		return (answer);
+	}
+	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
+	public boolean newUserGood(String email) {
+		boolean userGood=true;
+		for (Users user : userArray) {
+			if (user.getEmail().equalsIgnoreCase(email)) {
+				userGood = false;
+				return(userGood);
+			}
+		}
+		return (userGood);
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
@@ -161,7 +193,7 @@ public class Users_List {
 		File usersTxt= new File(filename);
 		FileWriter writer = new FileWriter(filename);
 		 
-		System.out.println("number of users: " +numberOfUsers);
+		//System.out.println("number of users: " +numberOfUsers);
 		for (Users usr: userArray) {
  
     		if (firstline==false) writer.write(System.getProperty( "line.separator" ));

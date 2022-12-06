@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
@@ -18,6 +19,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.*;
 
@@ -55,6 +57,8 @@ public class SignUpController {
 
     @FXML
     private TextField nameTXT; 
+    @FXML
+    private Label signUpLabel;
     
     
     
@@ -79,12 +83,12 @@ public class SignUpController {
  		try {
  			
 	    	FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			Scene scene = new Scene(root,900,900);
 			
 			controllerLogin = loader.getController();
 			controllerLogin.setPrimaryStage(primaryStage);
-			controllerLogin.setMyScene(scene);
+			controllerLogin.setMyScene(scene); 
 			//controllerLogin.setNextController(this);  
 			controllerLogin.setUserList(userList); 
 			 
@@ -92,42 +96,46 @@ public class SignUpController {
     	}
     	catch(Exception e) {
     		e.printStackTrace();
-    	}
+    	} 
  		controllerLogin.takeFocus();
     }
 
     @FXML
-    void signUpAction(ActionEvent event) {
+    void signUpAction(ActionEvent event) throws IOException {
     	
     	String email=emailTextField.getText();
     	String password=passwordTextField.getText();
     	String phone= phoneNumberTXT.getText(); 
     	String name=nameTXT.getText();
-    	
-    	Users newUser= new Users(name, phone, password, email);
-    	userList.addUser(newUser);
-    	
- 		try {
- 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\test");
-	    	FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root,900,900);
-			
-			controllerTwo = loader.getController();
-			controllerTwo.setPrimaryStage(primaryStage);
-			controllerTwo.setMyScene(scene);
-			//controllerTwo.setNextController(this);  
-			controllerTwo.setUser(newUser);  
-			controllerTwo.setUserList(userList); 
-			controllerTwo.loginUserSetup(newUser);
-			 
-			
-    	} 
-    	catch(Exception e) {
-    		e.printStackTrace();
-    	}
-		controllerTwo.takeFocus();
-    	
+
+		userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+ 		if (userList.newUserGood(email)) {
+ 			Users newUser= new Users(name, phone, password, email);
+ 	    	userList.addUser(newUser);
+ 			try {
+ 	 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+ 		    	FXMLLoader loader = new FXMLLoader();
+ 				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+ 				Scene scene = new Scene(root,900,900);
+ 				
+ 				controllerTwo = loader.getController();
+ 				controllerTwo.setPrimaryStage(primaryStage);
+ 				controllerTwo.setMyScene(scene);
+ 				//controllerTwo.setNextController(this);  
+ 				controllerTwo.setUser(newUser);  
+ 				controllerTwo.setUserList(userList); 
+ 				controllerTwo.loginUserSetup(newUser); 
+ 				 
+ 				
+ 	    	} 
+ 	    	catch(Exception e) {
+ 	    		e.printStackTrace();
+ 	    	}
+ 			controllerTwo.takeFocus();
+ 		}
+ 		else {
+ 			signUpLabel.setText("Account with that email has already been created. Use another email");
+ 		}
 
     }
 	 

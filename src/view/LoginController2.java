@@ -48,6 +48,9 @@ public class LoginController2 {
     @FXML
     private Hyperlink createAccountHyperlink;
     
+    @FXML
+    private Label wrongLoginLabel;
+    
     
 
 	private Stage primaryStage;
@@ -88,10 +91,10 @@ public class LoginController2 {
     @FXML
     void loginAction(ActionEvent event) throws IOException {
 
-    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\test");
+    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
     	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
-
-    	if (userCheck!=null) { 
+ 
+    	if  (userCheck!=null) { 
     		try {
     			userCheck.printUserInfo();
     			
@@ -115,6 +118,8 @@ public class LoginController2 {
     		controllerTwo.takeFocus();
     	}
     	else {
+    		wrongLoginLabel.setVisible(true);
+    		
      	}
 
     }
@@ -123,7 +128,9 @@ public class LoginController2 {
 	
     
     @FXML
-    void signUpAction(ActionEvent event) {
+    void signUpAction(ActionEvent event) throws IOException {
+
+    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
     	try { 
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
@@ -133,7 +140,7 @@ public class LoginController2 {
 			controllerOne.setPrimaryStage(primaryStage);
 			controllerOne.setMyScene(scene); 
 			controllerOne.setUserList(userList);
-			
+			 
     	}
     	catch(Exception e) {
     		e.printStackTrace();

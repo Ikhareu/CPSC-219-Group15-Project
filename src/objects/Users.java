@@ -61,7 +61,8 @@ public class Users {
 			}
 
 			if (userInfo.charAt(i) != '|' && valueIndex == 2) {
-				userPassword = userPassword + userInfo.charAt(i);
+
+				userPhone = userPhone + userInfo.charAt(i);
 			}
 			if ((userInfo.charAt(i) == '|' && valueIndex == 2)) {
 				valueIndex = 3;
@@ -69,7 +70,8 @@ public class Users {
 			}
 
 			if (userInfo.charAt(i) != '|' && valueIndex == 3) {
-				userPhone = userPhone + userInfo.charAt(i);
+
+				userPassword = userPassword + userInfo.charAt(i);
 			}
 			if ((userInfo.charAt(i) == '|' && valueIndex == 3)) {
 				valueIndex = 4;
