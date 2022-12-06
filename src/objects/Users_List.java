@@ -1,11 +1,15 @@
 package objects;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
@@ -16,18 +20,23 @@ public class Users_List {
 
 	private ArrayList<Users> userArray = new ArrayList<Users>();
 	private ArrayList<String> userArrayStrings = new ArrayList<String>();
-	private int numnberOfUsers = 0;
+	private int numberOfUsers = 0;
 
 	public void getUserListFromTxt(String filename) throws IOException, IOException {
-
+		numberOfUsers = 0;
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 			String line;
+			this.userArray=new ArrayList<Users>();
 			while ((line = br.readLine()) != null) {
 				if (userArrayStrings.contains(line))
-				userArrayStrings.add(line);
-				userArray.add(new Users(line));
-				numnberOfUsers++; 
+				this.userArrayStrings.add(line);
+				Users usr=new Users(line);
+				
+				usr.setUserID(numberOfUsers);
+				numberOfUsers++;
+				this.userArray.add(usr);
 			}
+
 		}
 	}
  
@@ -40,9 +49,9 @@ public class Users_List {
 
 
 	public void addUser(Users newUser) {
-		userArray.add(newUser);
-		this.numnberOfUsers++;
-		newUser.setUserID(numnberOfUsers);
+		this.userArray.add(newUser);
+		this.numberOfUsers++;
+		newUser.setUserID(numberOfUsers);
 	}
 
 	public void deleteUser(Users U1) {
@@ -116,20 +125,27 @@ public class Users_List {
 
 	
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
-	public Users isValid(String username, String password) {
+	public Users isValid(String email, String password) {
 		Users answer = null;
 		for (Users user : userArray) {
-			System.out.println(username+"||"+user.getName());
-			System.out.println(password+"||"+user.getPassword());
-			System.out.println("---------------------------");
-			if ((user.getName().equalsIgnoreCase(username) && user.getPassword().equals(password))) {
+//			System.out.println(username+"||"+user.getName());
+//			System.out.println(password+"||"+user.getPassword());
+//			System.out.println("---------------------------");
+			if ((user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password))) {
 				answer = user;
 				return(answer);
 			}
 		}
 		return (answer);
 	}
-	
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
+	public void printUserList() {
+		for (Users usr: userArray) {
+			usr.printUserInfo();
+			
+		}
+	}
 	
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
 	public void cleanUp(String filename) throws IOException, IOException {
@@ -140,12 +156,12 @@ public class Users_List {
 	public void saveUserListAsTxt(String filename) throws IOException, IOException {
 //
 		Boolean firstline=true;
-		
-		this.cleanUp(filename);
-		  
+		Path path = Paths.get(filename);
+		Files.delete(path);
+		File usersTxt= new File(filename);
 		FileWriter writer = new FileWriter(filename);
 		 
-		System.out.println(numnberOfUsers);
+		System.out.println("number of users: " +numberOfUsers);
 		for (Users usr: userArray) {
  
     		if (firstline==false) writer.write(System.getProperty( "line.separator" ));
@@ -165,20 +181,6 @@ public class Users_List {
 		writer.close();
 	}
 	
-	public void removeDuplicates()
-    {
-//  
-//        ArrayList<Users> newList = new ArrayList<Users>();
-//
-//    	Boolean duplicate=false;
-//        for (Users usr1 : userArray) {
-//        	
-//            for (Users usr2: newList) {
-//            	
-//            	
-//            }
-//        }
-//        this.userArray=newList;
-    }
+
 	
 }

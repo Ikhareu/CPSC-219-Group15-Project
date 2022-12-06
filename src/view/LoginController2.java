@@ -82,21 +82,25 @@ public class LoginController2 {
 		primaryStage.setScene(myScene); 
 	}
 
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
 	
     @FXML
     void loginAction(ActionEvent event) throws IOException {
-    	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
+
     	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\test");
+    	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
 
     	if (userCheck!=null) { 
     		try {
+    			userCheck.printUserInfo();
+    			
     	    	FXMLLoader loader = new FXMLLoader();
     			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
     			Scene scene = new Scene(root,900,900);
     			
     			controllerTwo = loader.getController();
-    			controllerTwo.setPrimaryStage(primaryStage);
+    			controllerTwo.setPrimaryStage(primaryStage); 
     			controllerTwo.setMyScene(scene);
     			//controllerTwo.setNextController(this);  
     			controllerTwo.setUser(userCheck);  
@@ -115,6 +119,9 @@ public class LoginController2 {
 
     }
 
+  //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+    
     @FXML
     void signUpAction(ActionEvent event) {
     	try { 

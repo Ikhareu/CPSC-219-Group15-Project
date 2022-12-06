@@ -122,7 +122,7 @@ public class SignUpController {
 			controllerTwo.loginUserSetup(newUser);
 			 
 			
-    	}
+    	} 
     	catch(Exception e) {
     		e.printStackTrace();
     	}

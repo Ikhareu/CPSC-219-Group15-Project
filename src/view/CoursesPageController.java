@@ -92,37 +92,25 @@ public class CoursesPageController {
     
 	public void addUserCoursesTeach() {
 
-		ArrayList <String> coursesToTeach = user.getcoursesToTeach();
-		
-		if (coursesToTeach.size()==0) {
-			Label nothingToTeach= new Label("You have not added any course you can others help with");
-			
-		}
-		else {
-			
-			for(int i=0; i<10; i++) {
-				HBox container= new HBox();
-				Label label= new Label("Course name:"); 
-				String courseTeach="";
-				try {
-				courseTeach=coursesToTeach.get(i);
-				}
-				catch(Exception e) {
-					
-				}
-				TextField courseTeachTxt= new TextField(courseTeach);
-				coursesTeachAfter.add(courseTeachTxt);
-				
+		ArrayList<String> coursesToTeach = user.getcoursesToTeach();
 
-				container.getChildren().addAll(label, courseTeachTxt);
-				userCoursesTeach.getChildren().add(container);
-				
+		for (int i = 0; i < 10; i++) {
+			HBox container = new HBox();
+			Label label = new Label("Course name:");
+			String courseTeach = "";
+			try {
+				courseTeach = coursesToTeach.get(i);
+			} catch (Exception e) {
+
 			}
-			 
+			TextField courseTeachTxt = new TextField(courseTeach);
+			coursesTeachAfter.add(courseTeachTxt);
+
+			container.getChildren().addAll(label, courseTeachTxt);
+			userCoursesTeach.getChildren().add(container);
+
 		}
 	}
-     
-    
 
 	
 	@FXML

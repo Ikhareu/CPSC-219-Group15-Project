@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class Users {
+	
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	private ArrayList<String> coursesToLearn = new ArrayList<String>();
 	private ArrayList<String> coursesToTeach = new ArrayList<String>();
 
@@ -21,6 +24,8 @@ public class Users {
 		setPassword(userPassword);
 		setEmail(userEmail);
 	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
 	public Users(String userInfo) {
 		int valueIndex = 0;
@@ -62,7 +67,7 @@ public class Users {
 				valueIndex = 3;
 				continue;
 			}
-   
+
 			if (userInfo.charAt(i) != '|' && valueIndex == 3) {
 				userPhone = userPhone + userInfo.charAt(i);
 			}
@@ -96,23 +101,16 @@ public class Users {
 				if (userInfo.charAt(i) == '+') {
 					txtCoursesToTeach.add("");
 					arrayIndex++;
-
 				}
-
 			}
-
-//			System.out.println(userName);
-//			System.out.println(userEmail);
-//			System.out.println(userPassword);
-//			System.out.println(userPhone);
-//			System.out.println(txtCoursesToLearn);
-//			System.out.println(txtCoursesToTeach); 
 
 		}
 
-		if (txtCoursesToTeach.size()>1) txtCoursesToTeach.remove(txtCoursesToTeach.size()-1);
-		
-		if (txtCoursesToLearn.size()>1) txtCoursesToLearn.remove(txtCoursesToLearn.size()-1);
+		if (txtCoursesToTeach.size() > 1)
+			txtCoursesToTeach.remove(txtCoursesToTeach.size() - 1);
+
+		if (txtCoursesToLearn.size() > 1)
+			txtCoursesToLearn.remove(txtCoursesToLearn.size() - 1);
 		setName(userName);
 		setPhone(userPhone);
 		setPassword(userPassword);
@@ -120,7 +118,9 @@ public class Users {
 		addCourses(txtCoursesToLearn, txtCoursesToTeach);
 
 	}
+
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
 	public ArrayList<String> getcoursesToLearn() {
 		return (coursesToLearn);
 	}
@@ -129,15 +129,7 @@ public class Users {
 		return (coursesToTeach);
 	}
 
-	public void setUserID(int id) {
-		this.userID = id;
 
-	}
-
-	public int getUserID() {
-
-		return (userID);
-	}
 
 	public void addCourses(ArrayList<String> CoursesToLearnP, ArrayList<String> CoursesToTeachP) {
 
@@ -164,6 +156,16 @@ public class Users {
 		coursesToTeach = CTP;
 
 	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	public void printUserInfo() {
+		System.out.println("name => "+name+"|||"+"email => "+email+"|||"+"phone => "+phone+"|||"+"password => "+password);
+		System.out.println("courses to Learn:"+coursesToLearn);
+		System.out.println("courses to Learn:"+coursesToTeach);
+		System.out.println("//------------------------------------------------------------------------------"); 
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
 
 	public String getPhone() {
 		return phone;
@@ -196,5 +198,19 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public void setUserID(int id) {
+		this.userID = id;
 
+	}
+
+	public int getUserID() {
+
+		return (userID);
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+	
+	
 }
