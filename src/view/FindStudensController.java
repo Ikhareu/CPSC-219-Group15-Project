@@ -137,7 +137,7 @@ public class FindStudensController {
 		ArrayList <Users> Students = new ArrayList<Users>();
 		
 		Students = userList.getCourseStudents(courseToFind);
-		VBox teachersContainer= new VBox(30);
+		VBox teachersContainer= new VBox();
 		teachersContainer.setAlignment(Pos.CENTER);
 		findStudentPageVbox.setAlignment(Pos.CENTER);
 		Label lbl=new Label("Students who need help with: "+courseToFind);

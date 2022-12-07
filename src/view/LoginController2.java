@@ -91,7 +91,7 @@ public class LoginController2 {
     @FXML
     void loginAction(ActionEvent event) throws IOException {
 
-    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+    	userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
     	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
  
     	if  (userCheck!=null) { 
@@ -130,7 +130,7 @@ public class LoginController2 {
     @FXML
     void signUpAction(ActionEvent event) throws IOException {
 
-    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+    	userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
     	try { 
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));

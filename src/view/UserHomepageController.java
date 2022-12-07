@@ -240,7 +240,7 @@ public class UserHomepageController {
 		emailTXT.setVisible(false);
 		phoneTXT.setVisible(false);
 
-    	userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+    	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
     }
     
     
@@ -302,7 +302,7 @@ public class UserHomepageController {
 		
 		try {
 
-	    	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+	    	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/CoursesPage.fxml"));
 			Scene scene = new Scene(root,900,900);
@@ -337,7 +337,7 @@ public class UserHomepageController {
     void findTutor(ActionEvent event) {
     	try {
 
-        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+        	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
     		
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml"));
@@ -367,7 +367,7 @@ public class UserHomepageController {
     void findStudentAction(ActionEvent event) {
     	try {
 
-        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+        	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml"));
 			Scene scene = new Scene(root,900,900);
