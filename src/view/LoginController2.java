@@ -49,7 +49,7 @@ public class LoginController2 {
     private Hyperlink createAccountHyperlink;
     
     @FXML
-    private Label wrongLoginLabel;
+    public Label wrongLoginLabel;
     
     
 

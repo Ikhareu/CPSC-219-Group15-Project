@@ -275,16 +275,14 @@ public class UserHomepageController {
 			controllerLogin.setMyScene(scene);
 			controllerLogin.setUserList(userList); 
 			
-			
-			
-			
-			
+			controllerLogin.takeFocus();
+			controllerLogin.wrongLoginLabel.setText("Logout Successful");
 			
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
-		controllerLogin.takeFocus();
+		
 
     	
     	
