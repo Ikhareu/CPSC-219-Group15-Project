@@ -20,7 +20,7 @@ public class System extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root, 900,900);
+			Scene scene = new Scene(root, 1280,720);
 			
 			
 			LoginController2 controller = (LoginController2)loader.getController();

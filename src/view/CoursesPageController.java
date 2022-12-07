@@ -195,10 +195,10 @@ public class CoursesPageController {
 		
 		try {
 
-	    	userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+	    	userList.saveUserListAsTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root, 900, 900);
+			Scene scene = new Scene(root, 1280, 720);
 			
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);

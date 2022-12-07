@@ -91,7 +91,7 @@ public class LoginController2 {
     @FXML
     void loginAction(ActionEvent event) throws IOException {
 
-    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+    	userList.getUserListFromTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
     	Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
  
     	if  (userCheck!=null) { 
@@ -100,7 +100,7 @@ public class LoginController2 {
     			
     	    	FXMLLoader loader = new FXMLLoader();
     			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-    			Scene scene = new Scene(root,900,900);
+    			Scene scene = new Scene(root,1280,720);
     			
     			controllerTwo = loader.getController();
     			controllerTwo.setPrimaryStage(primaryStage); 
@@ -130,11 +130,11 @@ public class LoginController2 {
     @FXML
     void signUpAction(ActionEvent event) throws IOException {
 
-    	userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+    	userList.getUserListFromTxt("C:\\Users\\ohiom\\git\\AnotherProject\\AllUsersTXTFILE.txt");
     	try { 
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox homepageVbox = loader.load(new FileInputStream("src/view/SignUpPage.fxml"));
-			Scene scene = new Scene(homepageVbox);
+			Scene scene = new Scene(homepageVbox,1280,720);
 			
 			controllerOne = loader.getController();
 			controllerOne.setPrimaryStage(primaryStage);

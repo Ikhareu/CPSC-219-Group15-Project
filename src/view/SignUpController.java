@@ -84,7 +84,7 @@ public class SignUpController {
  			
 	    	FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root,900,900);
+			Scene scene = new Scene(root,1280,720);
 			
 			controllerLogin = loader.getController();
 			controllerLogin.setPrimaryStage(primaryStage);
@@ -108,15 +108,15 @@ public class SignUpController {
     	String phone= phoneNumberTXT.getText(); 
     	String name=nameTXT.getText();
 
-		userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+		userList.getUserListFromTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
  		if (userList.newUserGood(email)) {
  			Users newUser= new Users(name, phone, password, email);
  	    	userList.addUser(newUser);
  			try {
- 	 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+ 	 			userList.saveUserListAsTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
  		    	FXMLLoader loader = new FXMLLoader();
  				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
- 				Scene scene = new Scene(root,900,900);
+ 				Scene scene = new Scene(root,1280,720);
  				
  				controllerTwo = loader.getController();
  				controllerTwo.setPrimaryStage(primaryStage);
@@ -125,13 +125,13 @@ public class SignUpController {
  				controllerTwo.setUser(newUser);  
  				controllerTwo.setUserList(userList); 
  				controllerTwo.loginUserSetup(newUser); 
- 				 
+ 				controllerTwo.takeFocus();
  				
  	    	} 
  	    	catch(Exception e) {
  	    		e.printStackTrace();
  	    	}
- 			controllerTwo.takeFocus();
+ 			
  		}
  		else {
  			signUpLabel.setText("Account with that email has already been created. Use another email");

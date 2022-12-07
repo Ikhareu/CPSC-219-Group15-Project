@@ -240,7 +240,7 @@ public class UserHomepageController {
 		emailTXT.setVisible(false);
 		phoneTXT.setVisible(false);
 
-    	userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+    	userList.saveUserListAsTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
     }
     
     
@@ -268,7 +268,7 @@ public class UserHomepageController {
 		try {
 	    	FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root,900,900);
+			Scene scene = new Scene(root,1280,720);
 			
 			controllerLogin = loader.getController();
 			controllerLogin.setPrimaryStage(primaryStage);
@@ -302,10 +302,10 @@ public class UserHomepageController {
 		
 		try {
 
-	    	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+	    	userList.saveUserListAsTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/CoursesPage.fxml"));
-			Scene scene = new Scene(root,900,900);
+			Scene scene = new Scene(root,1280,720);
 			
 			controllerCourses = loader.getController();
 			controllerCourses.setPrimaryStage(primaryStage);
@@ -337,7 +337,7 @@ public class UserHomepageController {
     void findTutor(ActionEvent event) {
     	try {
 
-        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+        	userList.saveUserListAsTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
     		
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml"));
@@ -367,10 +367,10 @@ public class UserHomepageController {
     void findStudentAction(ActionEvent event) {
     	try {
 
-        	userList.saveUserListAsTxt("C:\\Users\\dadada\\git\\CPSC-219-Group15-Project\\src\\objects\\AllUsersTXTFILE");
+        	userList.saveUserListAsTxt("C:\\\\Users\\\\ohiom\\\\git\\\\AnotherProject\\\\AllUsersTXTFILE.txt");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml"));
-			Scene scene = new Scene(root,900,900);
+			Scene scene = new Scene(root,1280,720);
 			
 			
 			controllerFindStudents = loader.getController();

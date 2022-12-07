@@ -147,7 +147,7 @@ public class FindTutorsController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root, 900, 900);
+			Scene scene = new Scene(root, 1280, 720);
  
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
