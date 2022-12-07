@@ -119,7 +119,12 @@ public class FindTutorsController {
 		ArrayList <Users> Teachers = new ArrayList<Users>();
 		
 		Teachers = userList.getCourseTeachers(courseToFind);
+		VBox teachersContainer= new VBox(30);
+		teachersContainer.setAlignment(Pos.CENTER);
+		findTutorPageVbox.setAlignment(Pos.CENTER); 
 		
+		Label lbl=new Label("People who can teach: "+courseToFind);
+		findTutorPageVbox.getChildren().add(lbl);
 		for (Users indexUser: Teachers) { 
 			
 			HBox container=new HBox(100);
@@ -129,13 +134,14 @@ public class FindTutorsController {
 			Label phone= new Label("Phone number: "+indexUser.getPhone());
 			
 			container.getChildren().addAll(fullName,email,phone);
-			HBox space=new HBox();
-			findTutorPageVbox.getChildren().addAll(container,space);
+
+			Label lineShort=new Label("-------------------------------");
+			teachersContainer.getChildren().addAll(container,lineShort);
 			
 			
 		}
-		
-		
+		Label line=new Label("-------------------------------------------------------------------");
+		findTutorPageVbox.getChildren().addAll(teachersContainer,line);
 		
 	}
 	

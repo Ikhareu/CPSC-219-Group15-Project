@@ -137,28 +137,35 @@ public class FindStudensController {
 		ArrayList <Users> Students = new ArrayList<Users>();
 		
 		Students = userList.getCourseStudents(courseToFind);
+		VBox teachersContainer= new VBox(30);
+		teachersContainer.setAlignment(Pos.CENTER);
+		findStudentPageVbox.setAlignment(Pos.CENTER);
+		Label lbl=new Label("Students who need help with: "+courseToFind);
+		findStudentPageVbox.getChildren().add(lbl);
 		
 		for (Users indexUser: Students) {
 			
-			HBox container=new HBox();
+			HBox container=new HBox(100);
 			container.setAlignment(Pos.CENTER);
-			container.setSpacing(50);
 			Label fullName= new Label("Name: "+indexUser.getName());
 			Label email= new Label("Email:"+indexUser.getEmail());
 			Label phone= new Label("Phone number: "+indexUser.getPhone());
 			
 			container.getChildren().addAll(fullName,email,phone);
-			HBox space=new HBox();
+
+			Label lineShort=new Label("-------------------------------");
+			teachersContainer.getChildren().addAll(container,lineShort);
 			
-			findStudentPageVbox.getChildren().addAll(container,space);
+			
 			
 		
 			
 			
 			
 		}
+		Label line=new Label("-------------------------------------------------------------------");
 		
-		
+		findStudentPageVbox.getChildren().addAll(teachersContainer,line);
 		
 		
 	}

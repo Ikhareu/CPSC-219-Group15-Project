@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?fxml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -33,7 +34,10 @@
             <Insets />
          </VBox.margin>
          <children>
-            <Label text="Name: " />
+            <Label text="Name: ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
             <Label fx:id="userNameLabel" />
          </children>
       </HBox>
@@ -45,16 +49,25 @@
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
                   </Label>
                   <Label text="Phone Number:">
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
                   </Label>
                   <Label text="Password">
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
                   </Label>
                </children>
                <HBox.margin>
@@ -91,23 +104,56 @@
       </HBox>
       <HBox fx:id="saveHbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Button fx:id="editbutton" mnemonicParsing="false" onAction="#editInfoAction" text="Edit my information" />
-            <Button fx:id="saveChangesbutton" mnemonicParsing="false" onAction="#saveChanges" text="Save changes" />
+            <Button fx:id="editbutton" mnemonicParsing="false" onAction="#editInfoAction" text="Edit my information">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="saveChangesbutton" mnemonicParsing="false" onAction="#saveChanges" text="Save changes">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </children></HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
             <VBox fx:id="editVbox2" alignment="CENTER" prefHeight="200.0" prefWidth="300.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#coursepageaction" text="Edit my courses" />
-                  <Button mnemonicParsing="false" onAction="#findStudentAction" text="Find students" />
-                  <Button mnemonicParsing="false" onAction="#findTutor" text=" Find tutors " />
+                  <Button mnemonicParsing="false" onAction="#coursepageaction" text="Edit my courses">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#findStudentAction" text="Find students">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#findTutor" text=" Find tutors ">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Button>
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#logoutAction" text="Log out" />
+            <Button mnemonicParsing="false" onAction="#logoutAction" text="Log out" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
          </children>
          <VBox.margin>
             <Insets top="30.0" />

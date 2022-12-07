@@ -104,6 +104,7 @@ public class CoursesPageController {
 
 			}
 			TextField courseTeachTxt = new TextField(courseTeach);
+			courseTeachTxt.setPromptText("PRMT101");
 			coursesTeachAfter.add(courseTeachTxt);
 
 			container.getChildren().addAll(label, courseTeachTxt);
@@ -113,18 +114,7 @@ public class CoursesPageController {
 	}
 
 	
-	@FXML
-	void addCoursesTeach(ActionEvent event) {
-		HBox container= new HBox();
-		Label label= new Label("Course name:");
-		TextField courseTeachTxt= new TextField();
 
-		container.getChildren().addAll(label, courseTeachTxt);
-		userCoursesTeach.getChildren().add(container);
-		
-		 
-
-	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
@@ -148,7 +138,8 @@ public class CoursesPageController {
 			}
 			
 			TextField courseLearnTxt= new TextField(courseLearn);
-			
+
+			courseLearnTxt.setPromptText("PRMT101");
 			coursesLearnAfter.add(courseLearnTxt);
 			container.getChildren().addAll(label, courseLearnTxt);
 			userCoursesLearn.getChildren().add(container);
@@ -157,18 +148,6 @@ public class CoursesPageController {
 
 	 
 
-	@FXML
-	void addCoursesLearn(ActionEvent event) {
-
-		HBox container= new HBox();
-		Label label= new Label("Course name:");
-		TextField courseLearnTxt= new TextField();
-		
-		container.getChildren().addAll(label, courseLearnTxt);
-		userCoursesLearn.getChildren().add(container);
-		
-		
-	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
@@ -179,18 +158,35 @@ public class CoursesPageController {
 		ArrayList<String> coursesToTeachGoHome = new ArrayList<String>();
 		
 		for (TextField courseTeachTXT : coursesTeachAfter) {
-			if (courseTeachTXT.getText() != "") {
-				coursesToTeachGoHome.add(courseTeachTXT.getText());
+			String str = courseTeachTXT.getText();
+			if (!str.equals("")) {
+				if ((str.length() == 7 || str.length() == 8)) {
+					String str1="";
+					str.toUpperCase();
+					for (int i=0; i<str.length(); i++) {
+						if (str.charAt(i)!=' ') str1=str1+str.charAt(i);
+					}
+					coursesToTeachGoHome.add(str1);
+				}
 			}
-		}
+		}	
+
 		for (TextField courseLearnTXT : coursesLearnAfter) {
-			if (courseLearnTXT.getText() != "") {
-				coursesToLearnGoHome.add(courseLearnTXT.getText());
+			String str = courseLearnTXT.getText();
+			if (!str.equals("")) {
+				if ((str.length() == 7 || str.length() == 8)) {
+					String str1="";
+					str.toUpperCase();
+					for (int i=0; i<str.length(); i++) {
+						if (str.charAt(i)!=' ') str1=str1+str.charAt(i);
+					}
+					coursesToLearnGoHome.add(str1);
+				}
 			}
 		}
 		
+		
 		user.addCourses(coursesToLearnGoHome, coursesToTeachGoHome);
-		System.out.println(user.getcoursesToTeach()+"|||"+user.getcoursesToLearn());
 		
 		
 		try {

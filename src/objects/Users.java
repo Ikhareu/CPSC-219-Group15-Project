@@ -116,7 +116,7 @@ public class Users {
 		setName(userName);
 		setPhone(userPhone);
 		setPassword(userPassword);
-		setEmail(userEmail);
+		setEmail(userEmail.toLowerCase());
 		addCourses(txtCoursesToLearn, txtCoursesToTeach);
 
 	}

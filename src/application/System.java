@@ -18,11 +18,8 @@ public class System extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			Scene scene = new Scene(root, 900,900);
-			
-			
 			LoginController2 controller = (LoginController2)loader.getController();
 
 			Users_List userList= new Users_List();
@@ -36,13 +33,6 @@ public class System extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");
 			primaryStage.show();
-			 
-			
-			
-			
-			
-			
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
