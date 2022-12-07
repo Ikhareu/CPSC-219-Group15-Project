@@ -152,7 +152,7 @@ public class FindStudensController {
 			
 			findStudentPageVbox.getChildren().addAll(container,space);
 			
-		
+		  
 			
 			
 			

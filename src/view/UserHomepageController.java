@@ -205,7 +205,7 @@ public class UserHomepageController {
 
     		System.out.println("password empty");
     		e.printStackTrace();
-    	}
+    	} 
 		
 		try {
 			if (!emailTXT.getText().equals("")) {
