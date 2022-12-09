@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserHomepageController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UserHomepageController">
    <children>
       <Label text="Homepage">
          <padding>
@@ -34,23 +34,26 @@
             <Insets />
          </VBox.margin>
          <children>
-            <Label text="Name: ">
+            <Label text="Welcome,">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Calibri Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="userNameLabel" />
+            <Label fx:id="userNameLabel">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font></Label>
          </children>
       </HBox>
-      <HBox prefHeight="300.0" prefWidth="500.0">
+      <HBox alignment="CENTER" prefHeight="300.0" prefWidth="500.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0" spacing="50.0">
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="300.0" spacing="50.0">
                <children>
                   <Label text="Email:">
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label text="Phone Number:">
@@ -58,7 +61,7 @@
                         <Insets left="50.0" right="50.0" />
                      </padding>
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label text="Password">
@@ -66,7 +69,7 @@
                         <Insets left="50.0" right="50.0" />
                      </padding>
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -74,75 +77,84 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0" spacing="50.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="300.0" spacing="50.0">
                <children>
                   <Label fx:id="userEmail" text="Email Holder">
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
                   </Label>
                   <Label fx:id="userPhone" text="403-999-3333">
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
                   </Label>
                   <Label fx:id="UserPassword" text="********">
                      <padding>
                         <Insets left="50.0" right="50.0" />
                      </padding>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="313.0" spacing="30.0">
+            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="313.0" spacing="40.0">
                <children>
-                  <TextField fx:id="emailTXT" promptText="Change email" />
-                  <TextField fx:id="phoneTXT" promptText="Change Phone Number" />
-                  <TextField fx:id="passwordTXT" promptText="Change password" />
+                  <TextField fx:id="emailTXT" maxWidth="-Infinity" prefWidth="250.0" promptText="Change email" />
+                  <TextField fx:id="phoneTXT" maxWidth="-Infinity" prefWidth="250.0" promptText="Change Phone Number" />
+                  <TextField fx:id="passwordTXT" maxWidth="-Infinity" prefWidth="250.0" promptText="Change password" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox fx:id="saveHbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Button fx:id="editbutton" mnemonicParsing="false" onAction="#editInfoAction" text="Edit my information">
+            <Button fx:id="editbutton" mnemonicParsing="false" onAction="#editInfoAction" prefWidth="155.0" text="Edit my information">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Button>
-            <Button fx:id="saveChangesbutton" mnemonicParsing="false" onAction="#saveChanges" text="Save changes">
+            <Button fx:id="saveChangesbutton" mnemonicParsing="false" onAction="#saveChanges" prefWidth="155.0" text="Save changes">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Button>
          </children></HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
             <VBox fx:id="editVbox2" alignment="CENTER" prefHeight="200.0" prefWidth="300.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#coursepageaction" text="Edit my courses">
+                  <Button mnemonicParsing="false" onAction="#coursepageaction" prefWidth="130.0" text="Edit my courses">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#findStudentAction" text="Find students">
+                  <Button mnemonicParsing="false" onAction="#findStudentAction" prefWidth="130.0" text="Find students">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#findTutor" text=" Find tutors ">
+                  <Button mnemonicParsing="false" onAction="#findTutor" prefWidth="130.0" text=" Find tutors ">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Button>
                </children>
             </VBox>
@@ -150,9 +162,9 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#logoutAction" text="Log out" textFill="RED">
+            <Button mnemonicParsing="false" onAction="#logoutAction" prefWidth="130.0" text="Log out" textFill="RED">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="Arial Bold" size="15.0" />
                </font></Button>
          </children>
          <VBox.margin>

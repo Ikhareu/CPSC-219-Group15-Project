@@ -45,7 +45,7 @@ public class LoginController2 {
     private Hyperlink createAccountHyperlink;
     
     @FXML
-    private Label wrongLoginLabel;
+    public Label wrongLoginLabel;
 
 	private Stage primaryStage;
 	private Scene myScene;
@@ -109,8 +109,8 @@ public class LoginController2 {
     		controllerTwo.takeFocus();
     	}
     	else {
-    		wrongLoginLabel.setVisible(true);
     		wrongLoginLabel.setTextFill(Color.RED);
+    		wrongLoginLabel.setText("Sorry, you entered an invalid email or password. Please try again.");
     	}
     }
 

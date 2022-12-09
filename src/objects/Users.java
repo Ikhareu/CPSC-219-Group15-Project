@@ -1,12 +1,9 @@
 package objects;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 public class Users {
 	
-
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	private ArrayList<String> coursesToLearn = new ArrayList<String>();
 	private ArrayList<String> coursesToTeach = new ArrayList<String>();

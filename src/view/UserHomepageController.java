@@ -16,6 +16,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -227,7 +228,10 @@ public class UserHomepageController {
 			primaryStage.setMaximized(true);
 			controllerLogin.setPrimaryStage(primaryStage);
 			controllerLogin.setMyScene(scene);
-			controllerLogin.setUserList(userList); 
+			controllerLogin.setUserList(userList);
+			
+			controllerLogin.wrongLoginLabel.setTextFill(Color.LIME);
+			controllerLogin.wrongLoginLabel.setText("Logout successful");
     	}
     	catch(Exception e) {
     		e.printStackTrace();
