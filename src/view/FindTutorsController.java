@@ -24,47 +24,30 @@ public class FindTutorsController {
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
     private Users user;
-    
-    
-
     public Users_List userList = new Users_List();
-	
-	
+    
+	private Stage primaryStage;
+	private Scene myScene;
+	private UserHomepageController controllerTwo;
 	
 	public Users_List getUserList() { 
 		return(userList);
 	}
     
 	public void setUserList(Users_List uList) {
-		userList= uList;
-		
+		userList = uList;	
 	}
     
     
     public void setUser(Users usr) {
     	user=usr;
-    	
     }
     
     public Users getUser() {
-    	
     	return(user);
     }
-	
-    
-    
-    
     
 //-------------------------------------------------------------------------------------------------------------------------------------------------    
-    
-	private Stage primaryStage;
-	private Scene myScene;
-	private SignUpController controllerOne;
-	private UserHomepageController controllerTwo;
-	
-
-
-		
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -78,12 +61,7 @@ public class FindTutorsController {
 		primaryStage.setScene(myScene);  
 	}
 	
-
-	
-	
 // -------------------------------------------------------------------------------------------------------------------------------------------------
-
-    
 	
 	@FXML
 	private ChoiceBox<String> courseLearnChoiceBox;// learn because these are the courses student need to learn
@@ -91,7 +69,6 @@ public class FindTutorsController {
 	public void setChoicebox(ArrayList<String> courses) {
 //		for (String course : courses) {
 //			courseLearnChoiceBox.getItems().add(course);
-//
 //		}
 		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
 		
@@ -101,11 +78,8 @@ public class FindTutorsController {
 // -------------------------------------------------------------------------------------------------------------------------------------------------    
 //Find Tutor 
 	
-	
     @FXML
     private VBox findTutorPageVbox;
-	
-	
 
 	@FXML
     void actionFindTeachers(ActionEvent event) {
@@ -153,9 +127,10 @@ public class FindTutorsController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root, 900, 900);
+			Scene scene = new Scene(root);
  
 			controllerTwo = loader.getController();
+			primaryStage.setMaximized(true);
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
 			controllerTwo.setUser(user);

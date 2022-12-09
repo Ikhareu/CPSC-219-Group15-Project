@@ -19,7 +19,7 @@ public class System extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root, 900,900);
+			Scene scene = new Scene(root);
 			LoginController2 controller = (LoginController2)loader.getController();
 
 			Users_List userList= new Users_List();
@@ -32,6 +32,7 @@ public class System extends Application {
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");
+			primaryStage.setMaximized(true);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
