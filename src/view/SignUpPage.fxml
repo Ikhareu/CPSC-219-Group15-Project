@@ -27,7 +27,6 @@
       <TextField fx:id="phoneNumberTXT" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Phone Number" />
       <TextField fx:id="emailTextField" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Email Address" />
       <TextField fx:id="passwordTextField" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Password" />
-      <TextField fx:id="password2TextField" maxWidth="-Infinity" prefWidth="500.0" promptText="Repeat Password" />
       <Label text="By creating an account you agree to our Terms &amp; Privacy.">
          <font>
             <Font size="14.0" />

@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -20,7 +20,6 @@ public class SignUpController {
 	private Stage primaryStage;
 	private Scene myScene;
 	private LoginController2 controllerLogin;
-	private UserHomepageController controllerTwo;
 	
 	
     @FXML
@@ -31,9 +30,6 @@ public class SignUpController {
 
     @FXML
     private TextField emailTextField;
-
-    @FXML
-    private TextField password2TextField;
 
     @FXML
     private Button signUpButton;
@@ -60,7 +56,6 @@ public class SignUpController {
     void cancelAction(ActionEvent event) {
     	
  		try {
- 			
 	    	FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			Scene scene = new Scene(root);
@@ -86,29 +81,29 @@ public class SignUpController {
     	String phone= phoneNumberTXT.getText(); 
     	String name=nameTXT.getText();
 
-		userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+		userList.getUserListFromTxt("src\\\\\\\\objects\\\\\\\\AllUsersTXTFILE");
  		if (userList.newUserGood(email)) {
  			Users newUser= new Users(name, phone, password, email);
  	    	userList.addUser(newUser);
  			try {
- 	 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
- 		    	FXMLLoader loader = new FXMLLoader();
- 				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
+ 	 			userList.saveUserListAsTxt("src\\\\\\\\objects\\\\\\\\AllUsersTXTFILE");
+ 	 			FXMLLoader loader = new FXMLLoader();
+ 				Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
  				Scene scene = new Scene(root);
  				
- 				controllerTwo = loader.getController();
+ 				controllerLogin = loader.getController();
  				primaryStage.setMaximized(true);
- 				controllerTwo.setPrimaryStage(primaryStage);
- 				controllerTwo.setMyScene(scene);
- 				//controllerTwo.setNextController(this);  
- 				controllerTwo.setUser(newUser);  
- 				controllerTwo.setUserList(userList); 
- 				controllerTwo.loginUserSetup(newUser);
+ 				controllerLogin.setPrimaryStage(primaryStage);
+ 				controllerLogin.setMyScene(scene); 
+ 				//controllerLogin.setNextController(this);  
+ 				controllerLogin.setUserList(userList);
+ 				controllerLogin.wrongLoginLabel.setTextFill(Color.LIME);
+ 				controllerLogin.wrongLoginLabel.setText("Account Created Successful");
  				} 
  	    	catch(Exception e) {
  	    		e.printStackTrace();
  	    	}
- 			controllerTwo.takeFocus();
+ 			controllerLogin.takeFocus();
  		}
  		else {
  			signUpLabel.setText("Account with that email has already been created. Use another email");
