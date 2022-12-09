@@ -130,14 +130,14 @@
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#findStudentAction" text="Find students">
+                  <Button mnemonicParsing="false" onAction="#findTutor" text=" Find tutors ">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#findTutor" text=" Find tutors ">
+                  <Button mnemonicParsing="false" onAction="#findStudentAction" text="Find students">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

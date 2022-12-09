@@ -3,6 +3,9 @@ package view;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+
 import javafx.fxml.FXMLLoader;
 
 import java.io.FileInputStream;
@@ -166,7 +169,7 @@ public class CoursesPageController {
 					for (int i=0; i<str.length(); i++) {
 						if (str.charAt(i)!=' ') str1=str1+str.charAt(i);
 					}
-					coursesToTeachGoHome.add(str1);
+					coursesToTeachGoHome.add(str1.toUpperCase());
 				}
 			}
 		}	
@@ -180,7 +183,7 @@ public class CoursesPageController {
 					for (int i=0; i<str.length(); i++) {
 						if (str.charAt(i)!=' ') str1=str1+str.charAt(i);
 					}
-					coursesToLearnGoHome.add(str1);
+					coursesToLearnGoHome.add(str1.toUpperCase());
 				}
 			}
 		}
@@ -193,8 +196,8 @@ public class CoursesPageController {
 
 	    	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root, 900, 900);
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
 			
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
