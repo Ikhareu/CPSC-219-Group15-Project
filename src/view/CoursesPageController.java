@@ -14,32 +14,20 @@ import objects.Users;
 import objects.Users_List;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.*;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class CoursesPageController {
 
     private Users user;
+    public Users_List userList = new Users_List();
 
     private ArrayList<TextField> coursesLearnAfter= new ArrayList<TextField>();
     private ArrayList<TextField> coursesTeachAfter= new ArrayList<TextField>();
-    
-
-    public Users_List userList = new Users_List();
-	
-	
 	
 	public Users_List getUserList() {
 		return(userList);
@@ -79,20 +67,11 @@ public class CoursesPageController {
 		primaryStage.setScene(myScene); 
 	}
 	
-	
-	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
-	public void controllerSetUp() {
-		
-	}
-	
-	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
-
+	//-------------------------------------------------------------------------------------------------------------------------------------------------   	 	
   
     @FXML
     private VBox userCoursesTeach;
-	
-	
-    
+
 	public void addUserCoursesTeach() {
 
 		ArrayList<String> coursesToTeach = user.getcoursesToTeach();
@@ -115,16 +94,11 @@ public class CoursesPageController {
 
 		}
 	}
-
-	
-
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
-
     @FXML
     private VBox userCoursesLearn;
-    
     
 	public void addUserCoursesLearn() { 
 
@@ -136,12 +110,10 @@ public class CoursesPageController {
 			try {
 			courseLearn=coursesToLearn.get(i);
 			}
-			catch(Exception e) {
-				
+			catch(Exception e) {	
 			}
 			
 			TextField courseLearnTxt= new TextField(courseLearn);
-
 			courseLearnTxt.setPromptText("PRMT101");
 			coursesLearnAfter.add(courseLearnTxt);
 			container.getChildren().addAll(label, courseLearnTxt);
@@ -149,9 +121,6 @@ public class CoursesPageController {
 		}
 	}
 
-	 
-
-	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
 	@FXML
@@ -188,9 +157,7 @@ public class CoursesPageController {
 			}
 		}
 		
-		
 		user.addCourses(coursesToLearnGoHome, coursesToTeachGoHome);
-		
 		
 		try {
 
@@ -198,8 +165,9 @@ public class CoursesPageController {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
 			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
-			
+
 			controllerTwo = loader.getController();
+			primaryStage.setMaximized(true);
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
 			controllerTwo.setUser(user);
