@@ -30,7 +30,6 @@ public class Users {
 	public Users(String userInfo) {
 		int valueIndex = 0;
 		int arrayIndex = 0;
-		String course = "";
 		String userName = "";
 		String userPhone = "";
 		String userPassword = "";
@@ -93,7 +92,6 @@ public class Users {
 				}
 			}
 
-			course = "";
 			if (valueIndex == 5 && userInfo.charAt(i) != '|') {
 				if (userInfo.charAt(i) != '+') {
 
