@@ -1,6 +1,9 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+
 import javafx.fxml.FXMLLoader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -56,9 +59,11 @@ public class SignUpController {
     void cancelAction(ActionEvent event) {
     	
  		try {
-	    	FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root);
+			FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
+			root.setStyle("-fx-background-color: #ADD8E6;");
+			Scene scene = new Scene(root, 900,900);
+
 			
 			controllerLogin = loader.getController();
 			primaryStage.setMaximized(true);
@@ -86,16 +91,24 @@ public class SignUpController {
  			Users newUser= new Users(name, phone, password, email);
  	    	userList.addUser(newUser);
  			try {
+          
  	 			userList.saveUserListAsTxt("src\\\\\\\\objects\\\\\\\\AllUsersTXTFILE");
- 	 			FXMLLoader loader = new FXMLLoader();
- 				Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
- 				Scene scene = new Scene(root);
+ 		    	FXMLLoader loader = new FXMLLoader();
+ 				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+ 				Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE); 
+ 				
+ 				controllerTwo = loader.getController();
+ 				controllerTwo.setPrimaryStage(primaryStage);
+ 				controllerTwo.setMyScene(scene);
+ 				//controllerTwo.setNextController(this);  
+ 				controllerTwo.setUser(newUser);  
+ 				controllerTwo.setUserList(userList); 
+ 				controllerTwo.loginUserSetup(newUser); 
+ 				 
  				
  				controllerLogin = loader.getController();
- 				primaryStage.setMaximized(true);
  				controllerLogin.setPrimaryStage(primaryStage);
  				controllerLogin.setMyScene(scene); 
- 				//controllerLogin.setNextController(this);  
  				controllerLogin.setUserList(userList);
  				controllerLogin.wrongLoginLabel.setTextFill(Color.LIME);
  				controllerLogin.wrongLoginLabel.setText("Account Created Successful");

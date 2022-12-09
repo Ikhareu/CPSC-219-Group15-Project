@@ -3,6 +3,8 @@ package view;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import objects.Users;
@@ -10,6 +12,7 @@ import objects.Users_List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -87,16 +90,15 @@ public class FindStudensController {
 		}
 		
 		ArrayList <Users> Students = new ArrayList<Users>();
-		
 		Students = userList.getCourseStudents(courseToFind);
 		VBox teachersContainer= new VBox();
 		teachersContainer.setAlignment(Pos.CENTER);
 		findStudentPageVbox.setAlignment(Pos.CENTER);
 		Label lbl=new Label("Students who need help with: "+courseToFind);
-		findStudentPageVbox.getChildren().add(lbl);
+		HBox space=new HBox();
+		findStudentPageVbox.getChildren().addAll(lbl, space);
 		
 		for (Users indexUser: Students) {
-			
 			HBox container=new HBox(100);
 			container.setAlignment(Pos.CENTER);
 			Label fullName= new Label("Name: "+indexUser.getName());
@@ -122,8 +124,8 @@ public class FindStudensController {
 		try {
 			
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root);
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
  
 			controllerTwo = loader.getController();
 			primaryStage.setMaximized(true);

@@ -12,38 +12,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane fx:id="mainpaneForTest" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController2">
-	<children>
-		<Rectangle arcHeight="5.0" arcWidth="5.0" height="1080.0" stroke="BLACK" strokeType="INSIDE" width="1920.0">
-			<fill>
-				<LinearGradient endX="1.0" endY="0.9047619047619048" startX="0.7333333333333333" startY="0.30952380952380953">
-					<stops>
-						<Stop color="#1020cc83" />
-						<Stop color="#1020cc83" offset="0.007662835249042145" />
-						<Stop color="#0e5699" offset="0.29118773946360144" />
-						<Stop color="#0f5999" offset="0.29118773946360144" />
-						<Stop color="#0c559a" offset="0.2950191570881226" />
-						<Stop color="#0f5999" offset="0.2950191570881226" />
-						<Stop color="#0e5699" offset="1.0" />
-					</stops>
-				</LinearGradient>
-			</fill>
-		</Rectangle>
-      <VBox alignment="TOP_CENTER" layoutX="660.0" layoutY="390.0" prefHeight="300.0" prefWidth="600.0" spacing="30.0">
-         <children>
-            <Label fx:id="wrongLoginLabel">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="loginUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="150.0" promptText="Email" />
-            <PasswordField fx:id="loginPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Password" />
-            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="100.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Hyperlink fx:id="createAccountHyperlink" onAction="#signUpAction" text="Create an Account" textFill="WHITE" />
-         </children></VBox>
-	</children>
-</Pane>
+<VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController2">
+   <children>
+      <Label fx:id="wrongLoginLabel" text="Sorry, you entered an invalid email or password. Please try again." visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="loginUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="10.0" prefWidth="150.0" promptText="Email" />
+      <PasswordField fx:id="loginPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="150.0" promptText="Password" />
+      <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="100.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Hyperlink fx:id="createAccountHyperlink" onAction="#signUpAction" text="Create an Account" textFill="WHITE" />
+   </children>
+</VBox>

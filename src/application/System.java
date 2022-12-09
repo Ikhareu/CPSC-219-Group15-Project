@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import objects.Users_List;
 import view.LoginController2;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -18,8 +18,10 @@ public class System extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root);
+			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
+			root.setStyle("-fx-background-color: #ADD8E6;");
+			Scene scene = new Scene(root, 900,900);
+
 			LoginController2 controller = (LoginController2)loader.getController();
 
 			Users_List userList= new Users_List();

@@ -1,6 +1,9 @@
 package view;
 
 import java.io.FileInputStream;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -12,6 +15,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -58,7 +62,8 @@ public class FindTutorsController {
 	}
 	
 	public void takeFocus() {
-		primaryStage.setScene(myScene);  
+		primaryStage.setScene(myScene); 
+	
 	}
 	
 // -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,13 +98,15 @@ public class FindTutorsController {
 		ArrayList <Users> Teachers = new ArrayList<Users>();
 		
 		Teachers = userList.getCourseTeachers(courseToFind);
-		VBox teachersContainer= new VBox(30);
+		VBox teachersContainer= new VBox();
 		teachersContainer.setAlignment(Pos.CENTER);
 		findTutorPageVbox.setAlignment(Pos.CENTER); 
+		HBox space=new HBox();
+		
 		
 		Label lbl=new Label("People who can teach: "+courseToFind);
-		findTutorPageVbox.getChildren().add(lbl);
-		for (Users indexUser: Teachers) { 
+		findTutorPageVbox.getChildren().addAll(lbl,space);
+		for (Users indexUser: Teachers) {  
 			
 			HBox container=new HBox(100);
 			container.setAlignment(Pos.CENTER);
@@ -126,8 +133,8 @@ public class FindTutorsController {
 		
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-			Scene scene = new Scene(root);
+			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
  
 			controllerTwo = loader.getController();
 			primaryStage.setMaximized(true);
@@ -142,7 +149,7 @@ public class FindTutorsController {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} 
 
     }
 	
