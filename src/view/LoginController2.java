@@ -1,7 +1,6 @@
 package view;
 
 import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -16,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import objects.Users;
 import objects.Users_List;
@@ -36,12 +36,8 @@ public class LoginController2 {
     void testbutton(ActionEvent event) {
     	Label testLabel = new Label("T-----EST----TEST-TEREEREF");
     	mainpaneForTest.getChildren().add(testLabel);
-    	
-    	
     }
 
-    
-    
     @FXML
     private PasswordField loginPassword;
 
@@ -50,8 +46,6 @@ public class LoginController2 {
     
     @FXML
     private Label wrongLoginLabel;
-    
-    
 
 	private Stage primaryStage;
 	private Scene myScene;
@@ -87,7 +81,6 @@ public class LoginController2 {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
-	
     @FXML
     void loginAction(ActionEvent event) throws IOException {
 
@@ -100,7 +93,7 @@ public class LoginController2 {
     			
     	    	FXMLLoader loader = new FXMLLoader();
     			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
-    			Scene scene = new Scene(root,900,900);
+    			Scene scene = new Scene(root);
     			
     			controllerTwo = loader.getController();
     			controllerTwo.setPrimaryStage(primaryStage); 
@@ -109,8 +102,6 @@ public class LoginController2 {
     			controllerTwo.setUser(userCheck);  
     			controllerTwo.setUserList(userList); 
     			controllerTwo.loginUserSetup(userCheck);
-    			 
-    			
         	}
         	catch(Exception e) {
         		e.printStackTrace();
@@ -119,17 +110,14 @@ public class LoginController2 {
     	}
     	else {
     		wrongLoginLabel.setVisible(true);
-    		
-     	}
-
+    		wrongLoginLabel.setTextFill(Color.RED);
+    	}
     }
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
-	
     
     @FXML
     void signUpAction(ActionEvent event) throws IOException {
-
     	userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
     	try { 
 	    	FXMLLoader loader = new FXMLLoader();
@@ -138,9 +126,9 @@ public class LoginController2 {
 			
 			controllerOne = loader.getController();
 			controllerOne.setPrimaryStage(primaryStage);
+			primaryStage.setMaximized(true);
 			controllerOne.setMyScene(scene); 
 			controllerOne.setUserList(userList);
-			 
     	}
     	catch(Exception e) {
     		e.printStackTrace();
