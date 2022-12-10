@@ -29,6 +29,11 @@ import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/*
+This is a class that defines a SignUpController in JavaFX. It contains methods and fields that are used to handle sign up functionality 
+in a JavaFX application. The class contains fields for storing information about a Users_List object, TextField, Button, Label, and ChoiceBox.
+ It also contains methods for signing up and canceling the sign up process.
+*/
 public class SignUpController {
 	
 	private Stage primaryStage;

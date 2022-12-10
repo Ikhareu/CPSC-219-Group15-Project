@@ -1,6 +1,8 @@
 package view;
 
 import java.io.FileInputStream;
+
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -24,6 +26,11 @@ import objects.Users;
 import objects.Users_List;
 import javafx.application.Application;
 
+/*
+This is a class that defines a LoginController2 in JavaFX. It contains methods and fields that are used to handle login functionality in 
+a JavaFX application. The class contains fields for storing information about a Users_List object, TextField, Button, PasswordField, 
+and Label. It also contains methods for logging in, creating an account, and setting the primary stage and scene for the application.
+*/
 public class LoginController2 {
 
     @FXML
