@@ -32,9 +32,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /*
-This is a class that defines a UserHomepageController in JavaFX. It contains methods and fields that are used to handle user HomePage 
-functionality in a JavaFX application. The class contains fields for storing information about a Users object and a Users_List object.
- It also contains methods for logging out, editing profile information, and setting up the controller for a logged-in user.
+ * This controller dictates the behavior of the application regarding the homepage.
+ * It has several local variables which use the User class getter and setter methods to both fetch and display
+ * the current user's information as well as update said information according to the user's inputs.
+ * The homepage contains several buttons which are used to open the user data textfield to edit the string values
+ * of that User instance (name, phone, email .ect) as well as buttons that bring to other scenes such as the 
+ * CoursesPage or FindTutorPage as well as a log out button which closes the application.
 */
 
 public class UserHomepageController {
