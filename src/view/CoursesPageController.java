@@ -29,11 +29,11 @@ import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/*The CoursesPageController class provides a controller for the "Courses Page" view in a JavaFX application.
- *  The controller handles user interactions with the view, such as adding and updating information about the courses
- *  that a user wants to learn or teach. The controller also has methods for setting up and updating the view, 
- *  such as addUserCoursesTeach() and addUserCoursesLearn(), which add course information to the appropriate areas of the view. 
- *  Additionally, the controller maintains a reference to the user's information and a list of all users in the application.
+/* The controller; CoursesPageController handles the interactions between the user and GUI on the courses page.
+ * The controller is charged with feeding the CoursesPage fxml fed with accurate data to show the user such as
+ * the name of classes that are already being stored in the User object instance associated with the user of the
+ * program. The controller also relays any inputed data from the user to the user class such as the name of a new
+ * course.
 */
 public class CoursesPageController {
 
