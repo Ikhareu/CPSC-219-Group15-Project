@@ -92,7 +92,7 @@ public class LoginController2 {
 	@FXML
 	void loginAction(ActionEvent event) throws IOException {
 		UserGenerator gen= new UserGenerator();
-		gen.generateUsers(1);
+		gen.generateUsers(100);
 
 	    userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
 	    Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
@@ -105,7 +105,7 @@ public class LoginController2 {
 	            VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
 	            root.setStyle("-fx-background-color: #ADD8E6;");
 	            
-	            Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE); 
+	            Scene scene = new Scene(root,900,900); scene.setFill(Color.WHEAT); 
 
 	            controllerTwo = loader.getController();
 	            controllerTwo.setPrimaryStage(primaryStage); 

@@ -42,7 +42,7 @@ public class FindTutorsController {
 	public void setUserList(Users_List uList) {
 		userList= uList;
 		
-	}
+	}  
     
     
     public void setUser(Users usr) {
@@ -125,9 +125,10 @@ public class FindTutorsController {
 		Teachers = userList.getCourseTeachers(courseToFind);
 		VBox teachersContainer= new VBox();
 		teachersContainer.setAlignment(Pos.CENTER);
+		findTutorPageVbox.getChildren().clear(); 
 		findTutorPageVbox.setAlignment(Pos.CENTER); 
 		HBox space=new HBox();
-		
+		space.setPrefHeight(30);
 		
 		Label lbl=new Label("People who can teach: "+courseToFind);
 		findTutorPageVbox.getChildren().addAll(lbl,space);

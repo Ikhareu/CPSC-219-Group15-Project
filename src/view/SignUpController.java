@@ -49,8 +49,6 @@ public class SignUpController {
     @FXML
     private TextField emailTextField;
 
-    @FXML
-    private TextField password2TextField;
 
     @FXML
     private Button signUpButton;
@@ -111,12 +109,12 @@ public class SignUpController {
     	String phone= phoneNumberTXT.getText(); 
     	String name=nameTXT.getText();
 
-		userList.getUserListFromTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+		userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
  		if (userList.newUserGood(email)) {
  			Users newUser= new Users(name, phone, password, email);
  	    	userList.addUser(newUser);
  			try {
- 	 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
+ 	 			userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
  		    	FXMLLoader loader = new FXMLLoader();
  				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
  				Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE); 
