@@ -5,19 +5,24 @@ import java.util.Collection;
 import java.util.Collections;
 
 /*
- This class has a constructor that takes four arguments: userName, userPhone, 
- userPassword, and userEmail. These arguments are used to initialize the corresponding fields in the Users class.
+The class Users has a constructor that takes four parameters who's values are obtained from textboxes filled
+by the user on the registration page. These four parameters are: userName, userPhone, userPassword and userEmail.
+All of these parameters are strings and their values are used to initialize the similarly named variables
+in the user class: name, phone, password and email.
 
-The Users class  has a second constructor that takes a single String argument called userInfo it is used in the users list class. 
-This constructor is used to parse the information in the userInfo String and initialize the fields in the Users class accordingly.
+There is a second constructor that exists for the user class but it takes a string argument: userInfo which is
+a user object converted to a string as previously mentioned in the javadoc for the Users_List class. The 
+constructor iterates through every character of the string, using the special character "|" to know which 
+characters in the string hold which values (phone, email .ect). From this a complete user class instance
+instance is generated and the values for it's local variables set to those given by the userInfo string.
 
-The Users class has several fields that store information about a user, including their name, phone number, password,
- email, and user ID. It also has two ArrayList fields, coursesToLearn and coursesToTeach, 
- that store the courses that a user is interested in learning and teaching, respectively.
+The class Users has a setter and getter method for every local variable and array: getName, setName, getPhone .ect
+Each one of these methods either returns the value stored in the class instance's local variables/array or
+updates that specific variable's value to that given by the parameter in the setter method.
 
-The Users class has several methods that can be used to access and modify this information, such as 
-getName(), setName(), getPhone(), setPhone(), getPassword(), setPassword(), getEmail(), setEmail(), getUserID(), setUserID(), 
-getCoursesToLearn(), setCoursesToLearn(), getCoursesToTeach(), and setCoursesToTeach().
+The local variables used by this class are: name, phone, password, email and password (all of which are of type
+string). userID which is of type integer and the two arrays: coursesToLearn and coursesToTeach. The arrays hold 
+strings which represent the name of a given course.
 */
 
 public class Users {
