@@ -20,23 +20,26 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
 /*
-This class is used to manage a list of Users objects, which are defined in another class with the same name.
- The Users_List class has several methods that can be used to add, remove, and retrieve Users objects from the list.
+Users_List has two array fields: userArray and userArrayStrings. The former is used to store an array of User objects,
+while the latter stores an array of strings each of which contains the data for a user object but as a string.
 
-The Users_List class has two ArrayList fields: userArray and userArrayStrings. The userArray field is used to 
-store the Users objects in the list, while the userArrayStrings field is used to store the string representation of each Users object.
+An iterative method is used to keep track of the number of user objects being stored, using a variable named numberOfUsers.
 
-The Users_List class also has a field called numberOfUsers, which is used to store the number 
-of Users objects in the list. This field is incremented each time a new Users object is added to the list.
+The addUser method takes a user object as a parameter and appends it to the current userArray, updates the variable numberOfUsers
+and assigns the given user a unique ID using a method for the user class.
 
-The Users_List class has several methods that can be used to manipulate the list of Users
- objects. For example, the addUser() method can be used to add a new Users object to the list,
-  and the deleteUser() method can be used to remove a Users object from the list.
+The deleteUser method also takes a user object as a parameter, and searches the userArray for the first occurrence
+of that user object in order to remove it from the array.
 
-Additionally, the Users_List class has methods that can be used to search for Users objects 
-in the list based on different criteria. For example, the getCourseStudents() 
-and getCourseTeachers() methods can be used to search for Users objects that are 
-interested in learning or teaching a specific course, respectively.
+There are also two getter methods: getArray and getUsersList both of which return the values for userArray currently
+stored by the class.
+
+The method setUserList takes an array of user objects and uses it to replace the current userArray array used by
+the class.
+
+There are two getter/search methods that take the name of a course as a string as a parameter and iterate through the entire userArray array, 
+looking at the lists of strings containing course names for a match regardless of capitalization, if a match is found
+the user object is added to a list which is returned to the program to display the user with their potential tutors/students.
 
 */
 public class Users_List {
@@ -92,7 +95,6 @@ public class Users_List {
 	}
 
 	public void setUserList(ArrayList<Users> users) {
-
 		userArray = users;
 	}
 
