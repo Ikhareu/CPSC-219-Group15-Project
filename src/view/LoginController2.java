@@ -27,9 +27,15 @@ import objects.Users_List;
 import javafx.application.Application;
 
 /*
-This is a class that defines a LoginController2 in JavaFX. It contains methods and fields that are used to handle login functionality in 
-a JavaFX application. The class contains fields for storing information about a Users_List object, TextField, Button, PasswordField, 
-and Label. It also contains methods for logging in, creating an account, and setting the primary stage and scene for the application.
+ * This controller is charged with controlling the login page which is what every user will se upon starting
+ * the application. The page has two textfields used for logging in and an extra button to bring the user to
+ * the registration page.
+ * When a user attempts to log in by filling in both textboxes and clicking the login button the controller will
+ * go through the textfile that stores all of the application's data. Using the isValid method from the Users_List
+ * class, the controller will only allow the application to acces the homepage is a match is found for both the
+ * email and password among the array of users in the txt file. If no match is found a textfield will appear
+ * above the textboxes and inform the user that their email/password is incorrect.
+ * 
 */
 public class LoginController2 {
 
