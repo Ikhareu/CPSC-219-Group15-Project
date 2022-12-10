@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" spacing="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignUpController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignUpController">
 
    <children>
       <Label text="Sign Up">
@@ -23,10 +23,10 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <TextField fx:id="nameTXT" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Full Name" />
-      <TextField fx:id="phoneNumberTXT" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Phone Number" />
-      <TextField fx:id="emailTextField" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Email Address" />
-      <TextField fx:id="passwordTextField" maxWidth="-Infinity" prefWidth="500.0" promptText="Enter Password" />
+      <TextField fx:id="nameTXT" promptText="Enter Full Name" />
+      <TextField fx:id="phoneNumberTXT" promptText="Enter Phone Number" />
+      <TextField fx:id="emailTextField" promptText="Enter Email Address" />
+      <TextField fx:id="passwordTextField" promptText="Enter Password" />
       <Label text="By creating an account you agree to our Terms &amp; Privacy.">
          <font>
             <Font size="14.0" />
@@ -37,7 +37,6 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <HBox prefHeight="100.0" prefWidth="20.0" />
             <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpAction" prefWidth="100.0" style="-fx-background-color: lime;" text="Sign Up" textFill="WHITE">
                <font>
                   <Font size="14.0" />

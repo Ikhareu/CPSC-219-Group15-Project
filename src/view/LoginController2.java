@@ -1,6 +1,7 @@
 package view;
 
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -17,7 +18,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import objects.UserGenerator;
 import objects.Users;
@@ -42,6 +42,8 @@ public class LoginController2 {
     	mainpaneForTest.getChildren().add(testLabel);
     }
 
+    
+    
     @FXML
     private PasswordField loginPassword;
 
@@ -49,7 +51,9 @@ public class LoginController2 {
     private Hyperlink createAccountHyperlink;
     
     @FXML
-    public Label wrongLoginLabel;
+    private Label wrongLoginLabel;
+    
+    
 
 	private Stage primaryStage;
 	private Scene myScene;
@@ -88,7 +92,7 @@ public class LoginController2 {
 	@FXML
 	void loginAction(ActionEvent event) throws IOException {
 		UserGenerator gen= new UserGenerator();
-		gen.generateUsers(1);
+		gen.generateUsers(100);
 
 	    userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
 	    Users userCheck=  userList.isValid(loginUsername.getText(), loginPassword.getText());
@@ -99,32 +103,39 @@ public class LoginController2 {
 	            
 	            FXMLLoader loader = new FXMLLoader();
 	            VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+	            root.setStyle("-fx-background-color: #ADD8E6;");
 	            
-	            Scene scene = new Scene(root,900,900);
-    			
-    			controllerTwo = loader.getController();
-    			controllerTwo.setPrimaryStage(primaryStage); 
-    			controllerTwo.setMyScene(scene);
-    			//controllerTwo.setNextController(this);  
-    			controllerTwo.setUser(userCheck);  
-    			controllerTwo.setUserList(userList); 
-    			controllerTwo.loginUserSetup(userCheck);
-        	}
-        	catch(Exception e) {
-        		e.printStackTrace();
-        	}
-    		controllerTwo.takeFocus();
-    	}
-    	else {
-    		wrongLoginLabel.setTextFill(Color.RED);
-    		wrongLoginLabel.setText("Sorry, you entered an invalid email or password. Please try again.");
-    	}
-    }
+	            Scene scene = new Scene(root,900,900); scene.setFill(Color.WHEAT); 
+
+	            controllerTwo = loader.getController();
+	            controllerTwo.setPrimaryStage(primaryStage); 
+	            controllerTwo.setMyScene(scene);
+	            //controllerTwo.setNextController(this);  
+	            controllerTwo.setUser(userCheck);  
+	            controllerTwo.setUserList(userList); 
+	            controllerTwo.loginUserSetup(userCheck);
+	             
+	            
+	        }
+	        catch(Exception e) {
+	            e.printStackTrace();
+	        }
+	        controllerTwo.takeFocus();
+	    }
+	    else {
+	        wrongLoginLabel.setVisible(true);
+	        
+	    }
+
+	}
+
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
     
     @FXML
     void signUpAction(ActionEvent event) throws IOException {
+
     	userList.getUserListFromTxt("src\\\\objects\\\\AllUsersTXTFILE");
     	try { 
 	    	FXMLLoader loader = new FXMLLoader();
@@ -133,9 +144,9 @@ public class LoginController2 {
 			
 			controllerOne = loader.getController();
 			controllerOne.setPrimaryStage(primaryStage);
-			primaryStage.setMaximized(true);
 			controllerOne.setMyScene(scene); 
 			controllerOne.setUserList(userList);
+			 
     	}
     	catch(Exception e) {
     		e.printStackTrace();

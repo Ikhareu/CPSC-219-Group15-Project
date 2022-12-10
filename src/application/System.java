@@ -21,7 +21,6 @@ public class System extends Application {
 			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			root.setStyle("-fx-background-color: #ADD8E6;");
 			Scene scene = new Scene(root, 900,900);
-
 			LoginController2 controller = (LoginController2)loader.getController();
 
 			Users_List userList= new Users_List();
@@ -34,7 +33,6 @@ public class System extends Application {
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Find your Tutor");
-			primaryStage.setMaximized(true);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

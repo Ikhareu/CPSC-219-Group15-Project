@@ -1,5 +1,7 @@
 package view;
 
+
+
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -8,13 +10,17 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import objects.Users;
 import objects.Users_List;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
@@ -22,8 +28,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.*;
 
-import javafx.scene.paint.Color;
-import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -45,14 +49,28 @@ public class UserHomepageController {
 		myScene = aScene;
 	}
 	
+//	public void setNextController(LoginController2 aController) {
+//		controllerLogin = aController;
+//	}
+	
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
+	
+
+
+	
+	
     
     private Users user;
+    
+    
+
     public Users_List userList = new Users_List(); 
+	
+	
 	
 	public Users_List getUserList() {
 		return(userList);
@@ -60,28 +78,36 @@ public class UserHomepageController {
     
 	public void setUserList(Users_List uList) {
 		userList= uList;
+		
 	}
- 
+    
+    
     public void setUser(Users usr) {
     	user=usr;
+    	
     }
     
     public Users getUser() {
+    	
     	return(user);
     }
     
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
+	
 	public void setUpController(Users usr,Users_List uList, Stage aStage,Scene aScene) {
 		
 		userList= uList;
 		user=usr;
+
 		primaryStage.setScene(myScene);
 		myScene = aScene;
 	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
+	
+	
     @FXML
     private ChoiceBox<String> courseChoiceBox;
 
@@ -96,6 +122,7 @@ public class UserHomepageController {
 
     @FXML
     private MenuButton nameLabel;
+    
 
     @FXML
     private Label idUser;
@@ -122,8 +149,11 @@ public class UserHomepageController {
     private VBox editVbox1;
     
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
-
+  
+   
     public void loginUserSetup(Users usr) {
+    	
+    	
     	userNameLabel.setText(usr.getName());
     	userPhone.setText(usr.getPhone());
     	userEmail.setText(usr.getEmail());
@@ -144,19 +174,19 @@ public class UserHomepageController {
 
     @FXML
     private TextField passwordTXT;
-    
     @FXML
     private TextField emailTXT;
-    
     @FXML
     private TextField phoneTXT;
-
+    
+    
     @FXML
     private Button editbutton;
     
     @FXML
     private Button saveChangesbutton;
-   
+    
+
     //-------------------------------------------------------------------------------------------------------------------------------------------------   	
     
     @FXML
@@ -165,31 +195,37 @@ public class UserHomepageController {
     	saveChangesbutton.setVisible(false);
     	
     	try {
+    		
+    		
     		if (!passwordTXT.getText().equals("")) {
+
     			String pasSTR=passwordTXT.getText();
     			user.setPassword(pasSTR);
-    		}
+    			}
     	}
     	catch(Exception e) {
+
+
     		System.out.println("password empty");
     		e.printStackTrace();
     	}
-    	
+		
 		try {
 			if (!emailTXT.getText().equals("")) {
-				String emailSTR=emailTXT.getText();
-				user.setEmail(emailSTR);
+			String emailSTR=emailTXT.getText();
+			user.setEmail(emailSTR);
 			}
     	}
     	catch(Exception e) {
     		e.printStackTrace();
+
     		System.out.println("email empty");
     	}
 		
 		try {
 			if (!phoneTXT.getText().equals("")) {
-				String phoneSTR=phoneTXT.getText();
-				user.setPhone(phoneSTR);
+			String phoneSTR=phoneTXT.getText();
+			user.setPhone(phoneSTR);
 			}
 		}
     	catch(Exception e) {
@@ -198,6 +234,7 @@ public class UserHomepageController {
     	}
 
     	userNameLabel.setText(user.getName()+"");
+    	
     	userPhone.setText(user.getPhone());
     	userEmail.setText(user.getEmail());
     	//UserPassword.setText(user.getPassword());
@@ -218,85 +255,115 @@ public class UserHomepageController {
 		passwordTXT.setVisible(true);
 		emailTXT.setVisible(true); 
 		phoneTXT.setVisible(true);
+
+		
     }
+
     
+    
+
     //-------------------------------------------------------------------------------------------------------------------------------------------------   	
     
     @FXML
     void logoutAction(ActionEvent event) {
     	
+    	
 		try {
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
 			Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE);  scene.setFill(Color.BLUE);  scene.setFill(Color.BLUE); 
+			
 			controllerLogin = loader.getController();
-			primaryStage.setMaximized(true);
 			controllerLogin.setPrimaryStage(primaryStage);
 			controllerLogin.setMyScene(scene);
-			controllerLogin.setUserList(userList);
+			controllerLogin.setUserList(userList); 
 			
-			controllerLogin.wrongLoginLabel.setTextFill(Color.LIME);
-			controllerLogin.wrongLoginLabel.setText("Logout successful");
+			
+			
+			
+			
+			
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
 		controllerLogin.takeFocus();
+
+    	
+    	
+    	
+    	
     }
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
+
+	
+	
 	
 	@FXML
 	void coursepageaction(ActionEvent event) {
 		
 		try {
+
 	    	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/CoursesPage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
-			Scene scene = new Scene(root,900,900); 
+			Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE);  scene.setFill(Color.BLUE);  scene.setFill(Color.BLUE); 
 			
 			controllerCourses = loader.getController();
-			primaryStage.setMaximized(true);
 			controllerCourses.setPrimaryStage(primaryStage);
 			controllerCourses.setMyScene(scene);
 			controllerCourses.setUser(user); 
 			controllerCourses.setUserList(userList); 
 			controllerCourses.addUserCoursesLearn();  
 			controllerCourses.addUserCoursesTeach();
+			
+			
+			
+			
+			
+			
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
 		controllerCourses.takeFocus();
+
+		
+
 	}
+	
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
     @FXML
     void findTutor(ActionEvent event) {
     	try {
+
         	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
     		
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindTutorPage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
-			Scene scene = new Scene(root,900,900);  
-
+			Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE);  scene.setFill(Color.BLUE);  scene.setFill(Color.BLUE); 
 			
 
 			controllerFindTutors = loader.getController();
-			primaryStage.setMaximized(true);
 			controllerFindTutors.setPrimaryStage(primaryStage);
 			controllerFindTutors.setMyScene(scene);
 			controllerFindTutors.setUser(user); 
 			controllerFindTutors.setUserList(userList); 
 			controllerFindTutors.takeFocus();
 			controllerFindTutors.setChoicebox(user.getcoursesToLearn());
+			
+			
+			
+			
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
+
     }
-    
   //-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
     @FXML
@@ -306,11 +373,10 @@ public class UserHomepageController {
         	userList.saveUserListAsTxt("src\\\\objects\\\\AllUsersTXTFILE");
 	    	FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/FindStudentPage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
-			Scene scene = new Scene(root,900,900); 
+			Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE); 
 			
-
+			
 			controllerFindStudents = loader.getController();
-			primaryStage.setMaximized(true);
 			controllerFindStudents.setPrimaryStage(primaryStage);
 			controllerFindStudents.setMyScene(scene);
 			controllerFindStudents.setUser(user); 
@@ -322,6 +388,12 @@ public class UserHomepageController {
     	catch(Exception e) {
     		e.printStackTrace(); 
     	}
+		
+
+
     }
 	
+	
+	
+
 }

@@ -60,7 +60,7 @@ public class UserGenerator {
                 "@outlook.com", "@aol.com", "@hotmail.com", "@mail.com", "@zoho.com",
                 "@icloud.com", "@protonmail.com", "@me.com", "@yandex.com", "@gmx.com"};
         
-        String [] phoneAreaCodes = { "403", "587", "780","826"};  //403, 587, 780 and 825"}
+        String [] phoneAreaCodes = { "403", "587", "780","204"};  //403, 587, 780 and 825"}
         
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();

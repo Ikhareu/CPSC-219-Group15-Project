@@ -28,30 +28,47 @@ public class FindTutorsController {
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
     private Users user;
-    public Users_List userList = new Users_List();
     
-	private Stage primaryStage;
-	private Scene myScene;
-	private UserHomepageController controllerTwo;
+    
+
+    public Users_List userList = new Users_List();
+	
+	
 	
 	public Users_List getUserList() { 
 		return(userList);
 	}
     
 	public void setUserList(Users_List uList) {
-		userList = uList;	
-	}
+		userList= uList;
+		
+	}  
     
     
     public void setUser(Users usr) {
     	user=usr;
+    	
     }
     
     public Users getUser() {
+    	
     	return(user);
     }
+	
+    
+    
+    
     
 //-------------------------------------------------------------------------------------------------------------------------------------------------    
+    
+	private Stage primaryStage;
+	private Scene myScene;
+	private SignUpController controllerOne;
+	private UserHomepageController controllerTwo;
+	
+
+
+		
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -66,7 +83,11 @@ public class FindTutorsController {
 	
 	}
 	
+
+	
 // -------------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	
 	@FXML
 	private ChoiceBox<String> courseLearnChoiceBox;// learn because these are the courses student need to learn
@@ -74,6 +95,7 @@ public class FindTutorsController {
 	public void setChoicebox(ArrayList<String> courses) {
 //		for (String course : courses) {
 //			courseLearnChoiceBox.getItems().add(course);
+//
 //		}
 		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
 		
@@ -83,8 +105,11 @@ public class FindTutorsController {
 // -------------------------------------------------------------------------------------------------------------------------------------------------    
 //Find Tutor 
 	
+	
     @FXML
     private VBox findTutorPageVbox;
+	
+	
 
 	@FXML
     void actionFindTeachers(ActionEvent event) {
@@ -100,9 +125,10 @@ public class FindTutorsController {
 		Teachers = userList.getCourseTeachers(courseToFind);
 		VBox teachersContainer= new VBox();
 		teachersContainer.setAlignment(Pos.CENTER);
+		findTutorPageVbox.getChildren().clear(); 
 		findTutorPageVbox.setAlignment(Pos.CENTER); 
 		HBox space=new HBox();
-		
+		space.setPrefHeight(30);
 		
 		Label lbl=new Label("People who can teach: "+courseToFind);
 		findTutorPageVbox.getChildren().addAll(lbl,space);
@@ -137,7 +163,6 @@ public class FindTutorsController {
 			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
  
 			controllerTwo = loader.getController();
-			primaryStage.setMaximized(true);
 			controllerTwo.setPrimaryStage(primaryStage);
 			controllerTwo.setMyScene(scene);
 			controllerTwo.setUser(user);
