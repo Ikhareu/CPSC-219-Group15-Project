@@ -23,11 +23,15 @@ import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 /*
-The FindStudensController is a class that provides a user interface to find students who are
- interested in a certain course. It has several methods that are responsible for loading the 
- available courses in a choice box, finding the students interested in a selected course, and 
- displaying the students' information in a list. The class also has fields for storing the user, 
- user list, and a stage and scene for the user interface. The FindTutorsController does the same thing for the Tutors;
+ * 
+ * The FindStudensController is charged with handling the search for potential students at the interface level.
+ * The controller sets the scene and fetches the information it requires to construct the found students page, 
+ * this is done by mainly calling on the getter methods defined in the User class.
+ * The controller uses these methods to create a choice box for the user to select which of the user specified 
+ * courses they would like to find a student to tutor. The controller then makes use of the getCourseStudents method
+ * defined in the users list class to get an array of strings representing users of the application found to be 
+ * potential students which the controller stores and then displays to the user. 
+ *
 */
 
 public class FindStudensController {
