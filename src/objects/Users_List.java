@@ -75,13 +75,20 @@ public class Users_List {
 
 
 	public void addUser(Users newUser) {
-		this.userArray.add(newUser);
+		try {
+			this.userArray.add(newUser);
+		}catch (NullPointerException npe) {
+		}
 		this.numberOfUsers++;
 		newUser.setUserID(numberOfUsers);
 	}
 
 	public void deleteUser(Users U1) {
-		userArray.remove(U1);
+		try {
+			userArray.remove(U1);
+		}catch (NullPointerException npe) {
+		}
+		this.numberOfUsers = this.numberOfUsers - 1;
 	}
 
 	public ArrayList<Users> getArray() {
@@ -95,7 +102,10 @@ public class Users_List {
 	}
 
 	public void setUserList(ArrayList<Users> users) {
-		userArray = users;
+		try {
+			userArray = users;
+		}catch (NullPointerException npe0 ) {
+		}
 	}
 
 	public Users getUser(int id) {
