@@ -1,6 +1,9 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+
 import javafx.fxml.FXMLLoader;
 
 import java.io.FileInputStream;
@@ -83,8 +86,8 @@ public class SignUpController {
  		try {
  			
 	    	FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
-			Scene scene = new Scene(root,900,900);
+			Pane root = loader.load(new FileInputStream("src/view/Login Page.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+			Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE); 
 			
 			controllerLogin = loader.getController();
 			controllerLogin.setPrimaryStage(primaryStage);
@@ -115,8 +118,8 @@ public class SignUpController {
  			try {
  	 			userList.saveUserListAsTxt("C:\\\\Users\\\\dadada\\\\git\\\\CPSC-219-Group15-Project\\\\src\\\\objects\\\\AllUsersTXTFILE");
  		    	FXMLLoader loader = new FXMLLoader();
- 				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml"));
- 				Scene scene = new Scene(root,900,900);
+ 				VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
+ 				Scene scene = new Scene(root,900,900); scene.setFill(Color.BLUE); 
  				
  				controllerTwo = loader.getController();
  				controllerTwo.setPrimaryStage(primaryStage);

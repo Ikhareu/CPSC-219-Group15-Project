@@ -205,7 +205,7 @@ public class Users_List {
     		userline=userline+"|";
      		for (String str:usr.getcoursesToTeach()) {
     			userline=userline+str+"+"; 
-    		}
+    		} 
     		userline=userline+"|";
     		
     		writer.write(userline);
