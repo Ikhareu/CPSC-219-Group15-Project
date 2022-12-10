@@ -30,9 +30,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /*
-This is a class that defines a SignUpController in JavaFX. It contains methods and fields that are used to handle sign up functionality 
-in a JavaFX application. The class contains fields for storing information about a Users_List object, TextField, Button, Label, and ChoiceBox.
- It also contains methods for signing up and canceling the sign up process.
+ * The SignUpController is the controller responsible for the registration page of the program as well as handling
+ * the actual registration process through the use of getter and setter methods.
+ * The registration page contains 5 textfields 4 for each piece of user data (name, email, phone and password) 
+ * which will be used to create a new user object representing the person registering, and 1 confirmation field 
+ * for the password.
+ * The controller has it's own getter and setter methods for User_List class objects which it uses to both verify
+ * that duplicate accounts are not being created (by searching the user list array for occurrences of the same email)
+ * and to update the Users_List instance to contain any new accounts it may have added.
 */
 public class SignUpController {
 	
