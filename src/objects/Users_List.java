@@ -1,12 +1,7 @@
 package objects;
 
 import java.io.BufferedReader;
-
-
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,10 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 
 /*
 Users_List has two array fields: userArray and userArrayStrings. The former is used to store an array of User objects,
@@ -44,7 +35,7 @@ the user object is added to a list which is returned to the program to display t
 */
 public class Users_List {
 
-	private ArrayList<Users> userArray = new ArrayList<Users>();
+	private ArrayList<User> userArray = new ArrayList<User>();
 	private ArrayList<String> userArrayStrings = new ArrayList<String>();
 	private int numberOfUsers = 0;
 
@@ -52,11 +43,11 @@ public class Users_List {
 		numberOfUsers = 0;
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 			String line;
-			this.userArray=new ArrayList<Users>();
+			this.userArray=new ArrayList<User>();
 			while ((line = br.readLine()) != null) {
 				if (userArrayStrings.contains(line))
 				this.userArrayStrings.add(line);
-				Users usr=new Users(line);
+				User usr=new User(line);
 				
 				usr.setUserID(numberOfUsers);
 				numberOfUsers++;
@@ -74,7 +65,7 @@ public class Users_List {
 	}
 
 
-	public void addUser(Users newUser) {
+	public void addUser(User newUser) {
 		try {
 			this.userArray.add(newUser);
 		}catch (NullPointerException npe) {
@@ -83,7 +74,7 @@ public class Users_List {
 		newUser.setUserID(numberOfUsers);
 	}
 
-	public void deleteUser(Users U1) {
+	public void deleteUser(User U1) {
 		try {
 			userArray.remove(U1);
 		}catch (NullPointerException npe) {
@@ -91,34 +82,34 @@ public class Users_List {
 		this.numberOfUsers = this.numberOfUsers - 1;
 	}
 
-	public ArrayList<Users> getArray() {
+	public ArrayList<User> getArray() {
 		return (userArray);
 	}
 
 
 
-	public ArrayList<Users> getUserList() {
+	public ArrayList<User> getUserList() {
 		return (userArray);
 	}
 
-	public void setUserList(ArrayList<Users> users) {
+	public void setUserList(ArrayList<User> users) {
 		try {
 			userArray = users;
 		}catch (NullPointerException npe0 ) {
 		}
 	}
 
-	public Users getUser(int id) {
+	public User getUser(int id) {
 		return (userArray.get(id));
 	}
 	
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
-	public ArrayList<Users> getCourseStudents(String coursename) {
-		ArrayList<Users> usersHavingCourse = new ArrayList<Users>();
+	public ArrayList<User> getCourseStudents(String coursename) {
+		ArrayList<User> usersHavingCourse = new ArrayList<User>();
 
 		System.out.println("to find  "+coursename);
-		for (Users usr : userArray) {
+		for (User usr : userArray) {
 			
 			ArrayList<String> userCoursesToCheck = usr.getcoursesToLearn();
 //			System.out.print("Name: " + usr.getName());
@@ -148,12 +139,12 @@ public class Users_List {
 		return (usersHavingCourse);
 	}
 
-	public ArrayList<Users> getCourseTeachers(String coursename) {
-		ArrayList<Users> usersHavingCourse = new ArrayList<Users>();
+	public ArrayList<User> getCourseTeachers(String coursename) {
+		ArrayList<User> usersHavingCourse = new ArrayList<User>();
 		System.out.println("-----------------------------");
 		System.out.println("-----------------------------");
 		System.out.println("to find  "+coursename);
-		for (Users usr : userArray) {
+		for (User usr : userArray) {
 			ArrayList<String> userCoursesToCheck = usr.getcoursesToTeach();
 //			System.out.print("Name: " + usr.getName());
 //			System.out.println("\\\\courses user teacher=>" + userCoursesToCheck);
@@ -180,9 +171,9 @@ public class Users_List {
 
 	
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
-	public Users isValid(String email, String password) {
-		Users answer = null;
-		for (Users usr : userArray) {
+	public User isValid(String email, String password) {
+		User answer = null;
+		for (User usr : userArray) {
 //			System.out.println(email+"|||"+usr.getEmail());
 //
 //			System.out.println(password+"|||"+usr.getPassword());
@@ -197,7 +188,7 @@ public class Users_List {
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
 	public boolean newUserGood(String email) {
 		boolean userGood=true;
-		for (Users user : userArray) {
+		for (User user : userArray) {
 			if (user.getEmail().equalsIgnoreCase(email)) {
 				userGood = false;
 				return(userGood);
@@ -208,7 +199,7 @@ public class Users_List {
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------- 	
 	public void printUserList() {
-		for (Users usr: userArray) {
+		for (User usr: userArray) {
 			usr.printUserInfo();
 			
 		}
@@ -229,7 +220,7 @@ public class Users_List {
 		FileWriter writer = new FileWriter(filename);
 		 
 		//System.out.println("number of users: " +numberOfUsers);
-		for (Users usr: userArray) {
+		for (User usr: userArray) {
  
     		if (firstline==false) writer.write(System.getProperty( "line.separator" ));
 			String userline= (usr.getName()+"|"+usr.getEmail()+"|"+usr.getPhone()+"|"+usr.getPassword()+"|");

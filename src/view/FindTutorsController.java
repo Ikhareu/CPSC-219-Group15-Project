@@ -3,23 +3,19 @@ package view;
 import java.io.FileInputStream;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import objects.Users;
+import objects.User;
 import objects.Users_List;
 
 /*
@@ -35,7 +31,7 @@ public class FindTutorsController {
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
-    private Users user;
+    private User user;
     
     
 
@@ -49,34 +45,21 @@ public class FindTutorsController {
     
 	public void setUserList(Users_List uList) {
 		userList= uList;
-		
 	}  
-    
-    
-    public void setUser(Users usr) {
+
+    public void setUser(User usr) {
     	user=usr;
-    	
     }
     
-    public Users getUser() {
-    	
+    public User getUser() {    	
     	return(user);
     }
-	
-    
-    
-    
     
 //-------------------------------------------------------------------------------------------------------------------------------------------------    
     
 	private Stage primaryStage;
 	private Scene myScene;
-	private SignUpController controllerOne;
 	private UserHomepageController controllerTwo;
-	
-
-
-		
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -87,37 +70,24 @@ public class FindTutorsController {
 	}
 	
 	public void takeFocus() {
-		primaryStage.setScene(myScene); 
-	
+		primaryStage.setScene(myScene);
 	}
-	
 
-	
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 
-    
-	
 	@FXML
 	private ChoiceBox<String> courseLearnChoiceBox;// learn because these are the courses student need to learn
 
 	public void setChoicebox(ArrayList<String> courses) {
-//		for (String course : courses) {
-//			courseLearnChoiceBox.getItems().add(course);
-//
-//		}
 		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
-		
 		courseLearnChoiceBox.setItems(setupList);
 	}
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------    
 //Find Tutor 
 	
-	
     @FXML
     private VBox findTutorPageVbox;
-	
-	
 
 	@FXML
     void actionFindTeachers(ActionEvent event) {
@@ -128,7 +98,7 @@ public class FindTutorsController {
 			e.printStackTrace();
 		}
 		
-		ArrayList <Users> Teachers = new ArrayList<Users>();
+		ArrayList <User> Teachers = new ArrayList<User>();
 		
 		Teachers = userList.getCourseTeachers(courseToFind);
 		VBox teachersContainer= new VBox();
@@ -140,7 +110,7 @@ public class FindTutorsController {
 		
 		Label lbl=new Label("People who can teach: "+courseToFind);
 		findTutorPageVbox.getChildren().addAll(lbl,space);
-		for (Users indexUser: Teachers) {  
+		for (User indexUser: Teachers) {  
 			
 			HBox container=new HBox(100);
 			container.setAlignment(Pos.CENTER);
@@ -168,7 +138,7 @@ public class FindTutorsController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
-			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
+			Scene scene = new Scene(root); scene.setFill(Color.BLUE); 
  
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);

@@ -1,35 +1,14 @@
 package objects;
 
 import java.util.Random;
-
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 
 public class UserGenerator {
-	public UserGenerator() {
-		
+	
+	public UserGenerator() {	
 	}
 	
-	
-	
 	public  void generateUsers(int userNumber) throws IOException {
-		
-		
-		
 		
         String[] abbreviations = {"ACWR","ACCT","ACSC","ENAE","AFST","ASL","ANTH","ALMC","ARKY","ARCH","APLA",
         		"ART","ARHI","ARTS","ASHA","ASTR","ASPH","BCEM","BIOL","BMEN","BIST","BOTA","BTMA","CNST",
@@ -60,13 +39,12 @@ public class UserGenerator {
                 "@outlook.com", "@aol.com", "@hotmail.com", "@mail.com", "@zoho.com",
                 "@icloud.com", "@protonmail.com", "@me.com", "@yandex.com", "@gmx.com"};
         
-        String [] phoneAreaCodes = { "403", "587", "780","204"};  //403, 587, 780 and 825"}
+        String [] phoneAreaCodes = { "403", "587", "780", "204"};
         
-        StringBuilder sb = new StringBuilder();
         Random rand = new Random();
-        //\src\objects\Randomly Generated Users
+        //\src\objects\Randomly Generated User
 
-		//FileWriter writer = new FileWriter("\\src\\objects\\Randomly Generated Users");
+		//FileWriter writer = new FileWriter("\\src\\objects\\Randomly Generated User");
         for (int j=0; j<userNumber; j++) {
         	String name= names[rand.nextInt(names.length)];
         	String lastName=lastNames[rand.nextInt(lastNames.length)];

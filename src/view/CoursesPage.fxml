@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1400.0" prefWidth="1000.0" spacing="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CoursesPageController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" spacing="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CoursesPageController">
    <children>
       <Label text="My courses">
          <font>
@@ -35,7 +35,7 @@
       <VBox fx:id="userCoursesTeach" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
       <VBox fx:id="userCoursesLearn1" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#goHomePage" text="Go back" />
+            <Button mnemonicParsing="false" onAction="#goHomePage" text="&lt; Back" />
          </children>
       </VBox>
    </children>

@@ -9,8 +9,6 @@ import objects.Users_List;
 import view.LoginController2;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 
 public class System extends Application {
@@ -20,7 +18,7 @@ public class System extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/Login Page.fxml"));
 			root.setStyle("-fx-background-color: #ADD8E6;");
-			Scene scene = new Scene(root, 900,900);
+			Scene scene = new Scene(root);
 			LoginController2 controller = (LoginController2)loader.getController();
 
 			Users_List userList= new Users_List();

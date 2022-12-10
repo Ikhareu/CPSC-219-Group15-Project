@@ -1,11 +1,9 @@
 package objects;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 /*
-The class Users has a constructor that takes four parameters who's values are obtained from textboxes filled
+The class User has a constructor that takes four parameters who's values are obtained from textboxes filled
 by the user on the registration page. These four parameters are: userName, userPhone, userPassword and userEmail.
 All of these parameters are strings and their values are used to initialize the similarly named variables
 in the user class: name, phone, password and email.
@@ -13,10 +11,10 @@ in the user class: name, phone, password and email.
 There is a second constructor that exists for the user class but it takes a string argument: userInfo which is
 a user object converted to a string as previously mentioned in the javadoc for the Users_List class. The 
 constructor iterates through every character of the string, using the special character "|" to know which 
-characters in the string hold which values (phone, email .ect). From this a complete user class instance
-instance is generated and the values for it's local variables set to those given by the userInfo string.
+characters in the string hold which values (phone, email, etc.). From this a complete user class instance
+is generated and the values for it's local variables set to those given by the userInfo string.
 
-The class Users has a setter and getter method for every local variable and array: getName, setName, getPhone .ect
+The class User has a setter and getter method for every local variable and array: getName, setName, getPhone, etc.
 Each one of these methods either returns the value stored in the class instance's local variables/array or
 updates that specific variable's value to that given by the parameter in the setter method.
 
@@ -25,7 +23,7 @@ string). userID which is of type integer and the two arrays: coursesToLearn and 
 strings which represent the name of a given course.
 */
 
-public class Users {
+public class User {
 	
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
@@ -38,7 +36,7 @@ public class Users {
 	private String email;
 	private int userID;
 
-	public Users(String userName, String userPhone, String userPassword, String userEmail) {
+	public User(String userName, String userPhone, String userPassword, String userEmail) {
 
 		setName(userName);
 		setPhone(userPhone);
@@ -48,10 +46,9 @@ public class Users {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 
-	public Users(String userInfo) {
+	public User(String userInfo) {
 		int valueIndex = 0;
 		int arrayIndex = 0;
-		String course = "";
 		String userName = "";
 		String userPhone = "";
 		String userPassword = "";
@@ -104,6 +101,7 @@ public class Users {
 				arrayIndex = 0;
 				continue;
 			}
+			
 			if (valueIndex == 4 && userInfo.charAt(i) != '|') {
 				if (userInfo.charAt(i) != '+') {
 					txtCoursesToLearn.set(arrayIndex, txtCoursesToLearn.get(arrayIndex) + userInfo.charAt(i));
@@ -114,12 +112,10 @@ public class Users {
 				}
 			}
 
-			course = "";
 			if (valueIndex == 5 && userInfo.charAt(i) != '|') {
 				if (userInfo.charAt(i) != '+') {
 
 					txtCoursesToTeach.set(arrayIndex, txtCoursesToTeach.get(arrayIndex) + userInfo.charAt(i));
-
 				}
 				if (userInfo.charAt(i) == '+') {
 					txtCoursesToTeach.add("");

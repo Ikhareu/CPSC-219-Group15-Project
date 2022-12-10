@@ -7,24 +7,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import objects.Users;
+import objects.User;
 import objects.Users_List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.*;
-
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 /*
  * 
- * The FindStudensController is charged with handling the search for potential students at the interface level.
+ * The FindStudentsController is charged with handling the search for potential students at the interface level.
  * The controller sets the scene and fetches the information it requires to construct the found students page, 
  * this is done by mainly calling on the getter methods defined in the User class.
  * The controller uses these methods to create a choice box for the user to select which of the user specified 
@@ -35,53 +31,33 @@ import javafx.stage.Stage;
 */
 
 public class FindStudensController {
-	
-	
-	
-	
+
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
-    private Users user;
-    
-
-
+    private User user;
     public Users_List userList = new Users_List();
-	
-	
-	
+
 	public Users_List getUserList() { 
 		return(userList);
 	}
     
 	public void setUserList(Users_List uList) {
 		userList= uList;
-		
 	}
-    
-    
-    public void setUser(Users usr) {
+
+    public void setUser(User usr) {
     	user=usr;
-    	
     }
     
-    public Users getUser() {
-    	
+    public User getUser() {
     	return(user);
     }
 	
-    
-    
-    
-    
 //-------------------------------------------------------------------------------------------------------------------------------------------------    
     
 	private Stage primaryStage;
 	private Scene myScene;
 	private UserHomepageController controllerTwo;
-	
-
-
-		
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -94,21 +70,12 @@ public class FindStudensController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);  
 	}
-	
-
-	
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------  
 
-	
-
-    
-	
 	@FXML
     private ChoiceBox<String> courseTeachChoiceBox;
-	
-	
-	
+
 	public void setChoicebox(ArrayList <String> courses) {
 		System.out.println(courses);
 		ObservableList<String> setupList = FXCollections.observableArrayList(courses);
@@ -117,19 +84,13 @@ public class FindStudensController {
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	//Find Students
-	
-	
-	
-	
+
     @FXML
     private VBox findStudentPageVbox;
-	
 
-	
 	@FXML
     void actionFindStudents(ActionEvent event) {
-		
-		
+	
 		String courseToFind="";
 		try {
 			courseToFind=courseTeachChoiceBox.getValue();
@@ -138,7 +99,7 @@ public class FindStudensController {
 			e.printStackTrace();
 		}
 		
-		ArrayList <Users> Students = new ArrayList<Users>();
+		ArrayList <User> Students = new ArrayList<User>();
 		Students = userList.getCourseStudents(courseToFind);
 		VBox teachersContainer= new VBox();
 		teachersContainer.setAlignment(Pos.CENTER);
@@ -149,7 +110,7 @@ public class FindStudensController {
 		space.setPrefHeight(30);  
 		findStudentPageVbox.getChildren().addAll(lbl, space);
 		
-		for (Users indexUser: Students) {
+		for (User indexUser: Students) {
 			HBox container=new HBox(100);
 			container.setAlignment(Pos.CENTER);
 			Label fullName= new Label("Name: "+indexUser.getName());
@@ -160,23 +121,12 @@ public class FindStudensController {
 
 			Label lineShort=new Label("-------------------------------");
 			teachersContainer.getChildren().addAll(container,lineShort);
-			
-			
-			
 		
-			
-			
-			
 		}
 		Label line=new Label("-------------------------------------------------------------------");
 		
 		findStudentPageVbox.getChildren().addAll(teachersContainer,line);
-		
-		
 	}
-	
-
-	
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------   	
 	
@@ -187,7 +137,7 @@ public class FindStudensController {
 			
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/view/UserHomepage.fxml")); root.setStyle("-fx-background-color: #ADD8E6;");
-			Scene scene = new Scene(root, 900, 900); scene.setFill(Color.BLUE); 
+			Scene scene = new Scene(root); scene.setFill(Color.BLUE); 
  
 			controllerTwo = loader.getController();
 			controllerTwo.setPrimaryStage(primaryStage);
