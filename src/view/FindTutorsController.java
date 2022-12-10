@@ -22,6 +22,14 @@ import javafx.stage.Stage;
 import objects.Users;
 import objects.Users_List;
 
+/*
+ * The FindTutorsController controller is nearly identically to the FindStudensController controller.
+ * They function almost identically save for what methods are called, most importantly getCourseTeachers 
+ * instead of getCourseStudents from the Users_List class which returns a list of strings containing the 
+ * contents of a user object associated with a found match for a tutor as a string which is then displayed 
+ * to the user by the controller once the method has run through the entire array of users.
+ */
+
 public class FindTutorsController {
 	
 	
