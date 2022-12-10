@@ -109,7 +109,7 @@ public class LoginController2 {
 
 	            controllerTwo = loader.getController();
 	            controllerTwo.setPrimaryStage(primaryStage); 
-	            controllerTwo.setMyScene(scene);
+	            controllerTwo.setMyScene(scene); 
 	            //controllerTwo.setNextController(this);  
 	            controllerTwo.setUser(userCheck);  
 	            controllerTwo.setUserList(userList); 
@@ -146,6 +146,7 @@ public class LoginController2 {
 			controllerOne.setPrimaryStage(primaryStage);
 			controllerOne.setMyScene(scene); 
 			controllerOne.setUserList(userList);
+			
 			 
     	}
     	catch(Exception e) {

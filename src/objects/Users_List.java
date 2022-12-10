@@ -1,6 +1,9 @@
 package objects;
 
 import java.io.BufferedReader;
+
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,6 +19,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
+/*
+This class is used to manage a list of Users objects, which are defined in another class with the same name.
+ The Users_List class has several methods that can be used to add, remove, and retrieve Users objects from the list.
+
+The Users_List class has two ArrayList fields: userArray and userArrayStrings. The userArray field is used to 
+store the Users objects in the list, while the userArrayStrings field is used to store the string representation of each Users object.
+
+The Users_List class also has a field called numberOfUsers, which is used to store the number 
+of Users objects in the list. This field is incremented each time a new Users object is added to the list.
+
+The Users_List class has several methods that can be used to manipulate the list of Users
+ objects. For example, the addUser() method can be used to add a new Users object to the list,
+  and the deleteUser() method can be used to remove a Users object from the list.
+
+Additionally, the Users_List class has methods that can be used to search for Users objects 
+in the list based on different criteria. For example, the getCourseStudents() 
+and getCourseTeachers() methods can be used to search for Users objects that are 
+interested in learning or teaching a specific course, respectively.
+
+*/
 public class Users_List {
 
 	private ArrayList<Users> userArray = new ArrayList<Users>();

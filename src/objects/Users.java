@@ -4,6 +4,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/*
+ This class has a constructor that takes four arguments: userName, userPhone, 
+ userPassword, and userEmail. These arguments are used to initialize the corresponding fields in the Users class.
+
+The Users class  has a second constructor that takes a single String argument called userInfo it is used in the users list class. 
+This constructor is used to parse the information in the userInfo String and initialize the fields in the Users class accordingly.
+
+The Users class has several fields that store information about a user, including their name, phone number, password,
+ email, and user ID. It also has two ArrayList fields, coursesToLearn and coursesToTeach, 
+ that store the courses that a user is interested in learning and teaching, respectively.
+
+The Users class has several methods that can be used to access and modify this information, such as 
+getName(), setName(), getPhone(), setPhone(), getPassword(), setPassword(), getEmail(), setEmail(), getUserID(), setUserID(), 
+getCoursesToLearn(), setCoursesToLearn(), getCoursesToTeach(), and setCoursesToTeach().
+*/
+
 public class Users {
 	
 
